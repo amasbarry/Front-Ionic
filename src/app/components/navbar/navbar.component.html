@@ -1,0 +1,39 @@
+
+<div class="footer" id="navbar">
+
+  <div class="btn" [routerLink]="['/accueil']" [ngClass]="{active: activeRoute === '/accueil'}">
+    <i class="fa-solid fa-house"></i>
+    <span>Accueil</span>
+  </div>
+  
+  <div class="btn" [routerLink]="['/events']" [ngClass]="{active: activeRoute === '/events'}">
+    <i class="fa-solid fa-calendar-days"></i>
+    <span>Events</span>
+  </div>
+  
+  <div class="btn" [routerLink]="['/search']" [ngClass]="{active: activeRoute === '/search'}">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span>Search</span>
+  </div>
+  
+  <div class="btn" [routerLink]="['/profile']" [ngClass]="{active: activeRoute === '/profile'}">
+    <i class="fa-solid fa-user"></i>
+    <span>Profile</span>
+  </div>
+  
+</div>
+
+<!-- <script>
+  const allSideMenu = document.querySelectorAll('#navbar');
+  allSideMenu.style.display = 'none';
+    allSideMenu.forEach(item => {
+      const li = item.parentElement;
+
+      item.addEventListener('click', function () {
+        allSideMenu.forEach(i => {
+          i.parentElement.classList.remove('active');
+        })
+        li.classList.add('active');
+      })
+    });
+</script> -->

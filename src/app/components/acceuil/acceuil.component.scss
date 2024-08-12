@@ -69,17 +69,20 @@ ion-header,ion-toolbar,ion-row,ion-col,ion-content,ion-card {
   }
   
   .filters {
-    //white-space: nowrap;
-    overflow-x: scroll;
-  }
-  .filters::-webkit-scrollbar{
-    display: none;
-  }
-  
-  .filters ion-button {
-    margin-right: 10px; /* Optionnel : Espace entre les boutons */
-    flex-shrink: 0;
-  }
+    display: flex;  /* Utiliser flex pour l'alignement horizontal */
+    overflow-x: auto;  /* Activer le défilement horizontal */
+    white-space: nowrap;  /* Empêcher le passage à la ligne */
+}
+
+.filters::-webkit-scrollbar {
+    display: none;  /* Masquer la barre de défilement si souhaité */
+}
+
+.filters ion-button {
+    margin-right: 10px; /* Espace entre les boutons */
+    flex-shrink: 0;  /* Empêcher les boutons de rétrécir */
+}
+
   
 
 
@@ -176,22 +179,20 @@ ion-header,ion-toolbar,ion-row,ion-col,ion-content,ion-card {
 // ion-card{
 //   width: 300px;
 // }
-.ne{
-  
+.ne {
   width: 100%;
-  background-color: red;
   display: flex;
-  overflow-x: scroll;
+  overflow-x: auto; /* Assurez-vous que 'scroll' est remplacé par 'auto' pour activer le défilement */
   flex-wrap: nowrap;
-  justify-content: space-between;
-  
+  justify-content: flex-start; /* Alignement à gauche */
 }
-.ne::-webkit-scrollbar{
-  // display: none;
-  background-color: black;
+
+.ne::-webkit-scrollbar {
+  display: none;
 }
+
 .card-event{
-  width:200px;
+  width:300px;
   height: 25vh;
   // margin-right: 20px;
  border-radius: 10px;

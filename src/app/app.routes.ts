@@ -24,10 +24,17 @@ export const routes: Routes = [
   },
 
   {
-    path: 'search',
+    path: 'reservation',
     loadComponent: () =>
       import('./components/search/search.component').then(
         (m) => m.SearchComponent
+      ),
+  },
+  {
+    path: 'search',
+    loadComponent: () =>
+      import('./components/reservation/reservation.component').then(
+        (m) => m.ReservationComponent
       ),
   },
 

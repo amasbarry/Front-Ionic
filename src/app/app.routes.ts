@@ -10,8 +10,8 @@ export const routes: Routes = [
   {
     path: 'accueil',
     loadComponent: () =>
-      import('./components/accueil/accueil.component').then(
-        (m) => m.AccueilComponent
+      import('./components/acceuil/acceuil.component').then(
+        (m) => m.AcceuilComponent
       ),
   },
 

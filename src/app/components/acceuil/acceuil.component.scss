@@ -1,0 +1,220 @@
+$orange: #ff6600;
+$gris:#D9D9D9;
+ion-header,ion-toolbar,ion-row,ion-col,ion-content,ion-card {
+    --background:#FFEDD5; /* Couleur de fond de l'en-tête */
+  }
+  .body{
+    width: 100%;
+    height: 98%;
+    margin: 0;
+    outline: none;
+    padding-bottom: 50px;
+    background-color: var(--fondColor);
+    overflow-y: scroll;
+}
+.body::-webkit-scrollbar{
+    display: none;
+}
+  .entete1 {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    background-color:var(--background);
+  }
+  
+  .logo {
+    width: 50px;
+    height: auto;
+  }
+  
+  .welcome-msg {
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    margin: 0;
+  }
+  
+  .notif{
+    padding: 11px;
+    background-color: $gris;
+    border-radius: 50%
+  }
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #0f0d0d; /* Optionnel : ajouter une bordure autour de la barre de recherche */
+    padding: 6px; /* Optionnel : ajuster l'espacement intérieur */
+    border-radius: 12px; /* Optionnel : arrondir les coins */
+    background-color: var(--blanc);
+  }
+  
+  .search-container ion-icon {
+    margin-right: 10px; /* Espace entre l'icône et le champ de saisie */
+    color: #666; /* Optionnel : couleur de l'icône */
+  }
+  
+  .search-container ion-input {
+    flex: 1;
+  }
+  
+  ion-input{
+    width: 100%;
+    height: 100%;
+
+  }
+
+  .filters-container {
+    width: 100%;
+  }
+  
+  .filters {
+    //white-space: nowrap;
+    overflow-x: scroll;
+  }
+  .filters::-webkit-scrollbar{
+    display: none;
+  }
+  
+  .filters ion-button {
+    margin-right: 10px; /* Optionnel : Espace entre les boutons */
+    flex-shrink: 0;
+  }
+  
+
+
+
+  .filters .concert, .exposition,.ceremonie{
+    --background: #ff6600;
+    --border-radius: 32px;
+    //width: 115px;
+   font-size: small;
+  }
+
+  .icon-text,.header-liste {
+    display: flex;
+    align-items: center; /* Aligne verticalement l'icône et le texte */
+  }
+  
+   .lste{
+    display: flex;
+    align-items: center; /* Aligne verticalement l'icône et le texte */
+  }
+  
+  .custom-icon{
+    font-size: 24px; /* Change la taille de l'icône */
+    color:var(--orange); /* Change la couleur de l'icône */
+    margin-right: 8px; /* Espace entre l'icône et le texte */
+  }
+  .cust-icon{
+    font-size: 24px; /* Change la taille de l'icône */
+    color:var(--orange); /* Change la couleur de l'icône */
+    margin-right: 8px; /* Espace entre l'icône et le texte */
+  }
+  .prochain-evenement {
+    padding: 9px;
+  
+  }
+  .text{
+    color: var(--orange);
+    font-weight: bolder; 
+  }
+
+
+  .liste-evenements {
+    padding: 9px;
+  }
+  .event{
+      width: auto;
+      height: 19vh;
+     background-image:url("../../../assets/icon/faiza.jpeg");
+     background-repeat: no-repeat;
+     background-size: cover;
+     border-radius: 10px;
+  }
+  ion-card-subtitle,ion-card-title{
+    color:var(--blanc);
+    margin-top:1%;
+  }
+  ion-card-title{
+    font-size: medium;
+  }
+  .prix{
+    padding-top: 1px;
+    margin-top: 0;
+    padding-left: 12px;
+    width:24%;
+    margin: 2%;
+    height:3.4vh;
+    background-color: var(--blanc);
+    border-radius: 19px;
+  }
+  .prix p{
+      color: blue;
+      width: 100%;
+      height: 60%;
+      margin:3.7%;
+  }
+  .header-liste {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+  }
+  
+  .voir-tout {
+    font-size: 14px;
+    color: #ff6600;
+  }
+  a{
+    text-decoration: none;
+  }
+
+  
+
+
+// ion-card{
+//   width: 300px;
+// }
+.ne{
+  
+  width: 100%;
+  background-color: red;
+  display: flex;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  
+}
+.ne::-webkit-scrollbar{
+  // display: none;
+  background-color: black;
+}
+.card-event{
+  width:200px;
+  height: 25vh;
+  // margin-right: 20px;
+ border-radius: 10px;
+}
+.tof{
+  border: solid 1px black;
+  object-fit: cover;
+  height: 100%;
+}
+.title{
+  color: #0f0d0d;
+}
+  
+  ion-footer {
+    background-color: #f9f9f9;
+  }
+  ion-input{
+    border: solid 3px var(--black);
+  }
+
+
+
+
+
+
+  

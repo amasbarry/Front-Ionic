@@ -17,6 +17,7 @@
     justify-content: space-around;
     align-items: end;
     font-family: 'poppins';
+    // border-top: 2px solid var(--orange);
 
     .btn{
         
@@ -29,15 +30,17 @@
         height: 60px;
         margin-bottom: 5px;
         // background-color: red;
-        padding-bottom: 5px;
+        padding-bottom: 2px;
 
         i{
-            font-size: 1.4rem;
-            margin-bottom: 5px;
+            font-size: 1.2rem;
+            // margin-bottom: 0px;
         }
         span{
             position: absolute;
-            bottom: 5px;
+            bottom: 6px;
+            font-size: 0.6rem;
+            font-weight: bold;
         }
     }
     // .btn:hover{
@@ -48,13 +51,15 @@
         color: var(--orange);
         cursor: pointer;
         i{
-            width: 65px;
+            width: 60px;
+            outline: none;
             height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
            padding: 20px;
            border-radius: 50%;
+        //    border-top: 1px solid var(--orange);
         //    box-shadow: 1px -2px 6px rgba(0, 0, 0, 0.261);
         //    border: 2px solid orange;
            background-color: white;

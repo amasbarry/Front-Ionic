@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ticket Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="ticket-container">
+    <div>
+      <div class="ticket-header">
+        <img src="assets/icon/keb.png" alt="Event Image" class="event-image" />
+        <h2>Concert - Dr Keb</h2>
+      </div>
+
+      <ion-grid class="igmd">
+        <div class="dash"></div>
+        <ion-row>
+          <ion-col>
+            <ion-item lines="none">
+              <ion-label><h5>Place</h5></ion-label>
+              <ion-note slot="end">175</ion-note>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label><h5>Reservation ID</h5></ion-label>
+              <ion-note slot="end">1234</ion-note>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item lines="none">
+              <ion-label><h5>Nom</h5></ion-label>
+              <ion-note slot="end">Mody Barry</ion-note>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label><h5>Date</h5></ion-label>
+              <ion-note slot="end">13/09/2024</ion-note>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item lines="none">
+              <ion-label><h5>Heure</h5></ion-label>
+              <ion-note slot="end">09:20</ion-note>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <div class="qr-container">
+        <div class="dash"></div>
+        <ion-col class="qrcode">
+          <ion-row class="qr">
+            <ion-col size="4">
+              <img src="assets/icon/qr.png" alt="QR Code" class="qr-image" />
+            </ion-col>
+            <ion-col size="6">
+                <div class="ticket-info">
+                  <p><strong>Nom :</strong> Barry</p>
+                  <p><strong>Ticket ID :</strong> D0213</p>
+                  <p><strong>Order ID :</strong> OD234</p>
+                  <p><strong>Prix :</strong> 2000 CFA</p>
+                </div>
+              </ion-col>
+          </ion-row>
+          <ion-text color="danger" class="qr-instruction">
+            Veuillez montrer ce QR à l'entrée
+          </ion-text>
+      </ion-col>
+      </div>
+    </div>
+   
+    <ion-button expand="block" color="light" class="event-button">
+      <ion-text>Events</ion-text>
+    </ion-button>
+  </div>
+</ion-content>
+<app-navbar></app-navbar>

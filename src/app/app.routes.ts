@@ -14,6 +14,10 @@ export const routes: Routes = [
         (m) => m.AcceuilComponent
       ),
   },
+  {
+    path: 'detail',
+    loadComponent: () => import('./components/event-details/event-details.page').then((m) => m.EventDetailsPage),
+  },
 
   {
     path: 'events',
@@ -31,21 +35,56 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'paiement',
+    loadComponent: () =>
+      import('./components/paiement/paiement.component').then(
+        (m) => m.PaiementComponent
+      ),
+  },
+  {
+    path: 'paiement-effectuer',
+    loadComponent: () =>
+      import('./components/paiement-effectuer/paiement-effectuer.component').then(
+        (m) => m.PaiementEffectuerComponent
+      ),
+  },
+  {
     path: 'search',
     loadComponent: () =>
       import('./components/reservation/reservation.component').then(
         (m) => m.ReservationComponent
       ),
   },
-
   {
-    path: 'profile',
+    path: 'ticket-details',
     loadComponent: () =>
-      import('./components/profile/profile.component').then(
-        (m) => m.ProfileComponent
+      import('./components/ticket-detail/ticket-detail.page').then(
+        (m) => m.TicketDetailPage
       ),
   },
 
+  // {
+  //   path: 'profile',
+  //   loadComponent: () =>
+  //     import('./components/profile/profile.page').then(
+  //       (m) => m.ProfilePage
+  //     ),
+  // },
+
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: '**', redirectTo: 'home', pathMatch: 'full' }, // Redirige toutes les autres routes vers 'home'
+  {
+    path: 'ticket-detail',
+    loadComponent: () => import('./components/ticket-detail/ticket-detail.page').then( m => m.TicketDetailPage)
+  },
+
+  // {
+  //   path: 'profile',
+  //   loadComponent: () => import('./profile/profile.page').then( m => m.ProfilePage)
+  // },
+
+  // { path: '**', redirectTo: 'home', pathMatch: 'full' },   {
+  //   path: 'event-details',
+  //   loadComponent: () => import('./event-details/event-details.page').then( m => m.EventDetailsPage)
+  // },
+// Redirige toutes les autres routes vers 'home'
 ];

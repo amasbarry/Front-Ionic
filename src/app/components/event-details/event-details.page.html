@@ -1,0 +1,101 @@
+<body>
+<div class="main">
+  <div class="img-container">
+    <div class="topinfo">
+      <div class="back" (click)="back()">
+        <img src="../../../assets/img/arrow_left.svg" alt="arrow_left">
+      </div>
+      <div class="sharefav">
+        <div class="share"><img src="../../../assets/img/share.svg" alt="arrow_left"></div>
+        <div class="fav"><img src="../../../assets/img/fav.svg" alt="arrow_left"></div>
+      </div>
+    </div>
+    <div class="btominfo">
+      <div class="nameTitle">
+        <p class="date">13 Septembre</p>
+        <p class="title">.Sun To Moon</p>
+      </div>
+      <div class="typeEvent">
+        <h3 class="type">Festival</h3>
+      </div>
+    </div>
+  </div>
+  <div class="details">
+    <div class="eventDetail">
+      <div class="typeEvent">
+        <h3 class="type">Festival</h3>
+      </div>
+      <div class="place">
+        <div class="iconeplace icon0">
+          <img src="../../../assets/img/place.svg" alt="iconeplace">
+        </div>
+        <p class="eventolace">Quartier du fleuve</p>
+      </div>
+      <div class="datedetail">
+        <div class="iconeplace icon0">
+          <img src="../../../assets/img/date.svg" alt="iconeplace">
+        </div>
+        <p class="eventolace">13 Septembre, Samedi</p>
+      </div>
+      <div class="hour">
+        <div class="iconehour icon0">
+          <img src="../../../assets/img/hour.svg" alt="iconeplace">
+        </div>
+        <p class="eventolace">09h00 - 12h45</p>
+      </div>
+    </div>
+    <div class="orgContainer">
+      <div class="organisateur">
+        <h3 class="Orga0">Organisateur</h3>
+      </div>
+      <div class="Orga1">
+        <div class="orgNameImg">
+          <div class="orgImg">
+            <img src="../../../assets/img/profil1.jpg" alt="orgImg">
+          </div>
+          <p class="eventolace">Mr Ouattara</p>
+        </div>
+        <div class="like">
+          <p class="evenlike">5.7k</p>
+          <div class="iconelike icon0">
+            <img src="../../../assets/img/like.svg" alt="iconeplace">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="description">
+      <h3 class="titre">Description</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel velit vel justo pulvinar tincidunt.
+        Sed non ligula sed lectus faucibus fermentum. Donec id dui ac nisi faucibus semper. Sed euismod dui id velit scelerisque, ac ullamcorper velit consectetur. Sed malesuada, velit a sagittis placerat, nisi velit consectetur velit, at gravida massa nunc at velit. Donec euismod, justo vel element
+    </div>
+  </div>
+  <div class="ticket_container">
+    <div class="tckt0">
+      <p class="tcket1">Ticket(s)</p>
+      <div class="itdec">
+        <div class="iconeplus icon1" (click)="increment()">
+          <img src="../../../assets/img/plus.svg" alt="iconeplus">
+        </div>
+        <div class="iconeh">
+          <p class="nbr0" >{{ticketNumber}}</p>
+          <div class="iconehe icon0h">
+            <img src="../../../assets/img/icoh.svg" alt="iconeh">
+          </div>
+        </div>
+        <div class="iconemoins icon1" (click)="decrement()">
+          <img src="../../../assets/img/moins.svg" alt="iconemoins">
+        </div>
+      </div>
+    </div>
+    <div class="tckt01">
+      <div class="mtant0">
+        <p class="mtant">2000F</p>
+      </div>
+      <div class="achat0">
+        <p class="achat1" routerLink="/paiement">Acheter Ticket(s)</p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+

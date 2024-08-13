@@ -16,8 +16,10 @@ body{
  */
 
 /* Core CSS required for Ionic components to work properly */
-
+@import '~@fortawesome/fontawesome-free/css/all.css';
 @import "@ionic/angular/css/core.css";
+@import "~@ionic/core/css/ionic.bundle.css";
+@import "@ionic/core/css/ionic.bundle.css";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900");
 
 

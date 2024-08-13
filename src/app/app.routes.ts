@@ -1,12 +1,16 @@
-// src/app/app.routes.ts
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
+
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./components/login/login.page').then((m) => m.LoginPage),
+  },
   {
     path: 'home',
     loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
   },
-
   {
     path: 'accueil',
     loadComponent: () =>
@@ -14,7 +18,6 @@ export const routes: Routes = [
         (m) => m.AcceuilComponent
       ),
   },
-
   {
     path: 'events',
     loadComponent: () =>
@@ -22,7 +25,6 @@ export const routes: Routes = [
         (m) => m.EventsComponent
       ),
   },
-
   {
     path: 'search',
     loadComponent: () =>
@@ -30,7 +32,6 @@ export const routes: Routes = [
         (m) => m.SearchComponent
       ),
   },
-
   {
     path: 'profile',
     loadComponent: () =>
@@ -38,7 +39,28 @@ export const routes: Routes = [
         (m) => m.ProfileComponent
       ),
   },
+  
+  {
+    path: 'register',
+    loadComponent: () =>
+      import('./components/register/register.page').then((m) => m.RegisterPage),
+  },
+  {
+    path: 'reset-password',
+    loadComponent: () =>
+      import('./components/reset-password/reset-password.page').then(
+        (m) => m.ResetPasswordPage
+      ),
+  },
 
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: '**', redirectTo: 'home', pathMatch: 'full' }, // Redirige toutes les autres routes vers 'home'
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+  {
+    path: '**',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
 ];

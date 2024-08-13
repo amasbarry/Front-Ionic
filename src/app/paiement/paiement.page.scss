@@ -1,0 +1,56 @@
+.content1{
+  background-color: var(--fondColor);
+}
+
+.header{
+  background-color: var(--fondColor);
+  display: flex;
+  justify-content: center;
+  padding-top: 4%;
+  padding-left: 4%;
+  padding-bottom: 8%;
+  box-shadow: none;
+
+}
+.monbutton{
+  border: 2px solid orange ;
+  border-radius: 15px;
+}
+.centered-title {
+  text-align: center;
+  width: 100%;
+}
+.maCarte{
+  margin: 0% 10% 10% 10%;
+}
+ion-card-content{
+  padding: 0%;
+}
+.maPuce{
+  width: 60px;  /* Réduit la largeur à 100 pixels */
+  height: auto;  /* Ajuste la hauteur proportionnellement à la largeur */}
+.content-row {
+  display: flex;
+  padding: 3%;
+  flex-direction: row;
+  align-items: center; /* Aligne les éléments verticalement au centre */
+  justify-content: flex-end; /* Place les éléments aux extrémités */
+}
+.monForm{
+  padding: 25% 5% 25% 5%;
+  border: solid 2px white;
+  border-radius: 25px 25px 0px 0px;
+  height: 65vh;
+  background-color: white;
+}
+.monInput{
+  color: orange;
+  border: solid 2px orange;
+  border-radius: 25px 25px 25px 25px;
+}
+.envoyez{
+  border-radius: 10px;
+  background-color: orange;
+  color: white;
+  margin: auto;
+}

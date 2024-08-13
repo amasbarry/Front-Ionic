@@ -1,0 +1,123 @@
+.body{
+    width: 100%;
+    height: 98%;
+    margin: 0;
+    outline: none;
+    padding-bottom: 50px;
+    background-color: var(--fondColor);
+    overflow-y: scroll;
+    font-family: 'poppins';
+}
+.body::-webkit-scrollbar{
+    display: none;
+}
+
+.bloc{
+    // width: 98%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // background-color: red;
+}
+
+.head{
+    width: 95%;
+    height: 100px;
+    // background-color: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    i{
+        font-size: 1.8rem;
+        // color: aqua;
+    }
+}
+.zone1{
+    display: flex;
+    align-items: center;
+    // justify-content: space-around;
+    img{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 1px solid var(--orange);
+        margin-right: 10px;
+    }
+}
+.texte{
+    width: 96%;
+    margin-top: -20px;
+    color: black;
+    
+    H5{
+        font-weight: bolder;
+    }
+    .nbrEvent{
+        display: flex;
+        margin-top: -10px;
+        align-items: center;
+        width: 100%;
+        i{
+            font-size: 1.5rem;
+            color: var(--orange);
+            margin-right: 10px;
+        }
+    }
+}
+
+.title{
+    color: black;
+    margin-bottom: -10px;
+}
+.eventliste{
+    width: 100%;
+    text-align: center;
+    color: black;
+    // padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    .event{
+        width: 45%;
+        height: auto;
+        background-color: white;
+        border-radius: 20px;
+        display: flex;
+        padding: 5px;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 15px;
+        // justify-content: center;
+        .image{
+            width: 99%;
+            height: 70%;
+            // background-color: red;
+            border-radius: 20px;
+        }
+    }
+
+    .info{
+        width: 98%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .lieu{
+        width: 98%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: var(--orange);
+        i{
+            margin-right: 5px;
+        }
+        
+    }
+    .suite{
+        width: 98%;
+        text-align: left;
+    }
+}

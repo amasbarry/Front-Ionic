@@ -43,14 +43,25 @@ ion-card-content{
   height: 65vh;
   background-color: white;
 }
+ion-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5%;
+  text-align: center;
+}
 ion-card-header{
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 .maCarte1{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
+  padding: 4%;
+  color: #FF7700;
+}
+.voirDetailTicket{
+  border-radius: 10px;
+  background-color: #FF7700;
+  color: white;
+  margin: auto;
 }

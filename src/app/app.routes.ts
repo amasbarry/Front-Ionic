@@ -1,5 +1,8 @@
 // src/app/app.routes.ts
 import { Routes } from '@angular/router';
+import {Component} from "@angular/core";
+import {PaiementEffectuerComponent} from "./components/paiement-effectuer/paiement-effectuer.component";
+import {PaiementComponent} from "./components/paiement/paiement.component";
 
 export const routes: Routes = [
   {
@@ -31,6 +34,7 @@ export const routes: Routes = [
       ),
   },
 
+
   {
     path: 'profile',
     loadComponent: () =>
@@ -40,15 +44,23 @@ export const routes: Routes = [
   },
   {
     path: 'paiement',
-    loadComponent: () => import('./paiement/paiement.page').then( m => m.PaiementPage)
+    loadComponent: () =>
+      import('./components/paiement/paiement.component').then(
+        (m) => m.PaiementComponent
+      ),
   },
   {
     path: 'paiementeffectuer',
-    loadComponent: () => import('./paiement-effectue/paiement-effectue.page').then( m => m.PaiementEffectuePage)
+    loadComponent: () =>
+      import('./components/paiement-effectuer/paiement-effectuer.component').then(
+        (m) => m.PaiementEffectuerComponent
+      ),
   },
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
+
+
 
 
 // Redirige toutes les autres routes vers 'home'

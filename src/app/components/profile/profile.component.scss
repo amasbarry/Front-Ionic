@@ -23,3 +23,28 @@
     background-color: rgba(21, 115, 197, 0.448);
     border-bottom: 4px solid black;
 }
+ion-card{
+    margin: 5%;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+.upload{
+    position: absolute;
+    bottom: 34%;
+    --background:var(--orange);
+}
+.img{
+    width: 135px;
+    height: 126px;
+    border-radius: 550px;
+}
+.ion-button{
+    --background:var(--orange);
+    --border-radius: 40px; /* Ajustez la valeur pour obtenir l'arrondi désiré */
+    color: white;
+}

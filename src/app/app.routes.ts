@@ -62,6 +62,27 @@ export const routes: Routes = [
         (m) => m.TicketDetailPage
       ),
   },
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./components/login/login.page').then(
+        (m) => m.LoginPage
+      ),
+  },
+  {
+    path: 'register',
+    loadComponent: () =>
+      import('./components/register/register.page').then(
+        (m) => m.RegisterPage
+      ),
+  },
+  {
+    path: 'reset-password',
+    loadComponent: () =>
+      import('./components/reset-password/reset-password.page').then(
+        (m) => m.ResetPasswordPage
+      ),
+  },
 
   // {
   //   path: 'profile',
@@ -76,6 +97,21 @@ export const routes: Routes = [
     path: 'ticket-detail',
     loadComponent: () => import('./components/ticket-detail/ticket-detail.page').then( m => m.TicketDetailPage)
   },
+  {
+    path: 'login',
+    loadComponent: () => import('./components/login/login.page').then( m => m.LoginPage)
+  },
+  {
+    path: 'register',
+    loadComponent: () => import('./components/register/register.page').then( m => m.RegisterPage)
+  },
+  {
+    path: 'reset-password',
+    loadComponent: () => import('./components/reset-password/reset-password.page').then( m => m.ResetPasswordPage)
+  },
+
+
+
 
   // {
   //   path: 'profile',

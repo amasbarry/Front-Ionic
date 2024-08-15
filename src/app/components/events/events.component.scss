@@ -1,12 +1,14 @@
 .body{
     width: 100%;
-    height: 98%;
+    height: 88%;
     margin: 0;
     outline: none;
     padding-bottom: 50px;
     background-color: var(--fondColor);
     overflow-y: scroll;
     font-family: 'poppins';
+    margin-top: 70px;
+    padding-top: 40px;
 }
 .body::-webkit-scrollbar{
     display: none;
@@ -18,15 +20,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    // border-bottom: 2px solid black;
     // background-color: red;
 }
 
 .head{
-    width: 95%;
-    height: 100px;
-    // background-color: red;
+    position: fixed;
+    top: 0px;
+    background-color: var(--fondColor);
+    width: 100%;
+    height: 90px;
+    border-bottom: 1px solid var(--orange);
     display: flex;
     justify-content: space-between;
+    padding: 0px 10px;
+    outline: none;
     align-items: center;
     color: black;
     i{
@@ -47,7 +55,7 @@
     }
 }
 .texte{
-    width: 96%;
+    width: 94%;
     margin-top: -20px;
     color: black;
     

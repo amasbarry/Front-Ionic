@@ -39,6 +39,14 @@ export const routes: Routes = [
       ),
   },
 
+  {
+    path: 'ticket',
+    loadComponent: () =>
+      import('./components/ticket/ticket.component').then(
+        (m) => m.TicketComponent
+      ),
+  },
+
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'home', pathMatch: 'full' }, // Redirige toutes les autres routes vers 'home'
 ];

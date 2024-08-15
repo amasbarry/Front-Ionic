@@ -8,7 +8,7 @@
 .footer{
     position: fixed;
     bottom: 0px;
-    height: 10vh;
+    min-height: 9vh;
     width: 100%;
     background-color: white;
     border-radius: 10px 10px 0px 0px;
@@ -17,6 +17,7 @@
     justify-content: space-around;
     align-items: end;
     font-family: 'poppins';
+    z-index: 1000;
     // border-top: 2px solid var(--orange);
 
     .btn{

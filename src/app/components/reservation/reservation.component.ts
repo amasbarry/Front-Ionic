@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
 
+
 @Component({
   selector: 'app-reservation',
   templateUrl: './reservation.component.html',

@@ -1,13 +1,14 @@
 <ion-content class="ion-padding">
   <div class="auth-container">
-    <img src="assets/icon/logo.png" alt="Logo" class="logo">
+    <img src="assets/logo.png" alt="Logo" class="logo">
     <h2>Connexion</h2>
-    <ion-item lines="none">
-      <i class="fas fa-envelope icon-orange"></i>
+    <ion-item lines="none" class="form-item">
+      <i class="fas fa-envelope icon-orange" slot="start"></i>
       <ion-input [(ngModel)]="email" type="email" placeholder="Email"></ion-input>
     </ion-item>
-    <ion-item lines="none">
-      <i class="fas fa-lock icon-orange"></i><ion-input type="password" label="Password" value="NeverGonnaGiveYouUp">
+    <ion-item lines="none" class="form-item">
+      <i class="fas fa-lock icon-orange" slot="start"></i>
+      <ion-input [(ngModel)]="password" type="password" placeholder="Mot de passe">
         <ion-input-password-toggle slot="end"></ion-input-password-toggle>
       </ion-input>
     </ion-item>
@@ -15,8 +16,8 @@
       <ion-checkbox [(ngModel)]="rememberMe"></ion-checkbox>
       <ion-label>Souviens-toi de moi</ion-label>
     </div>
-    <a class="forgot-password" href="#" routerLink="/reset-password">Mot de passe oublié?</a>
-    <ion-button expand="block">
+    <a class="forgot-password" href="#">Mot de passe oublié?</a>
+    <ion-button expand="block" (click)="login()">
       Se connecter <i class="fas fa-arrow-right"></i>
     </ion-button>
     <p class="signup-link">Vous n'avez pas de compte ? <a routerLink="/register">Inscrivez-vous</a></p>

@@ -5,12 +5,15 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonBackButton, IonButtons,
 import { IonicModule } from '@ionic/angular';
 import { NavbarComponent } from '../navbar/navbar.component';
 
+
 @Component({
   selector: 'app-ticket-detail',
   templateUrl: './ticket-detail.page.html',
   styleUrls: ['./ticket-detail.page.scss'],
   standalone: true,
-  imports: [IonicModule, FormsModule,NavbarComponent]
+  imports: [IonicModule, FormsModule,
+    NavbarComponent
+  ]
 })
 export class TicketDetailPage implements OnInit {
 

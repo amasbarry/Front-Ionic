@@ -3,6 +3,8 @@ import { FormsModule } from '@angular/forms';  // For template-driven forms
 import { CommonModule } from '@angular/common'; // For common Angular directives
 import { IonicModule } from '@ionic/angular';  // For Ionic components
 import { Router, RouterModule } from '@angular/router';  // For routing
+import { AuthService } from 'src/app/service/auth.service';
+import { Utilisateur } from 'src/app/models/utilisateurmodel.component';
 
 
 @Component({
@@ -22,23 +24,32 @@ export class LoginPage {
   password: string = '';
   rememberMe = true;
 
-  // constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService,
+    private router: Router) {}
 
-  // login() {
-  //   this.authService.authenticate(this.email, this.password).subscribe(
-  //     (user: any) => {
-  //       console.log('je suis dans login', user);
-  //       if (user) {
-  //         if (user.role.role === 'ADMIN' || user.role.role === 'PERSONNEL' || user.role.role === 'ORGANISATEUR') {
-  //           this.router.navigate(['/acceuil']);
-  //         } else {
-  //           this.router.navigate(['/']);
-  //         }
-  //       }
-  //     },
-  //     (error) => {
-  //       console.error('Erreur de connexion', error);
-  //     }
-  //   );
-  // }
+  // constructor(private authService: AuthService,
+  //    private router: Router) {}
+
+  login() {
+    this.authService.authenticate(this.email, this.password).subscribe(
+      (user: Utilisateur| null) => {
+        if (user) {
+          console.log('je suis dans login', user);
+          console.log('Bravo connexion réussie', this.email);
+          this.authService.storeUser(user); // Stocker les informations utilisateur
+          this.router.navigate(['/accueil']);
+        } else {
+          console.error('Utilisateur non trouvé');
+        }
+      },
+      (error) => {
+        console.error('Erreur de connexion', error);
+      }
+    );
+  }
+
+  getUserInfo() {
+    const user = this.authService.getUser();
+    console.log('User Info:', user);
+  }
 }

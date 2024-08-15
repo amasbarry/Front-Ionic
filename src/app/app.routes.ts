@@ -10,8 +10,15 @@ export const routes: Routes = [
   {
     path: 'accueil',
     loadComponent: () =>
-      import('./components/acceuil/acceuil.component').then(
-        (m) => m.AcceuilComponent
+      import('./components/accueil/accueil.component').then(
+        (m) => m.AccueilComponent
+      ),
+  },
+  {
+    path: 'ticket',
+    loadComponent: () =>
+      import('./components/ticket/ticket.component').then(
+        (m) => m.TicketComponent
       ),
   },
   {
@@ -83,6 +90,13 @@ export const routes: Routes = [
         (m) => m.ResetPasswordPage
       ),
   },
+  {
+    path: 'profile',
+    loadComponent: () =>
+      import('./components/profile/profile.component').then(
+        (m) => m.ProfileComponent
+      ),
+  },
 
   // {
   //   path: 'profile',
@@ -109,6 +123,7 @@ export const routes: Routes = [
     path: 'reset-password',
     loadComponent: () => import('./components/reset-password/reset-password.page').then( m => m.ResetPasswordPage)
   },
+ 
 
 
 

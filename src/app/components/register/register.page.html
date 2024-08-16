@@ -20,6 +20,6 @@
       <ion-input [(ngModel)]="confirmPassword" type="password" placeholder="Confirm password"></ion-input>
       <i class="fas fa-eye-slash icon-orange" slot="end"></i>
     </ion-item>
-    <ion-button expand="block" (click)="register()">S'inscrire</ion-button>
+    <ion-button expand="block" (click)="register()" [routerLink]="['/politique']" > S'inscrire </ion-button>
   </div>
 </ion-content>

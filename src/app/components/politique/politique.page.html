@@ -1,0 +1,50 @@
+<body>
+<div class="entete">
+  <div class="texte">
+    <span>Politique de confidentialité</span>
+  </div>
+</div>
+<div class="container">
+  <h1>1) Identification de l’entreprise</h1>
+  <p>L’objectif de cette politique de confidentialité est d’informer les utilisateurs de notre application GestEvent des données personnelles que nous recueillons ainsi que de leur utilisation.</p>
+  <p>Cette politique de confidentialité détaille également notre engagement et les mesures prises pour garantir la sécurité de vos informations personnelles“</p>
+</div>
+
+<div class="container">
+  <h2>2) Type de données que vous collectez</h2>
+  <p>Lors de votre visite sur application, nous collectons automatiquement des informations sur votre appareil et votre interaction avec notre site via l’outil Google Analytics.</p>
+  <p>Cela inclut les données suivantes:</p>
+  <ul>
+    <li>Prénom</li>
+    <li>Nom</li>
+    <li>Adresse Email</li>
+    <li>Numéro de cellulaire</li>
+    <li>Information de paiement</li>
+  </ul>
+</div>
+
+<div class="container">
+  <h2>3) Mesures de sécurité</h2>
+  <p>Vos données sont stockées dans un environnement sécurisé et contrôlé. Notre App utilise des protocoles SSL et des mesures de sécurité robustes avec double authentification pour prévenir tout accès non autorisé.</p>
+  <p>Nous nous engageons à ne pas vendre ou partager vos données avec des tiers sauf si la loi l’exige ou en cas de procédure judiciaire. </p>
+  <p>Nous pouvons divulguer à tout membre de notre organisation les données utilisateur dont il a raisonnablement besoin pour réaliser les objectifs énoncés dans la présente politique.</p>
+</div>
+<div class="container">
+  <h2>4) Droits des utilisateurs</h2>
+  <p>Si vous êtes résident du mali, conformément à la loi 999999, vous bénéficiez de droits spécifiques concernant vos données personnelles:</p>
+  <ul>
+    <li>Droit d’être informé</li>
+    <li>Droit d’accès</li>
+    <li>Droit à la rectification</li>
+    <li>Droit à la portabilité des données</li>
+  </ul>
+  <p>Vous avez le droit de vous opposer à l’utilisation de vos données et de les retirer. Pour exercer ces droits, contactez notre responsable de la protection des données personnelles</p>
+  <p>Vous pouvez consulter, modifier ou supprimer vos données. Pour ce faire, utilisez les mêmes coordonnées mentionnées dans le profil.</p>
+  <p>Vous pouvez visiter notre site sans révéler votre identité. Cependant, certaines fonctionnalités nécessitent la collecte de données personnelles. Vous avez toujours le choix de ne pas fournir ces informations.“</p>
+  <input type="checkbox" required="required">
+  <label>J'ai tout lu sur la politique de confidentialité.</label>
+  <div class="btn" [routerLink]="['/accueil']" [ngClass]="{active: activeRoute === '/accueil'}">
+    <button>J'accepte</button>
+  </div>
+</div>
+</body>

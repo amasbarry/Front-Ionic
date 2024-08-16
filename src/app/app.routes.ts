@@ -84,6 +84,7 @@ export const routes: Routes = [
       ),
   },
 
+
   // {
   //   path: 'profile',
   //   loadComponent: () =>
@@ -109,6 +110,11 @@ export const routes: Routes = [
     path: 'reset-password',
     loadComponent: () => import('./components/reset-password/reset-password.page').then( m => m.ResetPasswordPage)
   },
+  {
+    path: 'politique',
+    loadComponent: () => import('./components/politique/politique.page').then(m => m.PolitiquePage)
+  },
+
 
 
 

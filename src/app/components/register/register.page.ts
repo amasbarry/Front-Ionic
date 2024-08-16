@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
@@ -12,18 +12,22 @@ import { Icon } from 'ionicons/dist/types/components/icon/icon';
     IonicModule,
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+  
   ],
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss']
 })
-export class RegisterPage {
+export class RegisterPage implements OnInit {
   fullName: string = '';
   email: string = '';
   password: string = '';
   confirmPassword: string = '';
+ 
 
   constructor() {}
+  ngOnInit(): void {
+  }
 
   register() {
     if (this.password === this.confirmPassword) {

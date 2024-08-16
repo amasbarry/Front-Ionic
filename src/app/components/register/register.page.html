@@ -1,25 +1,27 @@
-<ion-content class="ion-padding">
-  <div class="auth-container">
-    <img src="assets/logo.png" alt="Logo" class="logo">
-    <h2>S'inscrire</h2>
-    <ion-item class="form-item">
-      <i class="fas fa-user icon-orange" slot="start"></i>
-      <ion-input [(ngModel)]="fullName" type="text" placeholder="Full name"></ion-input>
-    </ion-item>
-    <ion-item class="form-item">
-      <i class="fas fa-envelope icon-orange" slot="start"></i>
-      <ion-input [(ngModel)]="email" type="email" placeholder="Email"></ion-input>
-    </ion-item>
-    <ion-item class="form-item">
-      <i class="fas fa-lock icon-orange" slot="start"></i>
-      <ion-input [(ngModel)]="password" type="password" placeholder="Password"></ion-input>
-      <i class="fas fa-eye-slash icon-orange" slot="end"></i>
-    </ion-item>
-    <ion-item class="form-item">
-      <i class="fas fa-lock icon-orange" slot="start"></i>
-      <ion-input [(ngModel)]="confirmPassword" type="password" placeholder="Confirm password"></ion-input>
-      <i class="fas fa-eye-slash icon-orange" slot="end"></i>
-    </ion-item>
-    <ion-button expand="block" (click)="register()">S'inscrire</ion-button>
-  </div>
-</ion-content>
+<Form >
+  <ion-content class="ion-padding">
+    <div class="auth-container">
+      <img src="assets/logo.png" alt="Logo" class="logo">
+      <h2>S'inscrire</h2>
+      <ion-item class="form-item">
+        <i class="fas fa-user icon-orange" slot="start"></i>
+        <ion-input [(ngModel)]="fullName" type="text" placeholder="Full name"></ion-input>
+      </ion-item>
+      <ion-item class="form-item">
+        <i class="fas fa-envelope icon-orange" slot="start"></i>
+        <ion-input [(ngModel)]="email" type="email" placeholder="Email"></ion-input>
+      </ion-item>
+      <ion-item class="form-item">
+        <i class="fas fa-lock icon-orange" slot="start"></i>
+        <ion-input [(ngModel)]="password" type="password" placeholder="Password"></ion-input>
+        <i class="fas fa-eye-slash icon-orange" slot="end"></i>
+      </ion-item>
+      <ion-item class="form-item">
+        <i class="fas fa-lock icon-orange" slot="start"></i>
+        <ion-input [(ngModel)]="confirmPassword" type="password" placeholder="Confirm password"></ion-input>
+        <i class="fas fa-eye-slash icon-orange" slot="end"></i>
+      </ion-item>
+      <ion-button expand="block" (click)="register()">S'inscrire</ion-button>
+    </div>
+  </ion-content>
+</Form>

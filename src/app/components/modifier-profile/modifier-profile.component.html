@@ -1,0 +1,30 @@
+<div class="body">
+    <ion-card-header>
+      <ion-card-title> username</ion-card-title>
+    </ion-card-header>
+    <ion-card>
+      <form (ngSubmit)="onSave()">
+        <ion-item>
+          <ion-input label="Nom" labelPlacement="floating" placeholder="Entrer votre nom" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input label="Nom d’utilisateur" labelPlacement="floating" placeholder="Entrer votre nom d'utilisateur" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input label="Telephone" labelPlacement="floating" placeholder="+223 77-77-77-77" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          
+          <ion-input label="Email" labelPlacement="floating" type="email" placeholder="example@gmail.com" required></ion-input>
+        </ion-item>
+
+        <div class="button-group">
+          <ion-button type="submit">Enregistrer</ion-button>
+          <ion-button type="button" (click)="onCancel()">Annuler</ion-button>
+        </div>
+      </form>
+    </ion-card>
+</div>

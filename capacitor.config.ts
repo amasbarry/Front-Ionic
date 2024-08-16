@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'MyIonic',
+  appId: 'com.ionic5front.app',
+  appName: 'Front-Ionic',
   webDir: 'www',
   cordova: {
     preferences: {

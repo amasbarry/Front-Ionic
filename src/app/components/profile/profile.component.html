@@ -1,17 +1,41 @@
 <div class="body">
-  <div class="bloc">
-    Profile
-  </div>
+  <ion-card-header color="none">
+    <div *ngIf="selectedImage; else defaultImage">
+      <img [src]="selectedImage">
+    </div>
+    <ng-template #defaultImage>
+      <img class="img" src="../../../assets/profile.svg" />
+    </ng-template>
+  </ion-card-header>
 
-  <div class="bloc">
-    Maiga
-  </div>
-  <div class="bloc">
-    Maiga
-  </div>
-  <div class="bloc">
-    IONIC
-  </div>
+  <ion-card >
+    <form (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-input label="Nom" labelPlacement="floating" placeholder="Entrer votre nom" required></ion-input>
+      </ion-item>
 
+      <ion-item>
+        <ion-input label="Nom d’utilisateur" labelPlacement="floating" placeholder="Entrer votre nom d'utilisateur" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Numéro" labelPlacement="floating" placeholder="+223 77-77-77-77" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Email" labelPlacement="floating" placeholder="example@gmail.com" required></ion-input>
+      </ion-item>
+      
+       <div class="button">
+        <ion-button (click)="onModifierClick()">Modifier</ion-button>
+        <ion-button type="submit" >Déconnexion</ion-button>
+      
+       </div>
+    </form>
+
+  </ion-card>
+  <ion-card>
+    <span ><i class="fa-solid fa-lock"></i>   Politique de confidentialité</span> 
+  </ion-card>
 </div>
-<app-navbar></app-navbar>
+<app-navbar> </app-navbar>

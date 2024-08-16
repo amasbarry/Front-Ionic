@@ -53,14 +53,40 @@ export const routes: Routes = [
       ),
   },
 
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
-  },
-  {
-    path: '**',
-    redirectTo: 'home',
-    pathMatch: 'full',
-  },
+
+{ path: 'modifier-profile',
+  loadComponent:() =>
+  import('./components/modifier-profile/modifier-profile.component').then(
+    (m) => m.ModifierProfileComponent
+  ),
+  
+ },
+
+
+ { path: 'modifier-profile',
+  loadComponent:() =>
+  import('./components/modifier-profile/modifier-profile.component').then(
+    (m) => m.ModifierProfileComponent
+  ),
+
+ },
+
+  // {
+  //   path: 'paiement',
+  //   loadComponent: () =>
+  //     import('./components/paiement/paiement.component').then(
+  //       (m) => m.PaiementComponent
+  //     ),
+  // },
+  // {
+  //   path: 'paiementeffectuer',
+  //   loadComponent: () =>
+  //     import('./components/paiement-effectuer/paiement-effectuer.component').then(
+  //       (m) => m.PaiementEffectuerComponent
+  //     ),
+  // },
+
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', redirectTo: 'home', pathMatch: 'full' },
+
 ];

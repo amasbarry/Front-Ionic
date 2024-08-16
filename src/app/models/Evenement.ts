@@ -1,6 +1,9 @@
+
+import { Time } from "@angular/common";
 import { TypeEvent } from "./TypeEvent";
 import { category } from "./Category";
-import { Time } from "@angular/common";
+
+
 
 export interface Evenement {
   id: number;

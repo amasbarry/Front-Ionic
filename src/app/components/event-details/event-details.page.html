@@ -10,38 +10,38 @@
         <div class="fav"><img src="../../../assets/img/fav.svg" alt="arrow_left"></div>
       </div>
     </div>
-    <div class="btominfo">
+    <div *ngFor="let ev of event" class="btominfo">
       <div class="nameTitle">
-        <p class="date">13 Septembre</p>
-        <p class="title">.Sun To Moon</p>
+        <p class="date">{{ ev.date }}</p>
+        <p class="title">{{ ev.nom }}</p>
       </div>
       <div class="typeEvent">
-        <h3 class="type">Festival</h3>
+        <h3 class="type">{{ ev.category.category}}</h3>
       </div>
     </div>
   </div>
-  <div class="details">
+  <div *ngFor="let ev of event" class="details">
     <div class="eventDetail">
       <div class="typeEvent">
-        <h3 class="type">Festival</h3>
+        <h3  class="type">{{ ev.category.category }}</h3>
       </div>
       <div class="place">
         <div class="iconeplace icon0">
           <img src="../../../assets/img/place.svg" alt="iconeplace">
         </div>
-        <p class="eventolace">Quartier du fleuve</p>
+        <p class="eventolace">{{ ev.lieu }}</p>
       </div>
       <div class="datedetail">
         <div class="iconeplace icon0">
           <img src="../../../assets/img/date.svg" alt="iconeplace">
         </div>
-        <p class="eventolace">13 Septembre, Samedi</p>
+        <p class="eventolace">{{ ev.date }} {{ ev.lieu }}</p>
       </div>
       <div class="hour">
         <div class="iconehour icon0">
           <img src="../../../assets/img/hour.svg" alt="iconeplace">
         </div>
-        <p class="eventolace">09h00 - 12h45</p>
+        <p class="eventolace">{{ ev.heure }}</p>
       </div>
     </div>
     <div class="orgContainer">

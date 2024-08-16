@@ -4,15 +4,12 @@
     <div class="logo">
       <img src="../../../assets/icon/logo.png" alt="">
     </div>
-    <h3>Bienvenue</h3>
     <div *ngIf="user">
-      <h1>Bienvenue, {{ user.nom }}!</h1>
-      <!-- Affichez d'autres informations si nécessaire -->
+      <h4>{{ user.nom }}!</h4>
     </div>
-    
     <i class="fa-solid fa-user"></i>
   </div>
-
+     <button (click)="Deconnexion()">Deconnexion</button>
   <div class="recherhe">
     <div>
         <i class="fa-solid fa-magnifying-glass"></i>
@@ -40,7 +37,7 @@
   <div *ngFor="let ev of event" class="CurentEvent">
     <img src="../../../assets/icon/faiza.jpeg" alt="">
     <div class="contenue" routerLink="/detail">
-        <span>2000F</span>
+        <span>{{ getPrixForEvent(ev.id) ? getPrixForEvent(ev.id) + 'F' : 'Prix non disponible' }}</span>
         <h4>{{ ev.nom }}</h4>
         <div>
           <h5>{{ ev.date }}</h5> <strong><i class="fa-solid fa-location-dot"></i>{{ ev.lieu }}</strong>
@@ -53,59 +50,30 @@
     <h5>Liste des Evenements</h5>
   </div><br>
 
-<div class="EventScroll">
+  <div class="EventScroll">
     <img src="../../../assets/icon/suntomoonbko_1723197167493.jpeg" alt="">
     <img src="../../../assets/icon/Rectangle 30.png" alt="">
     <img src="../../../assets/icon/Rectangle 4395.png" alt="">
     <img src="../../../assets/icon/suntomoonbko_1723197167493.jpeg" alt="">
     <img src="../../../assets/icon/Rectangle 30.png" alt="">
-</div>
-
-
-<div class="TitrelisteEvent">
-  <h5>Tendance</h5> <h5 routerLink="/events">Voir Tout</h5>
-</div>
-
-
-
-<div class="listeEvent" routerLink="/detail">
-  <img src="../../../assets/icon/Rectangle 30.png" alt="">
-
-  <div class="infoEvent">
-
-    <div class="topInfo">
-      <p>Concert party</p>
-      <p style="color: #FF7700;">7000 CFA</p>
-    </div>
-
-    <span style="color: #FF7700;"><i class="fa-solid fa-location-dot"></i> Bamako</span>
-    <span><i class="fa-regular fa-calendar"></i> Bamako - 10/04/2024</span>
-
   </div>
-</div>
-<!-- <br> -->
 
-<div class="listeEvent" routerLink="/event">
-  <img src="../../../assets/icon/Rectangle 30.png" alt="">
-
-  <div class="infoEvent">
-
-    <div class="topInfo">
-      <p>Concert party</p>
-      <p style="color: #FF7700;">7000 CFA</p>
-    </div>
-
-    <span style="color: #FF7700;"><i class="fa-solid fa-location-dot"></i> Bamako</span>
-    <span><i class="fa-regular fa-calendar"></i> Bamako - 10/04/2024</span>
-
+  <div class="TitrelisteEvent">
+    <h5>Tendance</h5> <h5 routerLink="/events">Voir Tout</h5>
   </div>
-</div>
 
+  <div *ngFor="let ev of event" class="listeEvent" routerLink="/detail">
+    <img src="../../../assets/icon/Rectangle 30.png" alt="">
+    <div class="infoEvent">
+      <div class="topInfo">
+        <p>{{ ev.category.category }}</p>
+        <p style="color: #FF7700;">{{ getPrixForEvent(ev.id) ? getPrixForEvent(ev.id) + ' CFA' : 'Prix non disponible' }}</p>
+      </div>
+      <span style="color: #FF7700;"><i class="fa-solid fa-location-dot"></i>{{ ev.lieu }}</span>
+      <span><i class="fa-regular fa-calendar"></i> {{ ev.lieu }} - {{ ev.datefin }}</span>
+    </div>
+  </div>
 
-<br>
+  <br>
 </div>
 <app-navbar></app-navbar>
-
-
-
-

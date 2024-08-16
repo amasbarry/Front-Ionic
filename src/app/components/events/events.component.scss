@@ -24,6 +24,24 @@
     // background-color: red;
 }
 
+
+
+%heritage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+%betwen{
+    display: flex;
+    align-items: center;
+    // justify-content: space-around;
+}
+
+
+
+
+
 .head{
     position: fixed;
     top: 0px;
@@ -33,6 +51,8 @@
     border-bottom: 1px solid var(--orange);
     display: flex;
     justify-content: space-between;
+    // background-color: red;
+    z-index: 100;
     padding: 0px 10px;
     outline: none;
     align-items: center;
@@ -54,6 +74,88 @@
         margin-right: 10px;
     }
 }
+
+
+
+
+
+.recherhe{
+    width: 100%;
+    margin-top: 10px;
+    @extend %heritage;
+    
+    div{
+        position: relative;
+        width: 90%;
+        @extend %heritage;
+    }
+
+    input{
+        width: 95%;
+        background-color: var(--white);
+        padding: 15px 0px;
+        border: none;
+        border-radius: 10px;
+        color: black;
+        text-align: center;
+    }
+    input::placeholder{
+        text-align: center;
+        font-family: 'poppins';
+    }
+    input:focus,input:hover{
+        border: none;
+        outline: none;
+        width: 100%;
+    }
+    i{
+        color: black;
+        position: absolute;
+        left: 20px;
+    }
+}
+
+.trier{
+    width: 98%;
+    
+    margin: 20px auto;
+    @extend %betwen;
+    justify-content: space-around;
+    color: var(--white);
+    span{
+        @extend %heritage;
+        // height: 50px;
+        font-size: 1.2rem;
+        padding:0px 10px;
+        border-radius: 20px;
+        background-color: var(--orange);
+        i{
+            margin-right: 5px;
+        }
+        @media screen and (max-width: 390px) {
+            // display: none;
+            font-size: 0.5rem;
+            i{
+                font-size: 0.8rem;
+            }
+            // display: none;
+        }
+    }
+    span:hover{
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 400px) {
+        // .trier span{
+        //     display: hidden;
+        // }
+    }
+}
+
+
+
+
+
 .texte{
     width: 94%;
     margin-top: -20px;
@@ -78,6 +180,7 @@
 .title{
     color: black;
     margin-bottom: -10px;
+    margin-top: -10px;
 }
 .eventliste{
     width: 100%;

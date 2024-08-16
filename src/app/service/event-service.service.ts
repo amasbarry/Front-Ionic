@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { TypeEvent } from '../Models/TypeEvent';
-import { category } from '../Models/Category';
-import { Evenement, Lieu } from '../Models/Evenement';
+import { Lieu } from '../models/utilisateurmodel.component';
+import { TypeEvent } from '../models/TypeEvent';
+import { category } from '../models/Category';
+import { Evenement } from '../models/Evenement';
+
+
+
+
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +21,7 @@ export class EventServiceService {
   private urlLieu = 'http://localhost:8080/gestEvent/lieu/ListeLieu';
   private urlCat = 'http://localhost:8080/gestEvent/categories';
   private url = 'http://localhost:8080/gestEvent/event';
+  private urlBillet = 'http://localhost:8080/gestEvent/billets';
 
   constructor(private Http: HttpClient) {}
 
@@ -27,6 +33,9 @@ export class EventServiceService {
 
   getLieu(): Observable<Lieu[]> {
     return this.Http.get<Lieu[]>(this.urlLieu);
+  }
+  getPrixBillet(evenementId:number): Observable<number> {
+    return this.Http.get<number>(`${this.urlBillet}/Prix/${evenementId}`);
   }
 
   getType(): Observable<TypeEvent[]> {

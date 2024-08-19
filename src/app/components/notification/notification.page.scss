@@ -1,0 +1,47 @@
+.body{
+    width: 100%;
+    height: 98%;
+    margin: 0;
+    outline: none;
+    padding-bottom: 50px;
+    background-color: var(--fondColor);
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+}
+.body::-webkit-scrollbar{
+    display: none;
+}
+.entete{
+  align-items: center;
+}
+
+.texte{
+    flex: 1;
+    margin-top: 6%;
+    margin-left: 2%;
+    font-size: 1.5em;
+    color:black;
+    text-align: center;
+    font-weight: bold;
+}
+.cartes{
+    display: flex;
+    justify-content: space-between;
+    margin: 2%;
+    height: 17vh;
+    width: 90%;
+    margin-left: 4.5%;
+    border-radius: 12px; 
+    background-color: rgb(243, 243, 243);
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
+    overflow-y: scroll;
+}
+.cartes::-webkit-scrollbar{
+    display: none;
+}
+.tout{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Role, Utilisateur } from '../models/utilisateurmodel.component';
+
 
 
 
@@ -40,4 +41,26 @@ export class UtilisateurServiceService {
   getRoles(){
     return this.http.get('http://localhost:8080/gestEvent/role/listeRole');
   }
+
+
+
+
+
+  private createAuthorizationHeader(): HttpHeaders {
+    const authHeader = localStorage.getItem('authToken');
+    if (!authHeader) {
+      console.error('Aucun token d\'authentification trouvé');
+      throw new Error('Aucun token d\'authentification trouvé');
+    }
+    return new HttpHeaders({
+      'Authorization': `Basic ${authHeader}`,
+      'Content-Type': 'application/json'
+    });
+  }
+  updateProfile(utilisateur: Utilisateur): Observable<Utilisateur> {
+    const headers = this.createAuthorizationHeader();
+    return this.http.put<Utilisateur>(`${this.baseUrl}/updateProfile`, utilisateur, { headers });
+  }
+
+
 }

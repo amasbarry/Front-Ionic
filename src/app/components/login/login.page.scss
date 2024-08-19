@@ -1,7 +1,18 @@
-.auth-container {
-    text-align: center;
-    padding: 20px;
-  
+
+
+    .auth-container {
+      text-align: center;
+      padding: 20px;
+      overflow-y: auto;
+      max-height: 100vh;
+      -webkit-overflow-scrolling: touch;
+    
+    
+    ion-content {
+      --overflow: hidden;
+    }
+    
+
     .logo {
       width: 150px;
       margin-bottom: 20px;

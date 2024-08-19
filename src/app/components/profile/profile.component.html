@@ -1,39 +1,45 @@
 <div class="body">
-  <ion-card>
-     <ion-button class="upload" (click)="selectImage()"><ion-icon name="cloud-upload-outline"></ion-icon></ion-button>
-  
-  <!-- Affichage de l'image sélectionnée -->
-   @if (selectedImage != null) {<div *ngIf="selectedImage">
-    <img [src]="selectedImage">
-  </div>}
-  @else {    <img class="img" src="../../../assets/icon/profile.svg" />
-}
-    <ion-card-header>
-      <ion-card-title>MOGOBA FANGA</ion-card-title>
-      <ion-card-subtitle>&#64;MOGOBA</ion-card-subtitle>
-    </ion-card-header>
-  </ion-card>
+  <ion-card-header color="none">
+    <div *ngIf="selectedImage; else defaultImage">
+      <img [src]="selectedImage">
+    </div>
+    <ng-template #defaultImage>
+      <img class="img" src="../../../assets/icon/profile.svg" />
+    </ng-template>
+  </ion-card-header>
 
-  <ion-card>
-    <form (ngSubmit)="onSubmit()">
+  <ion-card >
+    <form  [formGroup]="profileForm" (ngSubmit)="onSubmit()">
       <ion-item>
-        <ion-input label="Nom" labelPlacement="floating" placeholder="Entrer votre nom" required></ion-input>
+        <ion-input label="Nom" labelPlacement="floating" formControlName="nom"  placeholder="Entrer votre nom" required></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-input label="Nom d’utilisateur" labelPlacement="floating" placeholder="Entre votr nom d'utilisateur" required></ion-input>
+        <ion-input label="Nom d’utilisateur" labelPlacement="floating" formControlName="prenom" placeholder="Entrer votre nom d'utilisateur" required></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-input label="Numéro" labelPlacement="floating" placeholder="+223 77-77-77-77" required></ion-input>
+        <ion-input label="Numéro" labelPlacement="floating" formControlName="telephone" placeholder="+223 77-77-77-77" required></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-input label="Email" labelPlacement="floating" placeholder="example@gmail.com" required></ion-input>
+        <ion-input label="Email" labelPlacement="floating" formControlName="email" placeholder="example@gmail.com" required></ion-input>
       </ion-item>
-  
-      <ion-button class="ion-button" expand="block" type="submit">Enregistrer</ion-button>
+      <ion-item>
+        <ion-input  type="text" labelPlacement="floating" formControlName="motDePasse" placeholder="password" required></ion-input>
+        <ion-input-password-toggle  style="color: #FF7700;" slot="end"></ion-input-password-toggle>
+      </ion-item>
+      
+       <div class="button">
+        <ion-button type="submit">Modifier</ion-button>
+        <ion-button (click)="logout()">Déconnexion</ion-button>
+      
+       </div>
     </form>
+
+  </ion-card>
+  <ion-card routerLink="/politique">
+    <span ><i class="fa-solid fa-lock" ></i>Politique de confidentialité</span> 
   </ion-card>
 </div>
-<app-navbar></app-navbar>
+<app-navbar> </app-navbar>

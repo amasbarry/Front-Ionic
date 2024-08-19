@@ -29,7 +29,10 @@ export class AuthService {
       })
     );
   }
-  
+  getAuthToken(): string | null {
+    const authToken = localStorage.getItem('authToken');
+    return authToken ? authToken : null;
+  }
 
   storeUser(user: Utilisateur): void {
     localStorage.setItem('InfoUser', JSON.stringify(user));

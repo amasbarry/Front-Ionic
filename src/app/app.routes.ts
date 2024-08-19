@@ -25,6 +25,10 @@ export const routes: Routes = [
     path: 'detail',
     loadComponent: () => import('./components/event-details/event-details.page').then((m) => m.EventDetailsPage),
   },
+  {
+    path: 'notification',
+    loadComponent: () => import('./components/notification/notification.page').then((m) => m.NotificationPage),
+  },
 
   {
     path: 'events',
@@ -67,6 +71,13 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./components/ticket-detail/ticket-detail.page').then(
         (m) => m.TicketDetailPage
+      ),
+  },
+  {
+    path: 'politique',
+    loadComponent: () =>
+      import('./components/politique/politique.page').then(
+        (m) => m.PolitiquePage
       ),
   },
   {
@@ -123,6 +134,16 @@ export const routes: Routes = [
     path: 'reset-password',
     loadComponent: () => import('./components/reset-password/reset-password.page').then( m => m.ResetPasswordPage)
   },
+  {
+    path: 'notification',
+    loadComponent: () => import('./components/notification/notification.page').then( m => m.NotificationPage)
+  },
+  {
+    path: 'politique',
+    loadComponent: () => import('./components/politique/politique.page').then( m => m.PolitiquePage)
+  },
+
+
  
 
 

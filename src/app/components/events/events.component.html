@@ -2,11 +2,11 @@
   <div class="bloc">
 
     <div class="head">
-      <div class="zone1">
+      <div *ngIf="user"  routerLink="/profile" class="zone1">
         <img src="../../../assets/icon/Ellipse 120.png" alt="">
-        <h5>Souleymane <br>Maiga</h5>
+        <h5>{{ user.prenom }} <br>{{ user.nom }}</h5>
       </div>
-      <i class="fa-solid fa-bell"></i>
+      <i routerLink="/notification" class="fa-solid fa-bell"></i>
     </div>
 
     <!-- <div class="texte">
@@ -51,45 +51,21 @@
     
     <div class="eventliste">
 
-      <div class="event">
+      <div *ngFor="let ev of event"  class="event">
         <div class="image"><img src="../../../assets/icon/Rectangle 4395.png" alt=""></div>
 
         <div class="suite">
-          Concert titre
+          <h4>{{ ev.nom }}</h4>
         </div>
 
         <div class="lieu">
-          <i class="fa-solid fa-location-dot"></i> Bamako
-        </div>
+          <i class="fa-solid fa-location-dot"></i>{{ ev.lieu }}</div>
 
         <div class="info">
-          <span>Concert</span>
-          <span>2000F</span>
+          <span>{{ ev.category.category }}</span>
+          <span>{{ getPrixForEvent(ev.id) ? getPrixForEvent(ev.id) + ' CFA' : 'Prix non disponible' }}</span>
         </div>
       </div>
-
-      <div class="event">
-        <div class="image"><img src="../../../assets/icon/Rectangle 4395.png" alt=""></div>
-
-        <div class="suite">
-          Concert titre
-        </div>
-
-        <div class="lieu">
-          <i class="fa-solid fa-location-dot"></i> Bamako
-        </div>
-
-        <div class="info">
-          <span>Concert</span>
-          <span>2000F</span>
-        </div>
-      </div>
-
-      
-
-
-      
-
     </div>
 
 

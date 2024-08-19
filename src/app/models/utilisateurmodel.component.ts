@@ -1,24 +1,5 @@
 // src/app/models/utilisateur.model.ts
-
-// export interface Utilisateur {
-//   id?: number;
-//   nom: string;
-//   prenom: string;
-//   email: string;
-//   telephone: string;
-//   motDePasse: string;
-//   role: Role;  // Le rôle est lié ici
-// }
-
-
-// export interface Role {
-//   id: number;
-//   role: string; // Nom du rôle, par exemple "Admin", "Client", etc.
-// }
-
-// src/app/models/utilisateur.model.ts
 import { Time } from "@angular/common";
-import { Evenement } from "./Evenement";
 export interface Utilisateur {
   id?: number;
   nom: string;
@@ -28,6 +9,8 @@ export interface Utilisateur {
   motDePasse: string;
   role: Role;  // Le rôle est lié ici
 }
+
+
 export interface Role {
   id: number;
   role: string; // Nom du rôle, par exemple "Admin", "Client", etc.
@@ -49,10 +32,45 @@ export interface statut_reservation {
   statut: string
 }
 
+export interface Evenement {
+  id: number;
+  nom: string;
+  date: Date;
+  heure: Time;
+  datedebut: Date;
+  datefin: Date;
+  description: string;
+  lieu: String;
+  // nombrePlace: number;
+  typeevent: TypeEvent;
+  // utilisateur: Utilisateur;
+  category: category;
+}
+
+export class TypeEvent{
+  id:number;
+  type:string;
+  constructor(id:number, type:string){
+      this.id = id;
+      this.type = type;
+  }
+}
+export class category{
+  id:number;
+  category:string;
+  
+  constructor(id:number, category:string){
+      this.id = id;
+      this.category = category;
+  }
+}
+
 export interface Methode_paiement {
   id: number;
   methodepaie: string
 }
+    
+
 
 export interface Categorie_Billet{
   id: number;
@@ -72,6 +90,7 @@ export interface Task{
   evenement: Evenement;
   utilisateur:Utilisateur
 }
+
 export interface Lieu{
 
   id?:number;
@@ -99,18 +118,19 @@ export interface Equipement{
   description:string;
   presta:Prestateur;
 }
-export interface StatutBillet{
-  id?:number;
-  statut:string;
-}
+
 export interface Billet{
   id?:number;
   quantiteDisponible:number;
   prix:number;
-  dateDebutVente:Date;
-  dateFinVente:Date;
+  date:Date;
   description:string;
+  nbreBilletParPersonne:number;
   categoryBillet:Categorie_Billet;
   evenement:Evenement;
   status:StatutBillet;
+}
+export interface StatutBillet{
+  id?:number;
+  statut:string;
 }

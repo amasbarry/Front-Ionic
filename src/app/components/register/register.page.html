@@ -1,25 +1,43 @@
 <ion-content class="ion-padding">
   <div class="auth-container">
     <img src="assets/icon/logo.png" alt="Logo" class="logo">
-    <h2>S'inscrire</h2>
-    <ion-item class="form-item">
-      <i class="fas fa-user icon-orange" slot="start"></i>
-      <ion-input [(ngModel)]="fullName" type="text" placeholder="Full name"></ion-input>
-    </ion-item>
-    <ion-item class="form-item">
-      <i class="fas fa-envelope icon-orange" slot="start"></i>
-      <ion-input [(ngModel)]="email" type="email" placeholder="Email"></ion-input>
-    </ion-item>
-    <ion-item class="form-item">
-      <i class="fas fa-lock icon-orange" slot="start"></i>
-      <ion-input [(ngModel)]="password" type="password" placeholder="Password"></ion-input>
-      <i class="fas fa-eye-slash icon-orange" slot="end"></i>
-    </ion-item>
-    <ion-item class="form-item">
-      <i class="fas fa-lock icon-orange" slot="start"></i>
-      <ion-input [(ngModel)]="confirmPassword" type="password" placeholder="Confirm password"></ion-input>
-      <i class="fas fa-eye-slash icon-orange" slot="end"></i>
-    </ion-item>
-    <ion-button expand="block" (click)="register()">S'inscrire</ion-button>
-  </div>
-</ion-content>
+    <h2>{{ isEditing ? 'Modifier Utilisateur' : 'Ajouter Utilisateur' }}</h2>
+    
+    <form [formGroup]="utilisateurForm" (ngSubmit)="onSubmit()">
+      <ion-item class="form-item">
+        <i class="fas fa-user icon-orange" slot="start"></i>
+        <ion-input id="nom" formControlName="nom" type="text" placeholder="Nom"></ion-input>
+      </ion-item>
+      
+      <ion-item class="form-item">
+        <i class="fas fa-user icon-orange" slot="start"></i>
+        <ion-input id="prenom" formControlName="prenom" type="text" placeholder="Prénom"></ion-input>
+      </ion-item>
+      
+      <ion-item class="form-item">
+        <i class="fas fa-envelope icon-orange" slot="start"></i>
+        <ion-input id="email" formControlName="email" type="email" placeholder="Email"></ion-input>
+      </ion-item>
+      
+      <ion-item class="form-item">
+        <i class="fas fa-phone icon-orange" slot="start"></i>
+        <ion-input id="telephone" formControlName="telephone" type="text" placeholder="Téléphone"></ion-input>
+      </ion-item>
+      
+      <ion-item class="form-item">
+        <i class="fas fa-lock icon-orange" slot="start"></i>
+        <ion-input id="motDePasse" formControlName="motDePasse" type="password" placeholder="Mot de Passe"></ion-input>
+        <i class="fas fa-eye-slash icon-orange" slot="end"></i>
+      </ion-item>
+      
+      <!-- <ion-item class="form-item">
+        <i class="fas fa-user-tag icon-orange" slot="start"></i>
+        <ion-select id="roleId" formControlName="roleId" placeholder="Sélectionner un rôle">
+          <ion-select-option *ngFor="let role of roles" [value]="role.id">{{ role.role }}</ion-select-option>
+        </ion-select>
+      </ion-item> -->
+      
+      <ion-button expand="block" type="submit">{{ isEditing ? 'Modifier' : 'Ajouter' }}</ion-button>
+    </form>
+    </div>
+  </ion-content>

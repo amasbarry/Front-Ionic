@@ -62,7 +62,7 @@
   </div>
 
   <div *ngFor="let ev of event" class="listeEvent" routerLink="/detail">
-    <img src="../../../assets/icon/Rectangle 30.png" alt="">
+    <img [src]="'data:image/png;base64,'+ev.image" alt="">
     <div class="infoEvent">
       <div class="topInfo">
         <p>{{ ev.category.category }}</p>

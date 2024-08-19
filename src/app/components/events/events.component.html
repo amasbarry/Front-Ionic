@@ -52,7 +52,9 @@
     <div class="eventliste">
 
       <div *ngFor="let ev of event"  class="event">
-        <div class="image"><img src="../../../assets/icon/Rectangle 4395.png" alt=""></div>
+        <div class="image">
+          <img [src]="'data:image/png;base64,'+ev.image" alt="">
+        </div>
 
         <div class="suite">
           <h4>{{ ev.nom }}</h4>

@@ -13,7 +13,7 @@ import { Evenement } from 'src/app/Models/Evenement';
   templateUrl: './accueil.component.html',
   styleUrls: ['./accueil.component.scss'],
   standalone: true,
-  imports: 
+  imports:
   [
     RouterLink,
     RouterOutlet,
@@ -41,4 +41,8 @@ export class AccueilComponent  implements OnInit {
         console.log("event:",data);
       },
   )}
+  Deconnexion(){
+    this.authService.clearUser();
+    this.router.navigate(['/home']);
+  }
 }

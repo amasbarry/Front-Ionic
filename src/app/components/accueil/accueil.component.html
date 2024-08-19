@@ -4,12 +4,12 @@
     <div class="logo">
       <img src="../../../assets/icon/logo.png" alt="">
     </div>
-    <h3>Bienvenue</h3>
+    <h3 (click)="Deconnexion()">Bienvenue</h3>
     <div *ngIf="user">
       <h1>Bienvenue, {{ user.nom }}!</h1>
       <!-- Affichez d'autres informations si nécessaire -->
     </div>
-    
+
     <i class="fa-solid fa-user"></i>
   </div>
 

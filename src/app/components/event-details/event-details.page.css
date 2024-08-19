@@ -43,6 +43,32 @@
   color: #000;
 }
 
+/* Style the select box */
+#Category {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Style the dropdown arrow */
+#Category {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Optional: Style the container to position the select box */
+.tcket1 {
+  position: relative;
+}
+
+/* Optional: Add some spacing or other styles */
+#Category {
+  margin-top: 0px;
+}
 
 body{
   background: #FFEDD5;

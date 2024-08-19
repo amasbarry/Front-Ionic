@@ -15,14 +15,14 @@ import { NavbarComponent } from '../navbar/navbar.component';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
   standalone: true,
-  imports: 
+  imports:
   [
     IonicModule,
-    RouterOutlet, 
+    RouterOutlet,
     RouterLink,
     NavbarComponent,
     HomePage,
-    NgIf
+    NgIf,
   ],
 })
 export class ProfileComponent implements OnInit {
@@ -31,7 +31,7 @@ export class ProfileComponent implements OnInit {
   constructor() {addIcons({personOutline, cloudUploadOutline}) }
 
   ngOnInit() {
-   
+
   }
 
   onSubmit() {
@@ -44,9 +44,6 @@ export class ProfileComponent implements OnInit {
       resultType: CameraResultType.DataUrl, // Utilisation de DataUrl pour un affichage local
       source: CameraSource.Prompt, // Demande à l'utilisateur de choisir entre la caméra et la galerie
     });
-
     this.selectedImage = image.dataUrl; // Stocke l'image en tant que Data URL pour l'afficher localement
   }
-
-  
 }

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import {Router, RouterLink, RouterOutlet} from "@angular/router";
 import { NavbarComponent } from '../navbar/navbar.component';
+import {LitleService} from "../../service/Litle.service";
 
 @Component({
   selector: 'app-event-details',
@@ -14,15 +15,13 @@ import { NavbarComponent } from '../navbar/navbar.component';
 })
 export class EventDetailsPage implements OnInit {
 
-  ticketNumber: number = 1;
+  ticketNumber: number = 0;
+  category: any[] = []
 
-  constructor() { }
+  constructor(private litleService: LitleService) { }
 
   ngOnInit() {
-  }
-
-  back(){
-    history.back()
+    this.getCategory()
   }
 
   increment(){
@@ -35,5 +34,14 @@ export class EventDetailsPage implements OnInit {
     }
     return this.ticketNumber--;
   }
+  back(){
+    this.litleService.back()
+  }
 
+  async getCategory(){
+    const res = await fetch("http://localhost:8080/gestEvent/categories/AfficherBillet");
+    const reults = await res.json();
+    this.category = reults;
+    console.log(this.category)
+  }
 }

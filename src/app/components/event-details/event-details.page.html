@@ -72,6 +72,9 @@
   <div class="ticket_container">
     <div class="tckt0">
       <p class="tcket1">Ticket(s)</p>
+      <select id="Category" >
+        <option *ngFor="let cat of category" value="{{cat.category}}">{{ cat.category }}</option>
+      </select>
       <div class="itdec">
         <div class="iconeplus icon1" (click)="increment()">
           <img src="../../../assets/img/plus.svg" alt="iconeplus">

@@ -71,6 +71,6 @@ export class UtilisateurServiceService {
     return this.http.get<Utilisateur[]>(`${this.baseUrl}/TriParNom`, { params: { name } });
   }
 
-
+ 
  
 }

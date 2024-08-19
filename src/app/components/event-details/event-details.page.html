@@ -1,47 +1,49 @@
 <body>
 <div class="main">
-  <div class="img-container">
+  <div *ngIf="event" class="img-container">
+    <div class="font"></div>
+    <img [src]="'data:image/png;base64,'+event.image" alt="" class="imagee">
     <div class="topinfo">
       <div class="back" (click)="back()">
-        <img src="../../../assets/img/arrow_left.svg" alt="arrow_left">
+        <img src="../../../assets/img/arrow_left.svg" alt="arrow_left" >
       </div>
-      <div class="sharefav">
+      <!-- <div class="sharefav">
         <div class="share"><img src="../../../assets/img/share.svg" alt="arrow_left"></div>
         <div class="fav"><img src="../../../assets/img/fav.svg" alt="arrow_left"></div>
-      </div>
+      </div> -->
     </div>
-    <div *ngFor="let ev of event" class="btominfo">
+    <div  class="btominfo">
       <div class="nameTitle">
-        <p class="date">{{ ev.date }}</p>
-        <p class="title">{{ ev.nom }}</p>
+        <p class="date">{{ event.date }}</p>
+        <p class="title">{{ event.nom }}</p>
       </div>
       <div class="typeEvent">
-        <h3 class="type">{{ ev.category.category}}</h3>
+        <h3 class="type">{{ event.category.category}}</h3>
       </div>
     </div>
   </div>
-  <div *ngFor="let ev of event" class="details">
+  <div *ngIf="event" class="details">
     <div class="eventDetail">
       <div class="typeEvent">
-        <h3  class="type">{{ ev.category.category }}</h3>
+        <h3  class="type">{{ event.category.category }}</h3>
       </div>
       <div class="place">
         <div class="iconeplace icon0">
           <img src="../../../assets/img/place.svg" alt="iconeplace">
         </div>
-        <p class="eventolace">{{ ev.lieu }}</p>
+        <p class="eventolace">{{ event.lieu }}</p>
       </div>
       <div class="datedetail">
         <div class="iconeplace icon0">
           <img src="../../../assets/img/date.svg" alt="iconeplace">
         </div>
-        <p class="eventolace">{{ ev.date }} {{ ev.lieu }}</p>
+        <p class="eventolace">{{ event.datedebut }}</p>
       </div>
       <div class="hour">
         <div class="iconehour icon0">
           <img src="../../../assets/img/hour.svg" alt="iconeplace">
         </div>
-        <p class="eventolace">{{ ev.heure }}</p>
+        <p class="eventolace">{{ event.heure }}</p>
       </div>
     </div>
     <div class="orgContainer">
@@ -53,7 +55,7 @@
           <div class="orgImg">
             <img src="../../../assets/img/profil1.jpg" alt="orgImg">
           </div>
-          <p class="eventolace">{{ ev.utilisateur.prenom }} {{ ev.utilisateur.nom }}</p>
+          <p class="eventolace">{{ event.utilisateur.prenom }} {{ event.utilisateur.nom }}</p>
         </div>
         <div class="like">
           <p class="evenlike">5.7k</p>

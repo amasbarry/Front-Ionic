@@ -4,9 +4,7 @@
     <div class="logo">
       <img src="../../../assets/icon/logo.png" alt="">
     </div>
-    <div *ngIf="user">
-      <h4>{{ user.nom }}!</h4>
-    </div>
+  
     <i routerLink="/notification" class="fa-solid fa-bell"></i>
   </div>
   <div class="recherhe">
@@ -33,16 +31,30 @@
     <h5>Prochain événement</h5>
   </div>
 
-  <div *ngFor="let ev of event" class="CurentEvent">
-    <img src="../../../assets/icon/faiza.jpeg" alt="">
+  <!-- <div *ngFor="let event of nevent" class="CurentEvent">
+    <img [src]="'data:image/png;base64,'+event.image" alt="">
     <div class="contenue" routerLink="/detail">
-        <span>{{ getPrixForEvent(ev.id) ? getPrixForEvent(ev.id) + 'F' : 'Prix non disponible' }}</span>
-        <h4>{{ ev.nom }}</h4>
+        <span>{{ getPrixForEvent(event.id) ? getPrixForEvent(event.id) + 'F' : 'Prix non disponible' }}</span>
+        <h4>{{ event.nom }}</h4>
         <div>
-          <h5>{{ ev.date }}</h5> <strong><i class="fa-solid fa-location-dot"></i>{{ ev.lieu }}</strong>
+          <h5>{{ event.date }}</h5> <strong><i class="fa-solid fa-location-dot"></i>{{ event.lieu }}</strong>
         </div>
     </div>
+  </div> -->
+
+
+  <div *ngIf="nevent" class="CurentEvent" (click)="goToEventDetail(nevent.id)">
+    <img [src]="'data:image/png;base64,' + nevent.image" alt="Image de l'événement">
+    <div class="contenue" [routerLink]="['/detail', nevent.id]">
+      <span>{{ getPrixForEvent(nevent.id) ? getPrixForEvent(nevent.id) + 'F' : 'Prix non disponible' }}</span>
+      <h4>{{ nevent.nom }}</h4>
+      <div>
+        <h5>{{ nevent.datedebut }}</h5> <strong><i class="fa-solid fa-location-dot"></i>{{ nevent.lieu }}</strong>
+      </div>
+    </div>
   </div>
+
+
 
   <div class="texte">
     <i class="fa-regular fa-calendar"></i>
@@ -61,7 +73,7 @@
     <h5>Tendance</h5> <h5 routerLink="/events">Voir Tout</h5>
   </div>
 
-  <div *ngFor="let ev of event" class="listeEvent" routerLink="/detail">
+  <div *ngFor="let ev of event" class="listeEvent" (click)="goToEventDetail(ev.id)">
     <img [src]="'data:image/png;base64,'+ev.image" alt="">
     <div class="infoEvent">
       <div class="topInfo">

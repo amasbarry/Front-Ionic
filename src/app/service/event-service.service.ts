@@ -69,4 +69,14 @@ export class EventServiceService {
   DeleteEvent(id: number) {
     return this.Http.delete(`${this.url}/delete/${id}`);
   }
+
+  getNextEvent(): Observable<Evenement> {
+    return this.Http.get<Evenement>(`${this.url}/next_event`);
+  }
+  
+  getEventById(id: number): Observable<Evenement> {
+    return this.Http.get<Evenement>(`${this.url}/EventById/${id}`);
+  }
+
+
 }

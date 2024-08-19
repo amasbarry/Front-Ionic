@@ -28,6 +28,7 @@ export class AccueilComponent  implements OnInit {
 
   user: Utilisateur | null = null;
   event: Evenement[] = [];
+   nevent: Evenement |null = null;
   prixMap: Map<number, number> = new Map(); // Map pour stocker les prix associés aux événements
 
   constructor(
@@ -36,32 +37,70 @@ export class AccueilComponent  implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {
-    this.user = this.authService.getUser(); // Récupérer les informations de l'utilisateur
+  // ngOnInit() {
+  //   this.user = this.authService.getUser(); // Récupérer les informations de l'utilisateur
 
-    // Récupérer les événements
+  //   // Récupérer les événements
+  //   this.eventService.getEvents().subscribe(
+  //     (events: Evenement[]) => {
+  //       this.event = events;
+  //       console.log("events:", events);
+
+  //       // Récupérer les prix pour chaque événement
+  //       const priceObservables = this.event.map(event =>
+  //         this.eventService.getPrixBillet(event.id).pipe(
+  //           map(prixData => ({ eventId: event.id, prix: prixData }))
+  //         )
+  //       );
+
+  //       // Attendre que tous les prix soient récupérés
+  //       forkJoin(priceObservables).subscribe(prices => {
+  //         prices.forEach(priceData => {
+  //           this.prixMap.set(priceData.eventId, priceData.prix); // Stocker les prix dans le Map
+  //         });
+  //         console.log("events with prices:", this.prixMap);
+  //       });
+  //     }
+  //   );
+
+    
+  //   this.getNextEvennement();
+  // }
+
+  ngOnInit() {
+    this.user = this.authService.getUser();
+
+    // Récupérer le prochain événement
+    this.eventService.getNextEvent().subscribe(
+      (event: Evenement) => {
+        this.nevent = event;
+      },
+      (error) => {
+        console.error('Erreur lors de la récupération du prochain événement:', error);
+      }
+    );
+
+    // Récupérer tous les événements (si nécessaire)
     this.eventService.getEvents().subscribe(
       (events: Evenement[]) => {
         this.event = events;
-        console.log("events:", events);
 
-        // Récupérer les prix pour chaque événement
         const priceObservables = this.event.map(event =>
           this.eventService.getPrixBillet(event.id).pipe(
             map(prixData => ({ eventId: event.id, prix: prixData }))
           )
         );
 
-        // Attendre que tous les prix soient récupérés
         forkJoin(priceObservables).subscribe(prices => {
           prices.forEach(priceData => {
-            this.prixMap.set(priceData.eventId, priceData.prix); // Stocker les prix dans le Map
+            this.prixMap.set(priceData.eventId, priceData.prix);
           });
-          console.log("events with prices:", this.prixMap);
         });
       }
     );
   }
+  
+
 
   getPrixForEvent(eventId: number): number | undefined {
     return this.prixMap.get(eventId);
@@ -71,5 +110,10 @@ export class AccueilComponent  implements OnInit {
     this.router.navigate(['/home']);
     console.log('déconnexion');
   }
+
+  goToEventDetail(eventId: number) {
+    this.router.navigate(['/details', eventId]);
+  }
+
 
 }

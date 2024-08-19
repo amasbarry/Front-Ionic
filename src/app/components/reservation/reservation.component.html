@@ -4,69 +4,22 @@
      <span>Mes reservations</span>
     </div>
   </div>
-  <div class="cartes">
+  <div class="cartes" [routerLink] = "['/ticket']" *ngFor="let res of reservation" (click)="stockBookingIds(res.id); sendData()">
     <div class="left">
       <img src="./../../assets/icon/keb.png" alt="">
     </div>
     <div class="right">
-        <div class="tout">
-          <div class="righthead">
-            <div class="titre"><p>Dr Keb</p></div>
-             <div class="lieu"><span><i class="fa-solid fa-location-dot"></i>Bamako</span></div>
-             <div class="date"><span><i class="fa-regular fa-calendar"></i>10-05-2024</span></div>
-             
-          </div>
-          <div class="left1">
-            <div class="prix"><span>7000 fcfa</span></div>
-            <div class="heure"><span>22h00</span></div>
-          </div> 
+      <div class="tout">
+        <div class="righthead">
+          <div class="date"><span>{{res.datedebut.split('T')[0].substring(0, 10)}}</span></div>
+          <div class="lieu"><span>{{res.lieu}}</span></div>
         </div>
+        <div class="left1">
+          <div class="titre"><p>{{res.nom}}</p></div>
+          <div class="desc"><h6>{{res.description}}</h6></div>
+        </div>
+      </div>
     </div> 
   </div>
-  <div class="cartes">
-    <div class="left">
-      <img src="./../../assets/icon/sidiki.png" alt="">
-    </div>
-    <div class="right">
-        <div class="tout">
-          <div class="righthead">
-            <div class="titre"><p>Sidiki Diabate</p></div>
-             <div class="lieu"><span><i class="fa-solid fa-location-dot"></i>Bamako</span></div>
-             <div class="date"><span><i class="fa-regular fa-calendar"></i>10-05-2024</span></div>
-             
-          </div>
-          <div class="left1">
-            <div class="prix"><span>7000 fcfa</span></div>
-            <div class="heure"><span>22h00</span></div>
-          </div> 
-        </div>
-    </div> 
-  </div>
-  <div class="cartes">
-    <div class="left">
-      <img src="./../../assets/icon/aya.png" alt="">
-    </div>
-    <div class="right">
-        <div class="tout">
-          <div class="righthead">
-            <div class="titre"><p>Aya</p></div>
-             <div class="lieu"><span><i class="fa-solid fa-location-dot"></i>Bamako</span></div>
-             <div class="date"><span><i class="fa-regular fa-calendar"></i>10-05-2024</span></div>
-             
-          </div>
-          <div class="left1">
-            <div class="prix"><span>7000 fcfa</span></div>
-            <div class="heure"><span>22h00</span></div>
-          </div> 
-        </div>
-    </div> 
-  </div>
- 
-
-  
- 
-
-
-
 </div>
 <app-navbar></app-navbar>

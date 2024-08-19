@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
-import {Router, RouterLink, RouterOutlet} from "@angular/router";
+import {ActivatedRoute, Router, RouterLink, RouterOutlet} from "@angular/router";
 import { NavbarComponent } from '../navbar/navbar.component';
 import { Utilisateur } from 'src/app/models/utilisateurmodel.component';
 import { AuthService } from 'src/app/service/auth.service';
@@ -25,22 +25,33 @@ export class EventDetailsPage implements OnInit {
   ticketNumber: number = 1;
 
 user: Utilisateur | null = null;
-  event:Evenement[]=[];
+  event:Evenement| null = null;
 
   constructor(
     private authService: AuthService,
     private eventService: EventServiceService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
     this.user = this.authService.getUser(); // Récupérer les informations de l'utilisateur
-    this.eventService.getEvents().subscribe(
-      (data: any) => {
-        this.event = data;
-        console.log("event:",data);
-      },
-  )}
+    // this.eventService.getEvents().subscribe(
+    //   (data: any) => {
+    //     this.event = data;
+    //     console.log("event:",data);
+    //   },
+       const eventId = this.route.snapshot.params['id'];
+        this.eventService.getEventById(eventId).subscribe((data: Evenement) => {
+          this.event = data;
+          console.log("event:",data);
+        });
+
+       
+
+
+    
+  }
 
   back(){
     history.back()

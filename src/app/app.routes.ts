@@ -22,7 +22,7 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'detail',
+    path: 'details/:id',
     loadComponent: () => import('./components/event-details/event-details.page').then((m) => m.EventDetailsPage),
   },
   {

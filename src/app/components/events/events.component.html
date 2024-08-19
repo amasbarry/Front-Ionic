@@ -9,102 +9,44 @@
       <i class="fa-solid fa-bell"></i>
     </div>
 
-    <div class="texte">
-      <h5>Retrouver votre événement préféré</h5>
-      <div class="nbrEvent">
-        <i class="fa-solid fa-calendar"></i>
-        <span>
-          <H5>230 Evenement près de vous </H5>
-        </span>
+    <div class="recherhe">
+      <div>
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" name="" id="" placeholder="Recherche des Evenements...">
       </div>
+    </div>
+
+    <div class="trier">
+      <span (click)="selectCategory('Concert')">
+        <i class="fa-solid fa-microphone"></i> <h6>Concert</h6>
+      </span>
+      <span (click)="selectCategory('Ceremonie')">
+        <i class="fa-solid fa-medal"></i> <h6>Ceremonie</h6>
+      </span>
+      <span (click)="selectCategory('Exposition')">
+        <i class="fa-solid fa-road-barrier"></i> <h6>Exposition</h6>
+      </span>
     </div>
 
     <span class="title">
-      <H2>Tous les evenements</H2>
+      <h2>Tous les evenements</h2>
     </span>
 
     <div class="eventliste">
-
-
-      <div class="event">
-        <div class="image"><img src="../../../assets/icon/Rectangle 4395.png" alt=""></div>
-
-        <div class="info">
-          <span>Concert</span>
-          <span>2000F</span>
-        </div>
-
-        <div class="lieu">
-          <i class="fa-solid fa-location-dot"></i> Bamako
-        </div>
-
+      <div *ngFor="let event of filterEventsByCategory()" class="event">
+        <div class="image"><img [src]="event.image" alt=""></div>
         <div class="suite">
-          200/135 Joined
+          {{ event.title }}
         </div>
-
-      </div>
-
-
-      <div class="event">
-        <div class="image"><img src="../../../assets/icon/Rectangle 4395.png" alt=""></div>
-
-        <div class="info">
-          <span>Concert</span>
-          <span>2000F</span>
-        </div>
-
         <div class="lieu">
-          <i class="fa-solid fa-location-dot"></i> Bamako
+          <i class="fa-solid fa-location-dot"></i> {{ event.lieu }}
         </div>
-
-        <div class="suite">
-          200/135 Joined
-        </div>
-
-      </div>
-
-
-      <div class="event">
-        <div class="image"><img src="../../../assets/icon/Rectangle 4395.png" alt=""></div>
-
         <div class="info">
-          <span>Concert</span>
-          <span>2000F</span>
+          <span>{{ event.category }}</span>
+          <span>{{ event.prix }}F</span>
         </div>
-
-        <div class="lieu">
-          <i class="fa-solid fa-location-dot"></i> Bamako
-        </div>
-
-        <div class="suite">
-          200/135 Joined
-        </div>
-
       </div>
-
-
-      <div class="event">
-        <div class="image"><img src="../../../assets/icon/Rectangle 4395.png" alt=""></div>
-
-        <div class="info">
-          <span>Concert</span>
-          <span>2000F</span>
-        </div>
-
-        <div class="lieu">
-          <i class="fa-solid fa-location-dot"></i> Bamako
-        </div>
-
-        <div class="suite">
-          200/135 Joined
-        </div>
-
-      </div>
-
     </div>
-
-
-
   </div>
 </div>
 <app-navbar></app-navbar>

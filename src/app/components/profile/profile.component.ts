@@ -1,19 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { NavbarComponent } from '../navbar/navbar.component';
+
 import { HomePage } from '../../home/home.page';
-import { IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonIcon, IonItem, IonLabel, IonInput, IonButton, IonImg } from "@ionic/angular/standalone";
 import { addIcons } from 'ionicons';
 import { cloudUploadOutline, personOutline } from 'ionicons/icons';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { NgIf } from '@angular/common';
+import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonicModule, IonIcon, IonImg, IonItem, IonLabel } from '@ionic/angular';
+import { IonInput } from '@ionic/angular/standalone';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
   standalone: true,
-  imports: [IonImg, IonButton, IonInput, IonLabel, IonItem, IonIcon, IonCardContent, IonCardSubtitle, IonCardTitle, IonCardHeader, IonCard, RouterOutlet, RouterLink, NavbarComponent, HomePage, NgIf],
+  imports: 
+  [
+    IonicModule,
+    RouterOutlet, 
+    RouterLink,
+    NavbarComponent,
+    HomePage,
+    NgIf
+  ],
 })
 export class ProfileComponent implements OnInit {
   selectedImage: string | undefined;

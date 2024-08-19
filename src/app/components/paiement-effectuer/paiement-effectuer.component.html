@@ -1,34 +1,34 @@
-<ion-header class="header" >
-  <ion-buttons slot="start" >
-    <ion-button [routerLink]="['/paiement']" class="monbutton">
-      <ion-icon name="arrow-back-sharp" style="color: orange;"></ion-icon>    </ion-button>
-  </ion-buttons>
-  <ion-title class="centered-title">Paiement</ion-title>
-</ion-header>
+
 
 <ion-content>
+  <div class="header">
+    <ion-buttons slot="start" >
+      <ion-button [routerLink]="['/paiement']" class="monbutton">
+        <ion-icon name="arrow-back-sharp" style="color: orange;"></ion-icon>    </ion-button>
+    </ion-buttons>
+    <ion-title class="centered-title">Paiement</ion-title>
+  </div>
   <div class="content1">
     <ion-card class="maCarte">
-      <img src="../../../assets/orange-money.jpg"/>
+      <img src="../../../assets/icon/orange-money.jpg"/>
       <ion-card-content  class="content-row">
-        <img class="maPuce" src="../../../assets/credit-card.png"/>
+        <img class="maPuce" src="../../../assets/icon/credit-card.png"/>
       </ion-card-content>
     </ion-card>
-    <ion-toolbar class="maReponse">
-      <ion-card >
-        <ion-card-header>
+     <div class="avant">
+      <div class="last">
+        <div class="icone">
           <ion-icon style="color: #FF7700" name="chatbubble-ellipses-outline" size="large"></ion-icon>
-        </ion-card-header>
-
-        <ion-card-content class="maCarte1">
-          Votre Ticket a été enregistrée avec succès
-          Le processus de paiement à été initié veuillez finaliser le paiement mobile sur téléphone
-        </ion-card-content>
-        <ion-buttons>
-          <ion-button  class="voirDetailTicket"> Details du Tickets </ion-button>
-        </ion-buttons>
-      </ion-card>
-    </ion-toolbar>
+        </div>
+        <div class="texte">
+            <h5>Votre Ticket a été enregistrée avec succès
+              Le processus de paiement à été initié veuillez finaliser le paiement mobile sur téléphone</h5>
+        </div>
+        <div class="bouton">
+            <ion-button style="color: #f8f8f8" routerLink="/ticket"><p>Details du ticket</p></ion-button>
+        </div>
+      </div>
+     </div>
   </div>
 
 </ion-content>

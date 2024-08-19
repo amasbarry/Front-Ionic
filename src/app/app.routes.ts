@@ -1,8 +1,5 @@
 // src/app/app.routes.ts
 import { Routes } from '@angular/router';
-import {Component} from "@angular/core";
-import {PaiementEffectuerComponent} from "./components/paiement-effectuer/paiement-effectuer.component";
-import {PaiementComponent} from "./components/paiement/paiement.component";
 
 export const routes: Routes = [
   {
@@ -17,6 +14,17 @@ export const routes: Routes = [
         (m) => m.AccueilComponent
       ),
   },
+  {
+    path: 'ticket',
+    loadComponent: () =>
+      import('./components/ticket/ticket.component').then(
+        (m) => m.TicketComponent
+      ),
+  },
+  {
+    path: 'detail',
+    loadComponent: () => import('./components/event-details/event-details.page').then((m) => m.EventDetailsPage),
+  },
 
   {
     path: 'events',
@@ -27,19 +35,10 @@ export const routes: Routes = [
   },
 
   {
-    path: 'search',
+    path: 'reservation',
     loadComponent: () =>
       import('./components/search/search.component').then(
         (m) => m.SearchComponent
-      ),
-  },
-
-
-  {
-    path: 'profile',
-    loadComponent: () =>
-      import('./components/profile/profile.component').then(
-        (m) => m.ProfileComponent
       ),
   },
   {
@@ -50,18 +49,93 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'paiementeffectuer',
+    path: 'paiement-effectuer',
     loadComponent: () =>
       import('./components/paiement-effectuer/paiement-effectuer.component').then(
         (m) => m.PaiementEffectuerComponent
       ),
   },
+  {
+    path: 'search',
+    loadComponent: () =>
+      import('./components/reservation/reservation.component').then(
+        (m) => m.ReservationComponent
+      ),
+  },
+  {
+    path: 'ticket-details',
+    loadComponent: () =>
+      import('./components/ticket-detail/ticket-detail.page').then(
+        (m) => m.TicketDetailPage
+      ),
+  },
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./components/login/login.page').then(
+        (m) => m.LoginPage
+      ),
+  },
+  {
+    path: 'register',
+    loadComponent: () =>
+      import('./components/register/register.page').then(
+        (m) => m.RegisterPage
+      ),
+  },
+  {
+    path: 'reset-password',
+    loadComponent: () =>
+      import('./components/reset-password/reset-password.page').then(
+        (m) => m.ResetPasswordPage
+      ),
+  },
+  {
+    path: 'profile',
+    loadComponent: () =>
+      import('./components/profile/profile.component').then(
+        (m) => m.ProfileComponent
+      ),
+  },
+
+  // {
+  //   path: 'profile',
+  //   loadComponent: () =>
+  //     import('./components/profile/profile.page').then(
+  //       (m) => m.ProfilePage
+  //     ),
+  // },
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: '**', redirectTo: 'home', pathMatch: 'full' },
+  {
+    path: 'ticket-detail',
+    loadComponent: () => import('./components/ticket-detail/ticket-detail.page').then( m => m.TicketDetailPage)
+  },
+  {
+    path: 'login',
+    loadComponent: () => import('./components/login/login.page').then( m => m.LoginPage)
+  },
+  {
+    path: 'register',
+    loadComponent: () => import('./components/register/register.page').then( m => m.RegisterPage)
+  },
+  {
+    path: 'reset-password',
+    loadComponent: () => import('./components/reset-password/reset-password.page').then( m => m.ResetPasswordPage)
+  },
+ 
 
 
 
 
+  // {
+  //   path: 'profile',
+  //   loadComponent: () => import('./profile/profile.page').then( m => m.ProfilePage)
+  // },
+
+  // { path: '**', redirectTo: 'home', pathMatch: 'full' },   {
+  //   path: 'event-details',
+  //   loadComponent: () => import('./event-details/event-details.page').then( m => m.EventDetailsPage)
+  // },
 // Redirige toutes les autres routes vers 'home'
 ];

@@ -14,13 +14,14 @@ import {
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {RouterLink} from "@angular/router";
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-paiement-effectuer',
   templateUrl: './paiement-effectuer.component.html',
   styleUrls: ['./paiement-effectuer.component.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonButtons, IonCard, IonCardContent, IonIcon, IonInput, IonItem, IonCardHeader, IonCardTitle, IonCardSubtitle, IonImg, RouterLink]
+  imports: [IonicModule, CommonModule, FormsModule,RouterLink]
 
 })
 export class PaiementEffectuerComponent  implements OnInit {

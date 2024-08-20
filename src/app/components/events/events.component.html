@@ -1,4 +1,4 @@
-<div class="body">
+<!-- <div class="body">
   <div class="bloc">
 
     <div class="head">
@@ -8,16 +8,6 @@
       </div>
       <i routerLink="/notification" class="fa-solid fa-bell"></i>
     </div>
-
-    <!-- <div class="texte">
-      <h5>Retrouver votre événement préféré</h5>
-      <div class="nbrEvent">
-        <i class="fa-solid fa-calendar"></i>
-        <span>
-          <H5>230 Evenement près de vous </H5>
-        </span>
-      </div>
-    </div> -->
 
 
 
@@ -72,6 +62,61 @@
 
 
 
+  </div>
+</div>
+<app-navbar></app-navbar> -->
+
+
+<div class="body">
+  <div class="bloc">
+
+    <div class="head">
+      <div *ngIf="user" routerLink="/profile" class="zone1">
+        <img src="../../../assets/icon/Ellipse 120.png" alt="">
+        <h5>{{ user.prenom }} <br>{{ user.nom }}</h5>
+      </div>
+      <i routerLink="/notification" class="fa-solid fa-bell"></i>
+    </div>
+
+    <div class="recherhe">
+      <div>
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Recherche des Evenements..." [(ngModel)]="EVENTE" (input)="filterEvents()">
+      </div>
+    </div>
+
+    <div class="trier">
+      <span>
+        <i class="fa-solid fa-microphone"></i> <h6>Concert</h6>
+      </span>
+      <span>
+        <i class="fa-solid fa-medal"></i> <h6>Ceremonie</h6>
+      </span>
+      <span>
+        <i class="fa-solid fa-road-barrier"></i> <h6>Exposition</h6>
+      </span>
+    </div>
+
+    <span class="title">
+      <H2>Tous les evenements</H2>
+    </span>
+
+    <div class="eventliste">
+      <div *ngFor="let ev of filteredEvents" class="event">
+        <div class="image">
+          <img [src]="'data:image/png;base64,'+ev.image" alt="">
+        </div>
+        <div class="suite">
+          <h4>{{ ev.nom }}</h4>
+        </div>
+        <div class="lieu">
+          <i class="fa-solid fa-location-dot"></i>{{ ev.lieu }}</div>
+        <div class="info">
+          <span>{{ ev.category.category }}</span>
+          <span>{{ getPrixForEvent(ev.id) ? getPrixForEvent(ev.id) + ' CFA' : 'Prix non disponible' }}</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <app-navbar></app-navbar>

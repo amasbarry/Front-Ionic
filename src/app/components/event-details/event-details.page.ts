@@ -73,7 +73,6 @@ export class EventDetailsPage implements OnInit {
     console.log(this.categories);
     this.category = this.categories[0]
     console.log(this.category);
-
   }
 
   stockercat(c:any){

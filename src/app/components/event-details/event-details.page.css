@@ -41,8 +41,40 @@
   padding: 0;
   border: 1px solid transparent;
   color: #000;
+  position: relative;
 }
 
+/* Style the select box */
+.Category {
+  padding: 5px;
+  border: 1px solid #ff7700;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  font-size: 16px;
+  color: #333;
+  outline: none;
+}
+
+.Category option:hover {
+  background-color: #ff7700;
+}
+
+/* Style the dropdown arrow */
+.Category {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Optional: Style the container to position the select box */
+.tcket1 {
+  position: relative;
+}
+
+/* Optional: Add some spacing or other styles */
+#Category {
+  margin-top: 0px;
+}
 
 body{
   background: #FFEDD5;
@@ -75,35 +107,25 @@ body{
 }
 .img-container
 {
-  position: relative;
-  width: 99%;
   padding: 0.5em;
   /* border: 1px solid rgb(245, 170, 9); */
-  margin: 0 auto;
-  margin-left: -4px;
   height: 40%;
   max-height: 40vh;
+  background: top center/ 100% auto no-repeat;
   border-radius: 1.3em;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
   margin-bottom: 5px;
 }
-.imagee{
-  position: absolute;
+.eventImg{
   width: 100%;
   height: 100%;
-  border-radius: 20px;
-  z-index: -2;
-  object-fit: cover;
-}
-.font{
   position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  border-radius: 20px;
-  background-color: #00000063;
+  top: 0px;
+  left: 0px;
+  margin: 0px;
+  z-index: -100;
 }
 
 .details

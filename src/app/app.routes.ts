@@ -67,13 +67,6 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'ticket-details',
-    loadComponent: () =>
-      import('./components/ticket-detail/ticket-detail.page').then(
-        (m) => m.TicketDetailPage
-      ),
-  },
-  {
     path: 'politique',
     loadComponent: () =>
       import('./components/politique/politique.page').then(
@@ -118,10 +111,6 @@ export const routes: Routes = [
   // },
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  {
-    path: 'ticket-detail',
-    loadComponent: () => import('./components/ticket-detail/ticket-detail.page').then( m => m.TicketDetailPage)
-  },
   {
     path: 'login',
     loadComponent: () => import('./components/login/login.page').then( m => m.LoginPage)

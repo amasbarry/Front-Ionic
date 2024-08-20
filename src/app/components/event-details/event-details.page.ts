@@ -8,6 +8,7 @@ import { Utilisateur } from 'src/app/models/utilisateurmodel.component';
 import { AuthService } from 'src/app/service/auth.service';
 import { EventServiceService } from 'src/app/service/event-service.service';
 import { Evenement } from 'src/app/models/Evenement';
+import { DataService } from 'src/app/service/DataService';
 
 @Component({
   selector: 'app-event-details',
@@ -23,19 +24,25 @@ import { Evenement } from 'src/app/models/Evenement';
 export class EventDetailsPage implements OnInit {
 
   ticketNumber: number = 1;
+  categories: any[] = [];
+  category:any;
 
-user: Utilisateur | null = null;
+  user: Utilisateur | null = null;
   event:Evenement| null = null;
+  topay:any = {};
 
   constructor(
     private authService: AuthService,
     private eventService: EventServiceService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private dataService: DataService,
   ) {}
 
   ngOnInit() {
-    this.user = this.authService.getUser(); // Récupérer les informations de l'utilisateur
+    this.user = this.authService.getUser(); 
+    this.getCategory();
+    // Récupérer les informations de l'utilisateur
     // this.eventService.getEvents().subscribe(
     //   (data: any) => {
     //     this.event = data;
@@ -46,11 +53,6 @@ user: Utilisateur | null = null;
           this.event = data;
           console.log("event:",data);
         });
-
-       
-
-
-    
   }
 
   back(){
@@ -58,9 +60,26 @@ user: Utilisateur | null = null;
   }
 
   increment(){
+    if(this.ticketNumber >=this.category?.billets[0]?.nbreBilletParPersonne){
+      return this.ticketNumber == this.category?.billets[0]?.nbreBilletParPersonne;
+    }
     return this.ticketNumber++
   }
 
+  async getCategory(){
+    const res = await fetch("http://localhost:8080/gestEvent/categories/AfficherBillet");
+    const reults = await res.json();
+    this.categories = reults;
+    console.log(this.categories);
+    this.category = this.categories[0]
+    console.log(this.category);
+
+  }
+
+  stockercat(c:any){
+    this.category= this.categories.find(data => data.category === c.value);
+    console.log(this.category)
+  }
   decrement(){
     if(this.ticketNumber <=0){
       return this.ticketNumber == 0;
@@ -68,4 +87,10 @@ user: Utilisateur | null = null;
     return this.ticketNumber--;
   }
 
+  sendData() {
+    this.topay.ticketNumber = this.ticketNumber;
+    this.topay.category = this.category;
+    this.topay.evnt = this.event;
+    this.dataService.changeData(this.topay);
+  }
 }

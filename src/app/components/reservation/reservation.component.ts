@@ -2,7 +2,7 @@ import {NgClass, NgForOf} from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
-import {DataService} from "../../service/DataTransfer";
+import {DataService} from "../../service/DataService";
 import {AuthService} from "../../service/auth.service";
 import {Utilisateur} from "../../models/utilisateurmodel.component";
 

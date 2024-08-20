@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import {LitleService} from "../../service/Litle.service";
-import {DataService} from "../../service/DataTransfer";
+import {DataService} from "../../service/DataService";
 import {AuthService} from "../../service/auth.service";
 import {NgForOf} from "@angular/common";
 

@@ -1,7 +1,7 @@
 <body>
-  <div class="main">
-    <div *ngIf="event" 
-       class="img-container" 
+  <div class="main" *ngFor="let event of event">
+    <div
+       class="img-container"
        [ngStyle]="{'background-image': 'linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8)), url(\'data:image/png;base64,' + event.image + '\')',}">
       <div class="topinfo">
         <div class="back" (click)="back()">
@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    <div *ngIf="event" class="details">
+    <div class="details">
       <div class="eventDetail">
         <div class="typeEvent">
           <h3  class="type">{{ event.category.category }}</h3>
@@ -74,9 +74,7 @@
       <div class="tckt0">
         <p class="tcket1">Ticket(s)</p>
         <select class="Category" (change)="stockercat($event.target)">
-          @for (cat of categories; track $index) {
-          <option  value="{{cat.category}}" >{{ cat.category }}</option>
-          }
+            <option *ngFor="let cat of categories " value="{{cat?.category}}" >{{ cat?.category }}</option>
         </select>
         <div class="itdec">
           <div class="iconeplus icon1" (click)="increment()">
@@ -104,5 +102,4 @@
     </div>
   </div>
   </body>
-  
-  
+

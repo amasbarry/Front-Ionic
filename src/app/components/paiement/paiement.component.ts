@@ -55,14 +55,14 @@ export class PaiementComponent  implements OnInit {
     let i = 0;
     //console.log(this.data.category.id)
     let reservation:any = {
-      /*billet: {
-        id: this.data.category.billets[0].id,
-      },*/
+      "billet": {
+        "id": this.data.category.billets[0].id,
+      },
       "statut": {
         "id": 1
       },
       "evenement": {
-        "id": this.data.evnt.id
+        "id": this.data.evnt[0].id
       },
       "methodePaiement": {
         "id": 1

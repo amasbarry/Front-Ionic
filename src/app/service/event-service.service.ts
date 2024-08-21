@@ -73,9 +73,9 @@ export class EventServiceService {
   getNextEvent(): Observable<Evenement> {
     return this.Http.get<Evenement>(`${this.url}/next_event`);
   }
-  
-  getEventById(id: number): Observable<Evenement> {
-    return this.Http.get<Evenement>(`${this.url}/EventById/${id}`);
+
+  getEventById(id: number): Observable<any> {
+    return this.Http.get<any>(`${this.url}/EventById/${id}`);
   }
 
 

@@ -23,14 +23,17 @@ import { DataService } from 'src/app/service/DataService';
 })
 export class EventDetailsPage implements OnInit {
 
- 
+
   ticketNumber: number = 1;
   categories: any[] = [];
+
   category:any;
 
   user: Utilisateur | null = null;
-  event:Evenement| null = null;
+
   topay:any = {};
+  eventId: any
+
 
   constructor(
     private authService: AuthService,
@@ -41,20 +44,28 @@ export class EventDetailsPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.user = this.authService.getUser(); 
-    this.getCategory();
+    this.user = this.authService.getUser();
     // Récupérer les informations de l'utilisateur
     // this.eventService.getEvents().subscribe(
     //   (data: any) => {
     //     this.event = data;
     //     console.log("event:",data);
     //   },
-       const eventId = this.route.snapshot.params['id'];
-        this.eventService.getEventById(eventId).subscribe((data: Evenement) => {
-          this.event = data;
-          console.log("event:",data);
-        });
+       this.eventId = this.route.snapshot.params['id'];
+       this.getEventById();
+       this.getCategory();
+
+
   }
+
+  getEventById(){
+    this.eventService.getEventById(this.eventId).subscribe(data=>{
+      this.event.push(data);
+      console.log(this.event);
+    })
+  }
+
+  event: any[] = [];
 
   back(){
     history.back()

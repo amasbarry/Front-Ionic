@@ -34,10 +34,13 @@ export class PaiementComponent  implements OnInit {
   Ids = {
     eventId: 0
   }
+
+  ListReservation:any[] = []
+
   ngOnInit() {
     this.getBookingData();
     this.user = this.authService.getUser();
-
+    this.getReservation()
   }
   back(){
     history.back()
@@ -51,12 +54,32 @@ export class PaiementComponent  implements OnInit {
     )
   }
 
+  async getReservation(): Promise<any> {
+    try {
+      const res = await fetch(`http://localhost:8080/gestEvent/reservation/ListReservationBycat/`+ this.data.category.id +``);
+
+      ///******Vérifie si la requête a réussi******/
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+
+      const results = await res.json();
+      this.ListReservation = results;
+
+      console.log(results);
+      console.log(this.ListReservation);
+
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
   async reservation(){
     let i = 0;
     //console.log(this.data.category.id)
     let reservation:any = {
       "billet": {
-        "id": this.data.category.billets[0].id,
+        "id": this.data.category.id,
       },
       "statut": {
         "id": 1
@@ -71,28 +94,34 @@ export class PaiementComponent  implements OnInit {
         "id": this.user.id
       },
       "category": {
-        "id": this.data.category.id
+        "id": this.data.category.categoryBillet.id
       }
     }
 
-    for( i=0; i < this.data.ticketNumber; i++){
-    try {
-      const res = await fetch("http://localhost:8080/gestEvent/reservation/reserver", {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(reservation)
-      });
-      if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`);
+    if(this.ListReservation.length >= this.data.ticketNumber){
+      for( i=0; i < this.data.ticketNumber; i++){
+        try {
+          const res = await fetch("http://localhost:8080/gestEvent/reservation/reserver", {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(reservation)
+          });
+          if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+          }
+          const data = await res.json();
+          console.log(data);
+        } catch (error) {
+          console.error('Error:', error);
+        }
       }
-      const data = await res.json();
-      console.log(data);
-    } catch (error) {
-      console.error('Error:', error);
     }
-  }
+
+    if(this.ListReservation.length < this.data.ticketNumber){
+      console.log("Le nombre de reservation par personne pour ce type de ticket atteint")
+    }
   }
 
   sendData() {

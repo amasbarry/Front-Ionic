@@ -1,7 +1,6 @@
 <ion-content class="ion-padding">
   <div class="auth-container">
     <img src="assets/icon/logo.png" alt="Logo" class="logo">
-    <h2>Connexion</h2>
     <ion-item lines="none" class="form-item">
       <i class="fas fa-envelope icon-orange" slot="start"></i>
       <ion-input [(ngModel)]="email" type="email" placeholder="Email"></ion-input>
@@ -13,13 +12,15 @@
       </ion-input>
     </ion-item>
     <div class="checkbox-container">
-      <ion-checkbox [(ngModel)]="rememberMe"></ion-checkbox>
+      <!-- <ion-checkbox [(ngModel)]="rememberMe"></ion-checkbox> -->
+      <ion-toggle aria-label="Custom Orange toggle" color="warning"  [checked]="true"></ion-toggle>
       <ion-label>Souviens-toi de moi</ion-label>
     </div>
-    <a class="forgot-password" href="#">Mot de passe oublié?</a>
-    <ion-button expand="block" (click)="login()">
+
+    <ion-button  (click)="login()">
       Se connecter <i class="fas fa-arrow-right"></i>
     </ion-button>
     <p class="signup-link">Vous n'avez pas de compte ? <a routerLink="/register">Inscrivez-vous</a></p>
+    <a class="forgot-password" href="#">Mot de passe oublié?</a>
   </div>
 </ion-content>

@@ -4,7 +4,7 @@
     <div class="logo">
       <img src="../../../assets/icon/logo.png" alt="">
     </div>
-  
+
     <i routerLink="/notification" class="fa-solid fa-bell"></i>
   </div>
 
@@ -20,7 +20,7 @@
       <i class="fa-solid fa-microphone"></i> <h6>Concert</h6>
     </span>
     <span (click)="selectCategory('CONFERENCE')">
-      <i class="fa-solid fa-medal"></i> <h6>Cérémonie</h6>
+      <i class="fa-solid fa-medal"></i> <h6>Conference</h6>
     </span>
     <span (click)="selectCategory('Exposition')">
       <i class="fa-solid fa-road-barrier"></i> <h6>Exposition</h6>
@@ -53,11 +53,11 @@
     <div *ngFor="let ev of event" class="imgContent">
       <img [src]="'data:image/png;base64,' + ev.image" alt="Image de l'événement">
     </div>
-    
+
   </div>
 
   <div class="TitrelisteEvent">
-    <h5>Tendance</h5> 
+    <h5>Tendance</h5>
     <h5 routerLink="/events">Voir Tout</h5>
   </div>
 

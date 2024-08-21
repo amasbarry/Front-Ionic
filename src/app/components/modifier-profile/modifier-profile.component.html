@@ -25,21 +25,21 @@
       <ion-item>
         <ion-input label="Email" labelPlacement="floating" formControlName="email" placeholder="example@gmail.com" required></ion-input>
       </ion-item>
-      <ion-item>
+      <!-- <ion-item>
         <ion-input  type="text" labelPlacement="floating" formControlName="motDePasse" placeholder="password" required></ion-input>
         <ion-input-password-toggle  style="color: #FF7700;" slot="end"></ion-input-password-toggle>
-      </ion-item>
-      
-       <div class="button">
-        <ion-button type="submit">Modifier</ion-button>
+      </ion-item> -->
+
+      <div class="button">
+        <ion-button type="submit" >Modifier</ion-button>
         <ion-button (click)="logout()">Déconnexion</ion-button>
-      
-       </div>
+
+      </div>
     </form>
 
   </ion-card>
   <ion-card routerLink="/politique">
-    <span ><i class="fa-solid fa-lock" ></i>Politique de confidentialité</span> 
+    <span ><i class="fa-solid fa-lock" ></i>Politique de confidentialité</span>
   </ion-card>
 </div>
 <app-navbar> </app-navbar><p>

@@ -23,6 +23,13 @@ import { DataService } from 'src/app/service/DataService';
 })
 export class EventDetailsPage implements OnInit {
 
+  constructor(
+    private authService: AuthService,
+    private eventService: EventServiceService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private dataService: DataService,
+  ) {}
 
   ticketNumber: number = 1;
   categories: any[] = [];
@@ -33,15 +40,6 @@ export class EventDetailsPage implements OnInit {
 
   topay:any = {};
   eventId: any
-
-
-  constructor(
-    private authService: AuthService,
-    private eventService: EventServiceService,
-    private router: Router,
-    private route: ActivatedRoute,
-    private dataService: DataService,
-  ) {}
 
   ngOnInit() {
     this.user = this.authService.getUser();
@@ -54,7 +52,6 @@ export class EventDetailsPage implements OnInit {
        this.eventId = this.route.snapshot.params['id'];
        this.getEventById();
        this.getCategory();
-
 
   }
 
@@ -72,23 +69,26 @@ export class EventDetailsPage implements OnInit {
   }
 
   increment(){
-    if(this.ticketNumber >=this.category?.billets[0]?.nbreBilletParPersonne){
-      return this.ticketNumber == this.category?.billets[0]?.nbreBilletParPersonne;
+    if(this.ticketNumber >=this.category?.nbreBilletParPersonne){
+      return this.ticketNumber == this.category?.nbreBilletParPersonne;
     }
-    return this.ticketNumber++
+    return ++this.ticketNumber
   }
 
   async getCategory(){
-    const res = await fetch("http://localhost:8080/gestEvent/categories/AfficherBillet");
-    const reults = await res.json();
-    this.categories = reults;
-    console.log(this.categories);
+    console.log("eventId", this.eventId);
+    const res = await fetch(`http://localhost:8080/gestEvent/billets/getcategoryByevtId/`+ this.eventId +``);
+    const results = await res.json()
+    this.categories = results;
+    console.log("Categories",this.categories);
     this.category = this.categories[0]
-    console.log(this.category);
+    console.log("Category",this.category);
+    this.categories.forEach(p=>{
+      console.log("CategoryBillet",p.categoryBillet?.category);})
   }
 
   stockercat(c:any){
-    this.category= this.categories.find(data => data.category === c.value);
+    this.categories.find(data => data.category === c.value);
     console.log(this.category)
   }
   decrement(){

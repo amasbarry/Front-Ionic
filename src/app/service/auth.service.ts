@@ -45,6 +45,11 @@ export class AuthService {
     return userJson ? JSON.parse(userJson) : null;
   }
   
+    // Méthode pour mettre à jour l'utilisateur dans localStorage
+    updateStoredUser(updatedUser: Utilisateur): void {
+      this.storeUser(updatedUser);
+      console.log('Utilisateur mis à jour dans localStorage:', updatedUser);
+    }
 
   clearUser(): void {
     localStorage.removeItem('InfoUser');

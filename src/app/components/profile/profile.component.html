@@ -11,31 +11,31 @@
   <ion-card >
     <form  [formGroup]="profileForm" (ngSubmit)="onSubmit()">
       <ion-item>
-        <ion-input label="Nom" labelPlacement="floating" formControlName="nom"  placeholder="Entrer votre nom" required></ion-input>
+        <ion-input label="Nom"  labelPlacement="floating" formControlName="nom" [attr.readonly]="true"  placeholder="Entrer votre nom" required></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-input label="Nom d’utilisateur" labelPlacement="floating" formControlName="prenom" placeholder="Entrer votre nom d'utilisateur" required></ion-input>
+        <ion-input label="Nom d’utilisateur" labelPlacement="floating" [attr.readonly]="true" formControlName="prenom" placeholder="Entrer votre nom d'utilisateur" required></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-input label="Numéro" labelPlacement="floating" formControlName="telephone" placeholder="+223 77-77-77-77" required></ion-input>
+        <ion-input label="Numéro" labelPlacement="floating" [attr.readonly]="true" formControlName="telephone" placeholder="+223 77-77-77-77" required></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-input label="Email" labelPlacement="floating" formControlName="email" placeholder="example@gmail.com" required></ion-input>
+        <ion-input label="Email" labelPlacement="floating" [attr.readonly]="true" formControlName="email"  placeholder="example@gmail.com" required></ion-input>
       </ion-item>
-      <ion-item>
-        <ion-input  type="text" labelPlacement="floating" formControlName="motDePasse" placeholder="password" required></ion-input>
+      <!-- <ion-item>
+        <ion-input  type="text" labelPlacement="floating" [attr.readonly]="true" formControlName="motDePasse" placeholder="password" required></ion-input>
         <ion-input-password-toggle  style="color: #FF7700;" slot="end"></ion-input-password-toggle>
       </ion-item>
-      
+       -->
        <div class="button">
-        <ion-button type="submit">Modifier</ion-button>
+        <ion-button routerLink="/modifier">ModifierMonProfile</ion-button>
         <ion-button (click)="logout()">Déconnexion</ion-button>
-      
        </div>
     </form>
+
 
   </ion-card>
   <ion-card routerLink="/politique">

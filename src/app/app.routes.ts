@@ -101,6 +101,13 @@ export const routes: Routes = [
         (m) => m.ProfileComponent
       ),
   },
+  {
+    path: 'modifier',
+    loadComponent: () =>
+      import('./components/modifier-profile/modifier-profile.component').then(
+        (m) => m.ModifierProfileComponent
+      ),
+  },
 
   // {
   //   path: 'profile',

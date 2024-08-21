@@ -88,7 +88,7 @@ export class EventDetailsPage implements OnInit {
   }
 
   stockercat(c:any){
-    this.categories.find(data => data.category === c.value);
+    this.category = this.categories.find(data => data.categoryBillet.category === c.value);
     console.log(this.category)
   }
   decrement(){

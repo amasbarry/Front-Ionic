@@ -66,7 +66,6 @@ export class PaiementComponent  implements OnInit {
       const results = await res.json();
       this.ListReservation = results;
 
-      console.log(results);
       console.log(this.ListReservation);
 
     } catch (error) {
@@ -75,6 +74,7 @@ export class PaiementComponent  implements OnInit {
   }
 
   async reservation(){
+    console.log(this.ListReservation.length);
     let i = 0;
     //console.log(this.data.category.id)
     let reservation:any = {
@@ -99,6 +99,8 @@ export class PaiementComponent  implements OnInit {
     }
 
     if(this.ListReservation.length >= this.data.ticketNumber){
+      alert("Le nombre de reservation par personne pour ce type de ticket est atteint")
+    }else {
       for( i=0; i < this.data.ticketNumber; i++){
         try {
           const res = await fetch("http://localhost:8080/gestEvent/reservation/reserver", {
@@ -117,10 +119,6 @@ export class PaiementComponent  implements OnInit {
           console.error('Error:', error);
         }
       }
-    }
-
-    if(this.ListReservation.length < this.data.ticketNumber){
-      console.log("Le nombre de reservation par personne pour ce type de ticket atteint")
     }
   }
 

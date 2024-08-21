@@ -7,7 +7,7 @@
   <div class="ticketBloc" *ngFor="let tickets of ticket">
     <div class="ticket">
       <div class="ticketHead">
-        <img src="../../../assets/icon/Rectangle 30.png" alt="">
+        <img [src]="'data:image/png;base64,'+tickets.reservation.evenement.image" alt="">
         <h4>{{ tickets.reservation?.evenement?.nom }} - {{tickets?.category?.category}}</h4>
       </div>
       <div class="dach">

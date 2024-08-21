@@ -6,7 +6,7 @@
   </div>
   <div class="cartes" [routerLink] = "['/ticket']" *ngFor="let res of reservation" (click)="stockBookingIds(res.id); sendData()">
     <div class="left">
-      <img src="./../../assets/icon/keb.png" alt="">
+      <img [src]="'data:image/png;base64,'+res.image" alt="">
     </div>
     <div class="right">
       <div class="tout">
@@ -19,7 +19,7 @@
           <div class="desc"><h6>{{res.description}}</h6></div>
         </div>
       </div>
-    </div> 
+    </div>
   </div>
 </div>
 <app-navbar></app-navbar>

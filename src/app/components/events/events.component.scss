@@ -9,6 +9,7 @@
     font-family: 'poppins';
     margin-top: 70px;
     padding-top: 40px;
+    // padding-bottom: 50px;
 }
 .body::-webkit-scrollbar{
     display: none;
@@ -190,30 +191,42 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-
+    // background-color: red;
+    margin-bottom: 50px;
+    .infoZone{
+        width: 99%;
+        height: 38;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 3px;
+    }
     .event{
         width: 45%;
-        // height: 150px;
+        height: max-content;
         background-color: white;
         border-radius: 20px;
         display: flex;
         padding: 5px;
+        box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.336);
         flex-direction: column;
         align-items: center;
         margin-top: 15px;
-        // justify-content: center;
+        // background-color: aqua;
+        justify-content: space-between;
         .image{
             position: relative;
             // background-color: red;
             width: 99%;
-            // height: 50%;
+            height: 130px;
             // background-color: red;
-            margin-bottom: -15px;
+            // margin-bottom: -15px;
             border-radius: 20px;
             img{
                 width: 100%;
-                height: 90%;
+                height: 100%;
                 object-fit: cover;
+                object-position: top;
                 border-radius: 20px;
             }
         }
@@ -223,6 +236,7 @@
         width: 98%;
         display: flex;
         justify-content: space-between;
+        // background-color: gray;
     }
 
     .lieu{
@@ -231,13 +245,16 @@
         justify-content: flex-start;
         align-items: center;
         color: var(--orange);
+        margin-top: -5px;
         i{
             margin-right: 5px;
         }
+        // background-color: black;
         
     }
     .suite{
         width: 98%;
         text-align: left;
+        // background-color: yellow;
     }
 }

@@ -27,7 +27,7 @@ import { AuthService } from 'src/app/service/auth.service';
 })
 export class PaiementComponent  implements OnInit {
 
-    constructor(private dataTransfer: DataService, private authService: AuthService,) { addIcons({ arrowBackSharp,callOutline }) }
+  constructor(private dataTransfer: DataService, private authService: AuthService,) { addIcons({ arrowBackSharp,callOutline }) }
 
   data: any;
   user : any;
@@ -37,6 +37,7 @@ export class PaiementComponent  implements OnInit {
   ngOnInit() {
     this.getBookingData();
     this.user = this.authService.getUser();
+
   }
   back(){
     history.back()
@@ -52,26 +53,28 @@ export class PaiementComponent  implements OnInit {
 
   async reservation(){
     let i = 0;
+    //console.log(this.data.category.id)
     let reservation:any = {
-      billet: {
-        id: this.data.category.billets.id,
+      /*billet: {
+        id: this.data.category.billets[0].id,
+      },*/
+      "statut": {
+        "id": 1
       },
-      statut: {
-        id: 1
+      "evenement": {
+        "id": this.data.evnt.id
       },
-      evenement: {
-        id: this.data.evnt.id
+      "methodePaiement": {
+        "id": 1
       },
-      methodePaiement: {
-        id: 1
+      "utilisateur": {
+        "id": this.user.id
       },
-      utilisateur: {
-        id: this.user.id
-      },
-      category: {
-        id: this.data.category
+      "category": {
+        "id": this.data.category.id
       }
     }
+
     for( i=0; i < this.data.ticketNumber; i++){
     try {
       const res = await fetch("http://localhost:8080/gestEvent/reservation/reserver", {
@@ -96,5 +99,4 @@ export class PaiementComponent  implements OnInit {
     this.Ids.eventId = this.data.evnt.id;
     this.dataTransfer.changeData(this.Ids);
   }
-
 }

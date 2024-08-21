@@ -14,8 +14,8 @@ export class UtilisateurServiceService {
   
   constructor(private http: HttpClient) {}
 
-  createUser(utilisateur: Utilisateur): Observable<Utilisateur> {
-    return this.http.post<Utilisateur>(`${this.baseUrl}/CreerClient`, utilisateur);
+  createUser(formData: FormData): Observable<Utilisateur> {
+    return this.http.post<Utilisateur>(`${this.baseUrl}/CreerClient`, formData);
   }
 
   updateUser(id: number, utilisateur: Utilisateur): Observable<Utilisateur> {

@@ -7,8 +7,8 @@
   <div class="ticketBloc" *ngFor="let tickets of ticket">
     <div class="ticket">
       <div class="ticketHead">
-        <img src="../../../assets/icon/Rectangle 30.png" alt=""> 
-        <h4>{{ tickets.reservation.evenement.nom }} - {{tickets.category.category}}</h4>
+        <img src="../../../assets/icon/Rectangle 30.png" alt="">
+        <h4>{{ tickets.reservation?.evenement?.nom }} - {{tickets?.category?.category}}</h4>
       </div>
       <div class="dach">
         <span class="boule1"></span>
@@ -28,27 +28,27 @@
             </span>
             <span>
                 <strong>Prix</strong><br>
-                {{tickets.reservation.billet?.prix}}
+                {{tickets.reservation?.billet?.prix}}
             </span>
           </div>
           <div class="zone">
             <span>
                 <strong>Prénom</strong> <br>
-              {{ tickets.reservation.utilisateur.prenom }}
+              {{ tickets.reservation?.utilisateur?.prenom }}
             </span>
             <span>
                 <strong>Nom</strong><br>
-              {{ tickets.reservation.utilisateur.nom }}
+              {{ tickets.reservation?.utilisateur?.nom }}
             </span>
           </div>
           <div class="zone">
             <span>
                 <strong>Date</strong> <br>
-              {{ tickets.reservation.evenement.datedebut}}
+              {{ tickets.reservation?.evenement?.datedebut}}
             </span>
             <span>
                 <strong>Heure</strong><br>
-              {{ tickets.reservation.evenement.heure}}
+              {{ tickets.reservation?.evenement?.heure}}
             </span>
           </div>
 

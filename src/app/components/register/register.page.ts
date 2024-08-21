@@ -6,6 +6,7 @@ import { Router, RouterModule } from '@angular/router';
 import { Role, Utilisateur } from 'src/app/models/utilisateurmodel.component';
 import { UtilisateurServiceService } from 'src/app/service/utilisateur-service.service';
 import { RoleService } from 'src/app/service/role.service';
+import { image } from 'ionicons/icons';
 
 @Component({
   selector: 'app-register',
@@ -21,26 +22,9 @@ import { RoleService } from 'src/app/service/role.service';
   styleUrls: ['./register.page.scss']
 })
 export class RegisterPage {
-  // fullName: string = '';
-  // email: string = '';
-  // password: string = '';
-  // confirmPassword: string = '';
-
-  // constructor() {}
-
-  // register() {
-  //   if (this.password === this.confirmPassword) {
-  //     // Implement your registration logic here
-  //     console.log('User registered:', this.fullName, this.email);
-  //   } else {
-  //     console.error('Passwords do not match');
-  //   }
-  // }
-
-
   utilisateurForm: FormGroup;
   utilisateurs: Utilisateur[] = [];
-  roles: Role[] = [];
+  // roles: Role[] = [];
 
   roless : any =[]
   isEditing: boolean = false;
@@ -58,7 +42,8 @@ export class RegisterPage {
       email: ['', [Validators.required, Validators.email]],
       telephone: ['', Validators.required],
       motDePasse: ['', Validators.required],
-      roleId: [4]
+      image: [null, [Validators.required]],
+      role: [4]
     });
   }
 
@@ -67,39 +52,55 @@ export class RegisterPage {
   }
 
   
-
   onSubmit(): void {
     if (this.isEditing && this.currentUserId !== null) {
       this.updateUser();
     } else {
       this.addUser();
-      console.log(this.addUser());
     }
   }
-
-  addUser(): void {
-    const newUser: Utilisateur = this.utilisateurForm.value;
-    newUser.role = { id: this.utilisateurForm.value.roleId } as Role; // Map roleId to role object
-    this.utilisateurService.createUser(newUser).subscribe(
-      data => {
-        this.utilisateurs.push(data);
-        this.utilisateurForm.reset();
-        console.log("Client ajouter avec success!!!");
-        this.router.navigate(['/login']);
-      },
-      error => console.error(error)
-    );
-  }
-
- 
   
-  editUser(user: Utilisateur): void {
-    this.isEditing = true;
-    this.currentUserId = user.id !== undefined ? user.id : null;
-    this.utilisateurForm.patchValue({
-      ...user
-    });
+  addUser(): void {
+    if (this.utilisateurForm.valid) {
+      const formValue = this.utilisateurForm.value;
+      // formValue.role.id = 4;
+      formValue.role = {id:4};
+      const formData = new FormData();
+      const clientPayload = { ...formValue };
+  
+      // Retirer le champ image de l'objet JSON
+      delete clientPayload.image;
+      
+      
+      formData.append('client', JSON.stringify(clientPayload));
+  
+      const imageFile = this.utilisateurForm.get('image')?.value;
+      if (imageFile) {
+        formData.append('image', imageFile);
+      }
+     
+      this.utilisateurService.createUser(formData).subscribe({
+        next: (data) => {
+          this.utilisateurs.push(data);
+          this.utilisateurForm.reset();
+        },
+        error: (err) => {
+          console.error('Erreur lors de la création de user:', err);
+        },
+      });
+    } else {
+      console.log('Formulaire invalide');
+    }
   }
+  
+  onFileChange(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      this.utilisateurForm.patchValue({ image: file });
+      this.utilisateurForm.get('image')?.updateValueAndValidity();
+    }
+  }
+  
 
   updateUser(): void {
     if (this.currentUserId !== null) {
@@ -126,18 +127,5 @@ export class RegisterPage {
       () => this.utilisateurs = this.utilisateurs.filter(u => u.id !== id),
       error => console.error(error)
     );
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 }

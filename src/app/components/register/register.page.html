@@ -29,7 +29,10 @@
         <ion-input id="motDePasse" formControlName="motDePasse" type="password" placeholder="Mot de Passe"></ion-input>
         <i class="fas fa-eye-slash icon-orange" slot="end"></i>
       </ion-item>
-      
+      <ion-item>
+        <ion-label >Image</ion-label>
+        <input type="file" (change)="onFileChange($event)" />
+      </ion-item>
       <!-- <ion-item class="form-item">
         <i class="fas fa-user-tag icon-orange" slot="start"></i>
         <ion-select id="roleId" formControlName="roleId" placeholder="Sélectionner un rôle">

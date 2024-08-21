@@ -7,41 +7,30 @@
   
     <i routerLink="/notification" class="fa-solid fa-bell"></i>
   </div>
+
   <div class="recherhe">
     <div>
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" name="" id="" placeholder="Recherche des Evenements...">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Recherche des Evenements..." [(ngModel)]="EVENTE" (input)="filterEvents()">
     </div>
   </div>
 
   <div class="trier">
-      <span>
-        <i class="fa-solid fa-microphone"></i> <h6>Concert</h6>
-      </span>
-      <span>
-        <i class="fa-solid fa-medal"></i> <h6>Ceremonie</h6>
-      </span>
-      <span>
-        <i class="fa-solid fa-road-barrier"></i> <h6>Exposition</h6>
-      </span>
+    <span (click)="selectCategory('CONCERT')">
+      <i class="fa-solid fa-microphone"></i> <h6>Concert</h6>
+    </span>
+    <span (click)="selectCategory('CONFERENCE')">
+      <i class="fa-solid fa-medal"></i> <h6>Cérémonie</h6>
+    </span>
+    <span (click)="selectCategory('Exposition')">
+      <i class="fa-solid fa-road-barrier"></i> <h6>Exposition</h6>
+    </span>
   </div>
 
   <div class="texte">
     <i class="fa-solid fa-synagogue"></i>
     <h5>Prochain événement</h5>
   </div>
-
-  <!-- <div *ngFor="let event of nevent" class="CurentEvent">
-    <img [src]="'data:image/png;base64,'+event.image" alt="">
-    <div class="contenue" routerLink="/detail">
-        <span>{{ getPrixForEvent(event.id) ? getPrixForEvent(event.id) + 'F' : 'Prix non disponible' }}</span>
-        <h4>{{ event.nom }}</h4>
-        <div>
-          <h5>{{ event.date }}</h5> <strong><i class="fa-solid fa-location-dot"></i>{{ event.lieu }}</strong>
-        </div>
-    </div>
-  </div> -->
-
 
   <div *ngIf="nevent" class="CurentEvent" (click)="goToEventDetail(nevent.id)">
     <img [src]="'data:image/png;base64,' + nevent.image" alt="Image de l'événement">
@@ -54,26 +43,25 @@
     </div>
   </div>
 
-
-
   <div class="texte">
     <i class="fa-regular fa-calendar"></i>
     <h5>Liste des Evenements</h5>
   </div><br>
 
-  <div class="EventScroll">
-    <img src="../../../assets/icon/suntomoonbko_1723197167493.jpeg" alt="">
-    <img src="../../../assets/icon/Rectangle 30.png" alt="">
-    <img src="../../../assets/icon/Rectangle 4395.png" alt="">
-    <img src="../../../assets/icon/suntomoonbko_1723197167493.jpeg" alt="">
-    <img src="../../../assets/icon/Rectangle 30.png" alt="">
+  <div  class="EventScroll">
+
+    <div *ngFor="let ev of event" class="imgContent">
+      <img [src]="'data:image/png;base64,' + ev.image" alt="Image de l'événement">
+    </div>
+    
   </div>
 
   <div class="TitrelisteEvent">
-    <h5>Tendance</h5> <h5 routerLink="/events">Voir Tout</h5>
+    <h5>Tendance</h5> 
+    <h5 routerLink="/events">Voir Tout</h5>
   </div>
 
-  <div *ngFor="let ev of event" class="listeEvent" (click)="goToEventDetail(ev.id)">
+  <div *ngFor="let ev of filteredEvents" class="listeEvent" (click)="goToEventDetail(ev.id)">
     <img [src]="'data:image/png;base64,'+ev.image" alt="">
     <div class="infoEvent">
       <div class="topInfo">
@@ -81,7 +69,7 @@
         <p style="color: #FF7700;">{{ getPrixForEvent(ev.id) ? getPrixForEvent(ev.id) + ' CFA' : 'Prix non disponible' }}</p>
       </div>
       <span style="color: #FF7700;"><i class="fa-solid fa-location-dot"></i>{{ ev.lieu }}</span>
-      <span><i class="fa-regular fa-calendar"></i> {{ ev.lieu }} - {{ ev.datefin }}</span>
+      <span><i class="fa-regular fa-calendar"></i> {{ ev.datedebut }} - {{ ev.datefin }}</span>
     </div>
   </div>
 

@@ -23,6 +23,7 @@ import { DataService } from 'src/app/service/DataService';
 })
 export class EventDetailsPage implements OnInit {
 
+ 
   ticketNumber: number = 1;
   categories: any[] = [];
   category:any;

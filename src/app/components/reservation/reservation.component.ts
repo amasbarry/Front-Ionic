@@ -23,7 +23,6 @@ import {Utilisateur} from "../../models/utilisateurmodel.component";
     ],
 })
 export class ReservationComponent  implements OnInit {
-
   currentUser = this.authService.getUser();
   activeRoute: string = '';
   reservation: any[] = [];

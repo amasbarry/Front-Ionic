@@ -7,6 +7,7 @@ export interface Utilisateur {
   email: string;
   telephone: string;
   motDePasse: string;
+  image: string;
   role: Role;  // Le rôle est lié ici
 }
 

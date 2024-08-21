@@ -38,7 +38,7 @@
       <H2>Tous les evenements</H2>
     </span>
 
-    
+
     <div class="eventliste">
 
       <div *ngFor="let ev of event"  class="event">
@@ -72,11 +72,11 @@
 
     <div class="head">
       <div *ngIf="user" routerLink="/profile" class="zone1">
-      
+
           <img  [src]="'data:image/png;base64,' + user.image" alt="Profile Image"
           style="width: 50px; height: 50px; border-radius: 50%;">
-         
-        <h5>{{ user.prenom }} <br>{{ user.nom }}</h5>
+
+        <h5> &#64;{{ user.email.split("@")[0]}}</h5>
       </div>
       <i routerLink="/notification" class="fa-solid fa-bell"></i>
     </div>
@@ -111,7 +111,7 @@
         <i class="fa-solid fa-road-barrier"></i> <h6>Exposition</h6>
       </span>
     </div>
-    
+
 
     <span class="title">
       <H2>Tous les evenements</H2>
@@ -129,17 +129,17 @@
           <div class="suite">
             <h4>{{ ev.nom }}</h4>
           </div>
-  
+
           <div class="lieu">
             <i class="fa-solid fa-location-dot"></i>{{ ev.lieu }}
           </div>
-  
+
           <div class="info">
             <span>{{ ev.category.category }}</span>
             <span>{{ getPrixForEvent(ev.id) ? getPrixForEvent(ev.id) + ' CFA' : 'Prix non disponible' }}</span>
           </div>
         </div>
-        
+
 
       </div>
     </div>

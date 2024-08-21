@@ -62,7 +62,7 @@
 
       <br>
       <div class="qrZone">
-          <img src="http://localhost:8080/gestEvent/QrCode/fileSystem/image?fileName={{tickets.nameFile}}" alt="{{tickets.nameFile}}">
+          <img [src]="'data:image/png;base64,' + tickets.file " alt="{{tickets.nameFile}}">
       </div>
       <br>
     </div>

@@ -56,7 +56,7 @@
     width: 100%;
     margin-top: 10px;
     @extend %heritage;
-    
+
     div{
         position: relative;
         width: 90%;
@@ -90,7 +90,7 @@
 
 .trier{
     width: 98%;
-    
+
     margin: 20px auto;
     @extend %betwen;
     justify-content: space-around;
@@ -165,7 +165,7 @@
         justify-content: space-around;
         // align-items: center;
         background-color: rgba(0, 0, 0, 0.685);
-        
+
         span{
             @extend %heritage;
             width: 100px;
@@ -175,7 +175,7 @@
             background-color: var(--white);
 
         }
-        
+
         div{
             width: 100%;
             @extend %betwen;
@@ -200,7 +200,7 @@
     height: 190px;
     margin: 0 auto;
     justify-content: flex-start;
-    overflow-x: scroll; 
+    overflow-x: scroll;
     border-radius: 10px;
     .imgContent{
         display: flex;
@@ -216,7 +216,7 @@
                 object-position: top;
             }
     }
-    
+
 }
 
 
@@ -250,7 +250,11 @@
     background-color: var(--white);
     border-radius: 10px;
     padding: 10px;
-
+    p, .lieui, .datei{
+      white-space: nowrap;
+      text-overflow : ellipsis;
+      overflow: hidden;
+    }
     img{
         width: 35%;
         height: 96%;

@@ -22,6 +22,11 @@ export class EventServiceService {
   private urlCat = 'http://localhost:8080/gestEvent/categories';
   private url = 'http://localhost:8080/gestEvent/event';
   private urlBillet = 'http://localhost:8080/gestEvent/billets';
+  // private urlType = 'http://localhost:8080/EvenType';
+  // private urlLieu = 'http://localhost:8080/gestEvent/lieu/ListeLieu';
+  // private urlCat = 'http://localhost:8080/gestEvent/categories';
+  // private url = 'http://localhost:8080/gestEvent/event';
+  // private urlBillet = 'http://localhost:8080/gestEvent/billets';
 
   constructor(private Http: HttpClient) {}
 
@@ -77,6 +82,9 @@ export class EventServiceService {
   getEventById(id: number): Observable<any> {
     return this.Http.get<any>(`${this.url}/EventById/${id}`);
   }
-
+  // Méthode pour récupérer les 3 événements les plus réservés
+  getTop3Evenements(): Observable<Evenement[]> {
+    return this.Http.get<Evenement[]>(`${this.url}/top2`);
+  }
 
 }

@@ -28,14 +28,12 @@ export class ReservationComponent  implements OnInit {
   reservation: any[] = [];
   Ids = {
     eventId: 0
-  }
-
+  };
 
   private baseUrl = 'http://localhost:8080/gestEvent/reservation/';
 
   constructor(private authService: AuthService, private router: Router, private dataService: DataService) {
     // Subscribe to route changes
-    //
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.activeRoute = event.urlAfterRedirects;
@@ -43,38 +41,21 @@ export class ReservationComponent  implements OnInit {
     });
   }
 
-
   ngOnInit() {
     // Set the initial active route
-    this.authService.getUser();
     this.activeRoute = this.router.url;
-    this.getReservation(this.currentUser?.email)
+    if (this.currentUser) {
+      this.getReservation(this.currentUser.email);
+    } else {
+      this.router.navigate(['/login']); // Redirection si l'utilisateur n'est pas connecté
+    }
   }
 
-  /*async getReservation() {
-   try {
-     const res = await fetch(`${this.baseUrl}/ListReservation`);
-
-     ///******Vérifie si la requête a réussi******
-     if (!res.ok) {
-       throw new Error(`HTTP error! status: ${res.status}`);
-     }
-
-     const results = await res.json();
-     this.reservation = results;
-
-     console.log(results);
-     console.log(this.reservation);
-
-   } catch (error) {
-     console.error('Error fetching data:', error);
-   }
- }*/
   async getReservation(email: any): Promise<any> {
     try {
-      const res = await fetch(`${this.baseUrl}userReservation?email=`+ email +``);
+      const res = await fetch(`${this.baseUrl}userReservation?email=${email}`);
 
-      ///******Vérifie si la requête a réussi******/
+      // Vérifie si la requête a réussi
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }
@@ -90,11 +71,20 @@ export class ReservationComponent  implements OnInit {
     }
   }
 
-  stockBookingIds(e:any){
+  stockBookingIds(e: any) {
     this.Ids.eventId = e;
   }
 
-  /*Envoie des donnéés de la reservation au composant ticket*/
+  onReservationClick(reservationId: number) {
+    if (this.currentUser) {
+      this.stockBookingIds(reservationId);
+      this.sendData();
+      this.router.navigate(['/ticket']); // Redirection vers la page ticket
+    } else {
+      this.router.navigate(['/login']); // Redirection vers la page login si non connecté
+    }
+  }
+
   sendData() {
     this.dataService.changeData(this.Ids);
   }

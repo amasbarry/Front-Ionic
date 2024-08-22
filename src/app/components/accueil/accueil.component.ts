@@ -32,12 +32,14 @@ export class AccueilComponent  implements OnInit {
   event: Evenement[] = [];
   filteredEvents: Evenement[] = [];
   nevent: Evenement | null = null;
+  topReservedEvents: Evenement[] = [];
+  filteredTopReservedEvents: Evenement[] = [];
+
   selectedCategory: string | null = null;
-  prixMap: Map<number, number> = new Map(); // Map pour stocker les prix associés aux événements
+  prixMap: Map<number, number> = new Map();
   newMessage = false;
   notifications: any[] = [];
   notificationsalert: any;
-
 
   constructor(
     private authService: AuthService,
@@ -64,8 +66,6 @@ export class AccueilComponent  implements OnInit {
     this.eventService.getEvents().subscribe(
       (events: Evenement[]) => {
         this.event = events;
-
-        // Récupérer les prix pour chaque événement
         const priceObservables = this.event.map(event =>
           this.eventService.getPrixBillet(event.id).pipe(
             map(prixData => ({ eventId: event.id, prix: prixData }))
@@ -76,10 +76,19 @@ export class AccueilComponent  implements OnInit {
           prices.forEach(priceData => {
             this.prixMap.set(priceData.eventId, priceData.prix);
           });
-
-          // Appliquer les filtres après que tous les prix soient récupérés
           this.filterEvents();
         });
+      }
+    );
+
+    // Récupérer les événements les plus réservés
+    this.eventService.getTop3Evenements().subscribe(
+      (events: Evenement[]) => {
+        this.topReservedEvents = events;
+        this.filterTopReservedEvents(); // Appliquer le filtre après récupération
+      },
+      (error) => {
+        console.error('Erreur lors de la récupération des événements les plus réservés:', error);
       }
     );
   }
@@ -96,6 +105,7 @@ export class AccueilComponent  implements OnInit {
   selectCategory(category: string) {
     this.selectedCategory = category;
     this.filterEvents(); // Appliquer le filtre dès que la catégorie change
+    this.filterTopReservedEvents(); // Appliquer le filtre sur les événements les plus réservés
   }
 
   getPrixForEvent(eventId: number): number | undefined {
@@ -108,22 +118,27 @@ export class AccueilComponent  implements OnInit {
     console.log('Déconnexion');
   }
 
+  filterTopReservedEvents() {
+    this.filteredTopReservedEvents = this.topReservedEvents.filter(event =>
+      (this.selectedCategory ? event.category.category === this.selectedCategory : true) &&
+      (event.nom.toLowerCase().includes(this.EVENTE.toLowerCase()) ||
+       event.description.toLowerCase().includes(this.EVENTE.toLowerCase()) ||
+       event.lieu.toLowerCase().includes(this.EVENTE.toLowerCase()))
+    );
+  }
+
   goToEventDetail(eventId: number) {
     this.router.navigate(['/details', eventId]);
   }
 
-  loadNotifications(id:any) {
+  loadNotifications(id: any) {
     this.notificationsService.getAllNotif(id).subscribe((data: { id: number; message: string | null; dateEnvoi: string | null }[]) => {
-      console.log(`Updated notifications length: ${this.notifications.length}`);
       if (data.length > this.notifications.length) {
-        console.log(`New data length: ${data.length}`);
         this.notificationsalert = data.length - this.notifications.length;
         this.newMessage = true;
       } else {
         this.notifications = data;
-        console.log(`Updated notifications length: ${this.notifications.length}`);
       }
-
     }, (error) => {
       console.error('Error fetching notifications:', error);
     });

@@ -37,7 +37,7 @@
     --inner-padding: 0;
     --padding-start: 0;
     --padding-end: 0;
-    margin:7%;
+    margin:4%;
     background-color: #f3f4f6;
     --background: #f3f4f6;
 
@@ -108,4 +108,21 @@
     font-size: 14px;
     text-decoration: none;
   }
+}
+.visitor{
+
+  margin-top: 20px;
+  width: 35vw;
+  height: 7vh;
+  background-color: var(--bleu);
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+}
+.visitor i{
+  margin-left:6vw;
+  background-color: var(--orange);
+  border-radius: 50%;
+  padding: 6px;
 }

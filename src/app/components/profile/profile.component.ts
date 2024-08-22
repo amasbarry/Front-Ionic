@@ -65,19 +65,21 @@ export class ProfileComponent implements OnInit {
     const user = this.authService.getUser();
     if (user) {
       this.currentUser = user;
-      this.user = user; // Ajoutez cette ligne pour assigner `user`
+      this.user = user;
       this.profileForm.patchValue({
         nom: user.nom,
         prenom: user.prenom,
         email: user.email,
         telephone: user.telephone,
-        role:4,
+        role: 4,
       });
       console.log("User récupéré avec succès:", user.role.role);
     } else {
       console.error('Erreur: utilisateur non trouvé');
+      this.router.navigate(['/login']); // Redirection vers la page de connexion si l'utilisateur n'est pas connecté
     }
   }
+  
 
 
 

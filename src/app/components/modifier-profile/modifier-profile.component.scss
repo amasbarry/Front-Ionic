@@ -56,6 +56,11 @@ ion-card-header {
   align-items: center;
 
 }
+img{
+  width: 30vw;
+  height: 17vh;
+  border-radius: 50%;
+}
 
 .upload {
   position: absolute;
@@ -74,9 +79,10 @@ ion-button {
   justify-content: center;
   align-items:center;
   --background: var(--orange);
-  --border-radius: 40px;
-  width: 55%;
-  padding: 5%;
+  --border-radius: 10px;
+  width: 53%;
+ // padding: 5%;
+ margin: 3%;
 }
 .button{
   display: flex;
@@ -85,4 +91,13 @@ ion-button {
 }
 ion-input-password-toggle{
   color:var(--orange);
+}
+.politique{
+  font-family: poppins;
+  font-weight: bold;
+  text-align: center;
+}
+
+i{
+  margin-right: 6px;
 }

@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Lieu} from "../Modules/Lieu";
+import { Lieu } from '../models/utilisateurmodel.component';
+// import {Lieu} from "../Modules/Lieu";
 
 @Injectable({
   providedIn: 'root',
@@ -9,6 +10,7 @@ import {Lieu} from "../Modules/Lieu";
 export class LieuService {
 
   private baseUrl =  "http://localhost:8080/gestEvent/lieu";
+  // private baseUrl =  "http://localhost:8080/gestEvent/lieu";
 
   constructor(private http: HttpClient) { }
 

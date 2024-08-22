@@ -1,31 +1,31 @@
 <body>
   <div class="main" *ngFor="let event of event">
     <div
-       class="img-container"
-       [ngStyle]="{'background-image': 'linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8)), url(\'data:image/png;base64,' + event.image + '\')',}">
+      class="img-container"
+      [ngStyle]="{'background-image': 'linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8)), url(\'data:image/png;base64,' + event.image + '\')',}">
       <div class="topinfo">
         <div class="back" (click)="back()">
-          <img src="../../../assets/img/arrow_left.svg" alt="arrow_left" >
+          <img src="../../../assets/img/arrow_left.svg" alt="arrow_left">
         </div>
         <!-- <div class="sharefav">
           <div class="share"><img src="../../../assets/img/share.svg" alt="arrow_left"></div>
           <div class="fav"><img src="../../../assets/img/fav.svg" alt="arrow_left"></div>
         </div> -->
       </div>
-      <div  class="btominfo">
+      <div class="btominfo">
         <div class="nameTitle">
           <p class="date">{{ event.date }}</p>
           <p class="title">{{ event.nom }}</p>
         </div>
         <div class="typeEvent">
-          <h3 class="type">{{ event.category.category}}</h3>
+          <h3 class="type">{{ event.category.category }}</h3>
         </div>
       </div>
     </div>
     <div class="details">
       <div class="eventDetail">
         <div class="typeEvent">
-          <h3  class="type">{{ event.category.category }}</h3>
+          <h3 class="type">{{ event.category.category }}</h3>
         </div>
         <div class="place">
           <div class="iconeplace icon0">
@@ -74,14 +74,16 @@
       <div class="tckt0">
         <p class="tcket1">Ticket(s)</p>
         <select class="Category" (change)="stockercat($event.target)" *ngIf="categories.length">
-            <option *ngFor="let cat of categories " value="{{cat.categoryBillet?.category}}" >{{ cat.categoryBillet?.category }}</option>
+          <option *ngFor="let cat of categories" value="{{cat.categoryBillet?.category}}">
+            {{ cat.categoryBillet?.category }}
+          </option>
         </select>
         <div class="itdec">
           <div class="iconeplus icon1" (click)="increment()">
             <img src="../../../assets/img/plus.svg" alt="iconeplus">
           </div>
           <div class="iconeh">
-            <p class="nbr0" >{{ticketNumber}}</p>
+            <p class="nbr0">{{ ticketNumber }}</p>
             <div class="iconehe icon0h">
               <img src="../../../assets/img/icoh.svg" alt="iconeh">
             </div>
@@ -93,18 +95,17 @@
       </div>
       <div class="tckt01" *ngIf="categories.length">
         <div class="mtant0">
-          <p class="mtant">{{category?.prix}}</p>
+          <p class="mtant">{{ category?.prix }}</p>
         </div>
-        <div class="achat0" routerLink="/paiement">
+        <div class="achat0">
           <p class="achat1" (click)="sendData()">Acheter ticket(s)</p>
         </div>
       </div>
-      <div class="tckt01" *ngIf="!categories.length" >
-        <div class="achat01" routerLink="/paiement">
+      <div class="tckt01" *ngIf="!categories.length">
+        <div class="achat01">
           <p class="achat1" (click)="sendData()">Reserver</p>
         </div>
       </div>
     </div>
   </div>
-  </body>
-
+</body>

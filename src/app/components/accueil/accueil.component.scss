@@ -88,11 +88,49 @@
     }
 }
 
+// .trier{
+//     width: 98%;
+
+//     margin: 20px 2px;
+//     @extend %betwen;
+//     color: var(--white);
+//     span{
+//         @extend %heritage;
+//         // height: 50px;
+//         font-size: 1.2rem;
+//         padding:0px 10px;
+//         border-radius: 20px;
+//         background-color: var(--orange);
+//         i{
+//             margin-right: 5px;
+//         }
+//         @media screen and (max-width: 390px) {
+//             // display: none;
+//             font-size: 0.5rem;
+//             i{
+//                 font-size: 0.8rem;
+//             }
+//             // display: none;
+//         }
+//     }
+//     span:hover{
+//         cursor: pointer;
+//     }
+
+//     @media screen and (max-width: 400px) {
+//         // .trier span{
+//         //     display: hidden;
+//         // }
+//     }
+// }
+
+
 .trier{
     width: 98%;
 
-    margin: 20px 2px;
+    margin: 20px auto;
     @extend %betwen;
+    justify-content: space-around;
     color: var(--white);
     span{
         @extend %heritage;
@@ -123,6 +161,7 @@
         // }
     }
 }
+
 
 .texte{
     width: 94%;

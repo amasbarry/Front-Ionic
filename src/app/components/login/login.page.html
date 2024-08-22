@@ -1,25 +1,51 @@
 <ion-content class="ion-padding">
   <div class="auth-container">
     <img src="assets/icon/logo.png" alt="Logo" class="logo">
-    <ion-item lines="none" class="form-item">
-      <i class="fas fa-envelope icon-orange" slot="start"></i>
-      <ion-input [(ngModel)]="email" type="email" placeholder="Email"></ion-input>
-    </ion-item>
-    <ion-item lines="none" class="form-item">
-      <i class="fas fa-lock icon-orange" slot="start"></i>
-      <ion-input [(ngModel)]="password" type="password" placeholder="Mot de passe">
-        <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+      <ion-item lines="none" class="form-item">
+        <i class="fas fa-envelope icon-orange" slot="start"></i>
+        <ion-input
+          [(ngModel)]="email"
+          name="email"
+          type="email"
+          placeholder="Email"
+          required
+          email
+          #emailField="ngModel">
       </ion-input>
-    </ion-item>
-    <div class="checkbox-container">
-      <!-- <ion-checkbox [(ngModel)]="rememberMe"></ion-checkbox> -->
-      <ion-toggle aria-label="Custom Orange toggle" color="warning"  [checked]="true"></ion-toggle>
-      <ion-label>Souviens-toi de moi</ion-label>
-    </div>
+        <div *ngIf="emailField.invalid && emailField.touched" class="error-message">
+          Veuillez entrer un email valide.
+        </div>
+      </ion-item>
 
-    <ion-button  (click)="login()" class="login">
-      Se connecter <i class="fas fa-arrow-right"></i>
-    </ion-button>
+      <ion-item lines="none" class="form-item">
+        <i class="fas fa-lock icon-orange" slot="start"></i>
+        <ion-input
+          [(ngModel)]="password"
+          name="password"
+          type="password"
+          placeholder="Mot de passe"
+          required
+          minlength="4"
+          #passwordField="ngModel">
+        </ion-input>
+        <div *ngIf="passwordField.invalid && passwordField.touched" class="error-message">
+          Au moins 4caractères.
+        </div>
+      </ion-item>
+
+      <div class="checkbox-container">
+        <ion-toggle aria-label="Custom Orange toggle" color="warning" [checked]="true"></ion-toggle>
+        <ion-label>Souviens-toi de moi</ion-label>
+      </div>
+
+      <ion-button type="submit" class="login" [disabled]="loginForm.invalid">
+        Se connecter <i class="fas fa-arrow-right"></i>
+      </ion-button>
+    </form>
+    <button routerLink="/accueil" class="visitor">
+      Visiter <i class="fas fa-arrow-right"></i>
+    </button>
     <p class="signup-link">Vous n'avez pas de compte ? <a routerLink="/register">Inscrivez-vous</a></p>
     <a class="forgot-password" href="#">Mot de passe oublié?</a>
   </div>

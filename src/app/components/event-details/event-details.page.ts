@@ -99,9 +99,19 @@ export class EventDetailsPage implements OnInit {
   }
 
   sendData() {
-    this.topay.ticketNumber = this.ticketNumber;
-    this.topay.category = this.category;
-    this.topay.evnt = this.event;
-    this.dataService.changeData(this.topay);
+    if (!this.user) {
+      // Si l'utilisateur n'est pas connecté, le rediriger vers la page de connexion
+      this.router.navigate(['/login']);
+    } else {
+      // Si l'utilisateur est connecté, continuer avec la logique existante
+      this.topay.ticketNumber = this.ticketNumber;
+      this.topay.category = this.category;
+      this.topay.evnt = this.event;
+      this.dataService.changeData(this.topay);
+      
+      // Rediriger vers la page de paiement
+      this.router.navigate(['/paiement']);
+    }
   }
+  
 }

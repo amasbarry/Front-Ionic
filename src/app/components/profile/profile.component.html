@@ -1,5 +1,5 @@
 <div class="body">
-  <ion-card-header color="none">
+  <ion-card-header class="tof" color="none">
     <div *ngIf="user.image; else defaultImage" class="prof">
       <img [src]="'data:image/png;base64,' + user.image">
     </div>
@@ -38,7 +38,7 @@
 
 
   </ion-card>
-  <ion-card routerLink="/politique">
+  <ion-card class="politique" routerLink="/politique">
     <span ><i class="fa-solid fa-lock" ></i>Politique de confidentialité</span>
   </ion-card>
 </div>

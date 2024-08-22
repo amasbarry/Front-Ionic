@@ -8,7 +8,7 @@ const config: CapacitorConfig = {
     preferences: {
       ScrollEnabled: 'false',
       BackupWebStorage: 'none',
-      SplashMaintainAspectRatio: 'true',
+      SplashMaintainAspectRatio: 'true',  
       FadeSplashScreenDuration: '300',
       SplashShowOnlyFirstTime: 'false',
       SplashScreen: 'screen',
@@ -17,4 +17,4 @@ const config: CapacitorConfig = {
   }
 };
 
-export default config;
+export default config ;

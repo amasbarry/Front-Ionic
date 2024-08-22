@@ -1,10 +1,10 @@
 <div class="body">
   <div class="entete">
     <div class="texte">
-     <span>Mes reservations</span>
+      <span>Mes reservations</span>
     </div>
   </div>
-  <div class="cartes" [routerLink] = "['/ticket']" *ngFor="let res of reservation" (click)="stockBookingIds(res.id); sendData()">
+  <div class="cartes" *ngFor="let res of reservation" (click)="onReservationClick(res.id)">
     <div class="left">
       <img [src]="'data:image/png;base64,'+res.image" alt="">
     </div>

@@ -1,17 +1,14 @@
 <div class="body">
-
   <div class="head" *ngIf="newMessage">
     <div class="logo">
       <img src="../../../assets/icon/logo.png" alt="">
     </div>
-
     <i routerLink="/notification" class="fa-solid fa-bell">{{notificationsalert}}</i>
   </div>
   <div class="head" *ngIf="!newMessage">
     <div class="logo">
       <img src="../../../assets/icon/logo.png" alt="">
     </div>
-
     <i routerLink="/notification" class="fa-solid fa-bell"></i>
   </div>
 
@@ -29,7 +26,7 @@
     <span (click)="selectCategory('CONFERENCE')">
       <i class="fa-solid fa-medal"></i> <h6>Conference</h6>
     </span>
-    <span (click)="selectCategory('Exposition')">
+    <span (click)="selectCategory('EXPOSITION')">
       <i class="fa-solid fa-road-barrier"></i> <h6>Exposition</h6>
     </span>
   </div>
@@ -42,7 +39,6 @@
   <div *ngIf="nevent" class="CurentEvent" (click)="goToEventDetail(nevent.id)">
     <img [src]="'data:image/png;base64,' + nevent.image" alt="Image de l'événement">
     <div class="contenue" [routerLink]="['/detail', nevent.id]">
-      <!--<span>{{ getPrixForEvent(nevent.id) ? getPrixForEvent(nevent.id) + 'F' : 'Prix non disponible' }}</span>-->
       <h4>{{ nevent.nom }}</h4>
       <div>
         <h5>{{ nevent.datedebut }}</h5> <strong><i class="fa-solid fa-location-dot"></i>{{ nevent.lieu }}</strong>
@@ -55,25 +51,22 @@
     <h5>Liste des Evenements</h5>
   </div><br>
 
-  <div  class="EventScroll">
-
-    <div *ngFor="let ev of event" class="imgContent" (click)="goToEventDetail(ev.id)">
+  <div class="EventScroll">
+    <div *ngFor="let ev of filteredEvents" class="imgContent" (click)="goToEventDetail(ev.id)">
       <img [src]="'data:image/png;base64,' + ev.image" alt="Image de l'événement">
     </div>
-
   </div>
 
   <div class="TitrelisteEvent">
-    <h5>Tendance</h5>
+    <h5>Les Plus Réservés</h5>
     <h5 routerLink="/events">Voir Tout</h5>
   </div>
-
-  <div *ngFor="let ev of filteredEvents" class="listeEvent" (click)="goToEventDetail(ev.id)">
-    <img [src]="'data:image/png;base64,'+ev.image" alt="">
+  
+  <div *ngFor="let ev of filteredTopReservedEvents" class="listeEvent" (click)="goToEventDetail(ev.id)">
+    <img [src]="'data:image/png;base64,' + ev.image" alt="">
     <div class="infoEvent">
       <div class="topInfo">
         <p>{{ ev.category.category }}</p>
-        <!--<p style="color: #FF7700;">{{ getPrixForEvent(ev.id) ? getPrixForEvent(ev.id) + ' CFA' : 'Prix non disponible' }}</p>-->
       </div>
       <span class="lieui" style="color: #FF7700;"><i class="fa-solid fa-location-dot"></i>{{ ev.lieu }}</span>
       <span class="datei"><i class="fa-regular fa-calendar"></i> {{ ev.datedebut }} - {{ ev.datefin }}</span>

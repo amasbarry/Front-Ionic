@@ -18,8 +18,9 @@
         <ion-input label="Numero de Téléphone" type="tel" labelPlacement="floating" placeholder="Veuillez entrez votre numero"></ion-input>
       </ion-item>&nbsp;
       <ion-buttons>
-        <ion-button class="envoyez" (click)="reservation()" > Envoyez </ion-button>
+        <ion-button class="envoyez" (click)="reservation()" [routerLink]="['/paiement-effectuer']"> Envoyez </ion-button>
       </ion-buttons>
     </ion-toolbar>
   </div>
+
 </ion-content>

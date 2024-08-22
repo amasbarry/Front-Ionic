@@ -62,7 +62,7 @@
       </div>
 
       <br>
-      <div class="qrZone" [ngClass]="{'inactif': tickets.statutQrcode.statut === 'INACTIF'}">
+      <div class="qrZone" [ngClass]="{'inactif': tickets.statutTicket.statut === 'INACTIF'}">
         <img [src]="'data:image/png;base64,' + tickets.file " alt="{{tickets.nameFile}}">
       </div>
       <br>

@@ -56,7 +56,7 @@ export class PaiementComponent  implements OnInit {
 
   async getReservation(): Promise<any> {
     try {
-      const res = await fetch(`http://localhost:8080/gestEvent/reservation/ListReservationBycat/`+ this.data.category.id +``);
+      const res = await fetch(`http://localhost:8080/gestEvent/reservation/ListReservationBycat/`+ this.data.category.id +`/`+ this.data.category.categoryBillet.id +``);
 
       ///******Vérifie si la requête a réussi******/
       if (!res.ok) {

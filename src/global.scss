@@ -12,6 +12,13 @@ body{
 *{
   box-sizing: border-box;
 }
+*{
+  -moz-overflow-style: none;
+  scrollbar-width: none;
+}
+*::-webkit-scrollbar{
+  display: none
+}
 /*
  * App Global CSS
  * ----------------------------------------------------------------------------
@@ -51,9 +58,10 @@ body{
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+/*@import '@ionic/angular/css/palettes/dark.system.css';*/
 :root{
     --orange:#FF7700;
     --blanc:#FFFFFF;
     --blancsalle:#D9D9D9;
+    --bleu: #18385F;
 }

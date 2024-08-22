@@ -79,6 +79,7 @@ export class RegisterPage {
         next: (data) => {
           this.utilisateurs.push(data);
           this.utilisateurForm.reset();
+          this.router.navigate(["/succes"])
         },
         error: (err) => {
           console.error('Erreur lors de la création de user:', err);

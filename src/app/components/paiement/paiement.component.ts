@@ -35,14 +35,19 @@ export class PaiementComponent  implements OnInit {
     eventId: 0
   }
   ticketId : any = null
+  ticket : any
+  Tel:any
 
   ListReservation:any[] = []
+  ReservationAll:any[] = []
 
   ngOnInit() {
     this.getBookingData();
     this.user = this.authService.getUser();
     this.getReservation();
-    this.getTicketId()
+    this.getTicketId();
+    console.log(this.data.ticketNumber);
+    this.getReservationUser();
   }
   back(){
     history.back()
@@ -58,8 +63,11 @@ export class PaiementComponent  implements OnInit {
 
   getTicketId(){
     this.dataTransfer.currentData.subscribe(data=> {
-        this.ticketId = data
+        this.ticketId = data.id
+        this.ticket = data
         console.log("ticket id : " + this.ticketId);
+        console.log(this.ticket);
+
       }
     )
   }
@@ -68,6 +76,25 @@ export class PaiementComponent  implements OnInit {
   async getReservation(): Promise<any> {
     try {
       const res = await fetch(`http://localhost:8080/gestEvent/reservation/ListReservationBycat/`+ this.data.category.id +`/`+ this.data.category.categoryBillet.id +``);
+
+      ///******Vérifie si la requête a réussi******/
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+
+      const results = await res.json();
+      this.ReservationAll = results;
+
+      console.log(this.ListReservation);
+
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
+  async getReservationUser(): Promise<any> {
+    try {
+      const res = await fetch(`http://localhost:8080/gestEvent/reservation/ListReservationBycat/`+ this.data.category.id +`/`+ this.data.category.categoryBillet.id  +`/`+ this.user.id  +``);
 
       ///******Vérifie si la requête a réussi******/
       if (!res.ok) {
@@ -92,6 +119,7 @@ export class PaiementComponent  implements OnInit {
     let i = 0;
     //console.log(this.data.category.id)
     let reservation:any = {
+      "tel": `${this.Tel}`,
       "billet": {
         "id": this.data.category.id,
       },
@@ -114,7 +142,9 @@ export class PaiementComponent  implements OnInit {
 
     if(this.ListReservation.length >= this.data.category.nbreBilletParPersonne){
       alert("Le nombre de reservation par personne pour ce type de ticket est atteint")
-    }else {
+    }else if(this.ReservationAll.length >= this.data.category.quantiteDisponible){
+      alert("Le nombre de reservation pour ce type de ticket est atteint")
+    } else {
       for( i=0; i < this.data.ticketNumber; i++){
         try {
           const res = await fetch("http://localhost:8080/gestEvent/reservation/reserver", {
@@ -146,15 +176,19 @@ export class PaiementComponent  implements OnInit {
   }
 
   async cancelTickets(id: any){
-    try {
-      const res = await fetch("http://localhost:8080/gestEvent/QrCode/changeStatut/"+id+"", {
-        method: 'PATCH'
-      })
-      const results = await res.json();
-      console.log(results);
-    }catch (e){
-      console.log(e);
+    if (this.ticket.reservation.tel !== this.Tel){
+      alert("Your phone number is wrong. Please try with the number you used when booking")
+    }else {
+      try {
+        const res = await fetch("http://localhost:8080/gestEvent/QrCode/changeStatut/"+id+"", {
+          method: 'PATCH'
+        })
+        const results = await res.json();
+        console.log(results);
+      }catch (e){
+        console.log(e);
+      }
+      this.ngOnInit()
     }
-    this.ngOnInit()
   }
 }

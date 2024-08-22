@@ -116,7 +116,7 @@ export class PaiementComponent  implements OnInit {
     console.log("ticketNumber :" + this.data.ticketNumber);
     console.log("this.data.category.nbreBilletParPersonne :" + this.data.category.nbreBilletParPersonne);
 
-    let i = 0;
+    let i:number;
     //console.log(this.data.category.id)
     let reservation:any = {
       "tel": `${this.Tel}`,
@@ -145,7 +145,7 @@ export class PaiementComponent  implements OnInit {
     }else if(this.ReservationAll.length >= this.data.category.quantiteDisponible){
       alert("Le nombre de reservation pour ce type de ticket est atteint")
     } else {
-      for( i=0; i < this.data.ticketNumber; i++){
+      for( i=1; i <= this.data.ticketNumber; i++){
         try {
           const res = await fetch("http://localhost:8080/gestEvent/reservation/reserver", {
             method: 'POST',

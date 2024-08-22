@@ -74,7 +74,10 @@ export class PaiementComponent  implements OnInit {
   }
 
   async reservation(){
-    console.log(this.ListReservation.length);
+    console.log("ListReservation.length :" + this.ListReservation.length);
+    console.log("ticketNumber :" + this.data.ticketNumber);
+    console.log("this.data.category.nbreBilletParPersonne :" + this.data.category.nbreBilletParPersonne);
+
     let i = 0;
     //console.log(this.data.category.id)
     let reservation:any = {
@@ -98,7 +101,7 @@ export class PaiementComponent  implements OnInit {
       }
     }
 
-    if(this.ListReservation.length >= this.data.ticketNumber){
+    if(this.ListReservation.length >= this.data.category.nbreBilletParPersonne){
       alert("Le nombre de reservation par personne pour ce type de ticket est atteint")
     }else {
       for( i=0; i < this.data.ticketNumber; i++){

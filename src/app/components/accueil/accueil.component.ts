@@ -48,7 +48,7 @@ export class AccueilComponent  implements OnInit {
 
   ngOnInit() {
     this.user = this.authService.getUser();
-    this.loadNotifications();
+    this.loadNotifications(this.user?.id);
 
     // Récupérer le prochain événement
     this.eventService.getNextEvent().subscribe(
@@ -112,8 +112,8 @@ export class AccueilComponent  implements OnInit {
     this.router.navigate(['/details', eventId]);
   }
 
-  /*loadNotifications() {
-    this.notificationsService.getAllNotif().subscribe((data: { id: number; message: string | null; dateEnvoi: string | null }[]) => {
+  loadNotifications(id:any) {
+    this.notificationsService.getAllNotif(id).subscribe((data: { id: number; message: string | null; dateEnvoi: string | null }[]) => {
       console.log(`Updated notifications length: ${this.notifications.length}`);
       if (data.length > this.notifications.length) {
         console.log(`New data length: ${data.length}`);
@@ -127,5 +127,5 @@ export class AccueilComponent  implements OnInit {
     }, (error) => {
       console.error('Error fetching notifications:', error);
     });
-  }*/
+  }
 }

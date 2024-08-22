@@ -8,11 +8,11 @@ import { map } from 'rxjs/operators';
 })
 export class NotificationService {
   private baseUrl = 'http://localhost:8080/gestEvent/notif';
-  
+
   constructor(private http: HttpClient) {}
 
-  getAllNotif(): Observable<{ id: number; message: string | null; dateEnvoi: string | null }[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/Afficher`).pipe(
+  getAllNotif(id:any): Observable<{ id: number; message: string | null; dateEnvoi: string | null }[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/Afficher/${id}`).pipe(
       map(notifications => notifications.map(notification => ({
         id: notification.id,
         message: notification.message,

@@ -16,17 +16,17 @@ import { image } from 'ionicons/icons';
     CommonModule,
     FormsModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   templateUrl: './register.page.html',
-  styleUrls: ['./register.page.scss']
+  styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage {
   utilisateurForm: FormGroup;
   utilisateurs: Utilisateur[] = [];
   // roles: Role[] = [];
 
-  roless : any =[]
+  roless: any = [];
   isEditing: boolean = false;
   currentUserId: number | null = null;
 
@@ -43,15 +43,12 @@ export class RegisterPage {
       telephone: ['', Validators.required],
       motDePasse: ['', Validators.required],
       image: [null, [Validators.required]],
-      role: [4]
+      role: [4],
     });
   }
 
-  ngOnInit(): void {
-   
-  }
+  ngOnInit(): void {}
 
-  
   onSubmit(): void {
     if (this.isEditing && this.currentUserId !== null) {
       this.updateUser();
@@ -59,26 +56,25 @@ export class RegisterPage {
       this.addUser();
     }
   }
-  
+
   addUser(): void {
     if (this.utilisateurForm.valid) {
       const formValue = this.utilisateurForm.value;
       // formValue.role.id = 4;
-      formValue.role = {id:4};
+      formValue.role = { id: 4 };
       const formData = new FormData();
       const clientPayload = { ...formValue };
-  
+
       // Retirer le champ image de l'objet JSON
       delete clientPayload.image;
-      
-      
+
       formData.append('client', JSON.stringify(clientPayload));
-  
+
       const imageFile = this.utilisateurForm.get('image')?.value;
       if (imageFile) {
         formData.append('image', imageFile);
       }
-     
+
       this.utilisateurService.createUser(formData).subscribe({
         next: (data) => {
           this.utilisateurs.push(data);
@@ -92,7 +88,7 @@ export class RegisterPage {
       console.log('Formulaire invalide');
     }
   }
-  
+
   onFileChange(event: any): void {
     const file = event.target.files[0];
     if (file) {
@@ -100,32 +96,57 @@ export class RegisterPage {
       this.utilisateurForm.get('image')?.updateValueAndValidity();
     }
   }
-  
 
   updateUser(): void {
     if (this.currentUserId !== null) {
       const updatedUser: Utilisateur = this.utilisateurForm.value;
-     // updatedUser.role = { id: this.utilisateurForm.value.roleId } as Role; // Map roleId to role object
-      this.utilisateurService.updateUser(this.currentUserId, updatedUser).subscribe(
-        data => {
-          const index = this.utilisateurs.findIndex(u => u.id === this.currentUserId);
-          if (index !== -1) {
-            this.utilisateurs[index] = data;
-          }
-          this.utilisateurForm.reset();
-          this.isEditing = false;
-          this.currentUserId = null;
-        },
-        error => console.error(error)
-      );
+      // updatedUser.role = { id: this.utilisateurForm.value.roleId } as Role; // Map roleId to role object
+      this.utilisateurService
+        .updateUser(this.currentUserId, updatedUser)
+        .subscribe(
+          (data) => {
+            const index = this.utilisateurs.findIndex(
+              (u) => u.id === this.currentUserId
+            );
+            if (index !== -1) {
+              this.utilisateurs[index] = data;
+            }
+            this.utilisateurForm.reset();
+            this.isEditing = false;
+            this.currentUserId = null;
+          },
+          (error) => console.error(error)
+        );
     }
   }
-  
 
   deleteUser(id: number): void {
     this.utilisateurService.deleteUser(id).subscribe(
-      () => this.utilisateurs = this.utilisateurs.filter(u => u.id !== id),
-      error => console.error(error)
+      () => (this.utilisateurs = this.utilisateurs.filter((u) => u.id !== id)),
+      (error) => console.error(error)
     );
+  }
+
+  togglePasswordVisibility() {
+  // Récupérer les éléments
+  const passwordInput = document.getElementById('passwordInput') as HTMLInputElement;
+  const showIcon = document.getElementById('show');
+  const hideIcon = document.getElementById('hide');
+
+  if (passwordInput && showIcon && hideIcon) {  // Vérifier que les éléments ne sont pas null
+    if (passwordInput.type === 'password') {
+      // Changer le type de l'input en text
+      passwordInput.type = 'text';
+      // Cacher l'icône "show" et afficher l'icône "hide"
+      showIcon.style.display = 'none';
+      hideIcon.style.display = 'inline';
+    } else {
+      // Changer le type de l'input en password
+      passwordInput.type = 'password';
+      // Afficher l'icône "show" et cacher l'icône "hide"
+      showIcon.style.display = 'inline';
+      hideIcon.style.display = 'none';
+    }
+  }
 }
 }

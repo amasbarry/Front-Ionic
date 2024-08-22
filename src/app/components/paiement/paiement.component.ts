@@ -34,13 +34,15 @@ export class PaiementComponent  implements OnInit {
   Ids = {
     eventId: 0
   }
+  ticketId : any = null
 
   ListReservation:any[] = []
 
   ngOnInit() {
     this.getBookingData();
     this.user = this.authService.getUser();
-    this.getReservation()
+    this.getReservation();
+    this.getTicketId()
   }
   back(){
     history.back()
@@ -53,6 +55,15 @@ export class PaiementComponent  implements OnInit {
       }
     )
   }
+
+  getTicketId(){
+    this.dataTransfer.currentData.subscribe(data=> {
+        this.ticketId = data
+        console.log("ticket id : " + this.ticketId);
+      }
+    )
+  }
+
 
   async getReservation(): Promise<any> {
     try {
@@ -128,5 +139,22 @@ export class PaiementComponent  implements OnInit {
   sendData() {
     this.Ids.eventId = this.data.evnt.id;
     this.dataTransfer.changeData(this.Ids);
+  }
+
+  isNumber(value: any): boolean {
+    return !isNaN(value);
+  }
+
+  async cancelTickets(id: any){
+    try {
+      const res = await fetch("http://localhost:8080/gestEvent/QrCode/changeStatut/"+id+"", {
+        method: 'PATCH'
+      })
+      const results = await res.json();
+      console.log(results);
+    }catch (e){
+      console.log(e);
+    }
+    this.ngOnInit()
   }
 }

@@ -1,5 +1,5 @@
-<ion-content class="ion-padding">
-  <div class="logo"> <img src="assets/icon/logo.png" alt="Logo" ></div>
+<!-- <div class="logo"> <img src="assets/icon/logo.png" alt="Logo" ></div>
+<ion-content>
   <div class="auth-container">
 
     <form [formGroup]="utilisateurForm" (ngSubmit)="onSubmit()">
@@ -25,10 +25,7 @@
 
       <ion-item class="form-item">
 
-        <!-- <i class="fas fa-lock icon-orange" slot="start"></i>
-        <ion-input id="motDePasse" formControlName="motDePasse" type="password" placeholder="Mot de Passe"></ion-input>
-        <i class="fas fa-eye-slash icon-orange" slot="end"></i> -->
-
+        
         <ion-input type="password" label="Password" value="NeverGonnaGiveYouUp" id="motDePasse" formControlName="motDePasse">
           <ion-input-password-toggle slot="end" color="warning"></ion-input-password-toggle>
         </ion-input>
@@ -37,16 +34,59 @@
         <ion-label >Image</ion-label>
         <input type="file" (change)="onFileChange($event)" />
       </ion-item>
-      <!-- <ion-item class="form-item">
-        <i class="fas fa-user-tag icon-orange" slot="start"></i>
-        <ion-select id="roleId" formControlName="roleId" placeholder="Sélectionner un rôle">
-          <ion-select-option *ngFor="let role of roles" [value]="role.id">{{ role.role }}</ion-select-option>
-        </ion-select>
-      </ion-item> -->
+     
       <ion-button  type="submit">
         S INSCRIRE<i class="fas fa-arrow-right"></i>
       </ion-button>
 
     </form>
   </div>
-</ion-content>
+</ion-content> -->
+
+
+<div class="body">
+
+  <div class="content">
+
+    <div class="image">
+        <img src="assets/icon/logo.png" alt="Logo">
+    </div>
+    <form [formGroup]="utilisateurForm" (ngSubmit)="onSubmit()">
+
+      <span class="inputZone">
+          <i class="fas fa-user icon-orange" slot="start"></i>
+          <input type="text" placeholder="Nom" formControlName="nom">
+      </span>
+      
+      <span class="inputZone">
+          <i class="fas fa-user icon-orange" slot="start"></i>
+          <input type="text" placeholder="prenom" formControlName="prenom">
+      </span>
+
+      <span class="inputZone">
+          <i class="fas fa-envelope icon-orange" slot="start"></i>
+          <input type="email" placeholder="Email" formControlName="email">
+      </span>
+
+      <span class="inputZone">
+          <i class="fas fa-phone icon-orange" slot="start"></i>
+          <input type="text" placeholder="Télephone" formControlName="telephone">
+      </span>
+
+      <span class="inputZone">
+          <i class="fa-solid fa-eye" id="hide" (click)="togglePasswordVisibility()"></i>
+          <i class="fa-solid fa-eye-slash" id="show" (click)="togglePasswordVisibility()"></i>
+          <input  type="password" placeholder="mot de pass" formControlName="motDePasse" id="passwordInput">
+      </span>
+
+      <span class="inputZone">
+          <!-- <i class="fas fa-phone icon-orange" slot="start"></i> -->
+          <input type="file" placeholder="image" (change)="onFileChange($event)">
+      </span>
+
+
+      <button type="submit">S'inscrire <i class="fas fa-arrow-right"></i></button>
+    </form>
+  </div>
+
+</div>

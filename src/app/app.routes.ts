@@ -81,6 +81,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'succes',
+    loadComponent: () =>
+      import('./components/succes/succes.component').then(
+        (m) => m.SuccesComponent
+      ),
+  },
+  {
     path: 'register',
     loadComponent: () =>
       import('./components/register/register.page').then(
@@ -140,7 +147,7 @@ export const routes: Routes = [
   },
 
 
- 
+
 
 
 

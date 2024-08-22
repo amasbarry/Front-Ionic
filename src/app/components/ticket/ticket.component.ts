@@ -3,14 +3,14 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import {LitleService} from "../../service/Litle.service";
 import {DataService} from "../../service/DataService";
 import {AuthService} from "../../service/auth.service";
-import {NgForOf} from "@angular/common";
+import {NgClass, NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-ticket',
   templateUrl: './ticket.component.html',
   styleUrls: ['./ticket.component.scss'],
   standalone: true,
-  imports: [RouterLink, RouterOutlet, NgForOf],
+  imports: [RouterLink, RouterOutlet, NgForOf, NgClass],
 })
 export class TicketComponent  implements OnInit {
 
@@ -60,5 +60,7 @@ export class TicketComponent  implements OnInit {
       console.log(e);
     }
   }
-
+  sendData(id: number) {
+    this.dataTransfer.changeData(id);
+  }
 }

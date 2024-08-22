@@ -1,10 +1,11 @@
 <div class="body">
   <div class="title">
     <!-- <div class="titleContent"> -->
-      <i class="fa-solid fa-arrow-left" (click)="back()"></i> <H3>Ticket details</H3>
+    <i class="fa-solid fa-arrow-left" (click)="back()"></i> <H3>Ticket details</H3>
     <!-- </div> -->
   </div>
   <div class="ticketBloc" *ngFor="let tickets of ticket">
+    <div class="annuler" [routerLink]="['/paiement']" (click)="sendData(tickets.id)"><button>Annuler</button></div>
     <div class="ticket">
       <div class="ticketHead">
         <img [src]="'data:image/png;base64,'+tickets.reservation.evenement.image" alt="">
@@ -12,7 +13,7 @@
       </div>
       <div class="dach">
         <span class="boule1"></span>
-          <hr>
+        <hr>
         <span class="boule2"></span>
       </div>
       <div class="InfoTicket">
@@ -24,11 +25,11 @@
           <div class="zone">
             <span>
                 <strong>TicketId</strong> <br>
-                {{tickets.ticketId}}
+              {{tickets.ticketId}}
             </span>
             <span>
                 <strong>Prix</strong><br>
-                {{tickets.reservation?.billet?.prix}}
+              {{tickets.reservation?.billet?.prix}}
             </span>
           </div>
           <div class="zone">
@@ -61,13 +62,13 @@
       </div>
 
       <br>
-      <div class="qrZone">
-          <img [src]="'data:image/png;base64,' + tickets.file " alt="{{tickets.nameFile}}">
+      <div class="qrZone" [ngClass]="{'inactif': tickets.statutQrcode.statut === 'INACTIF'}">
+        <img [src]="'data:image/png;base64,' + tickets.file " alt="{{tickets.nameFile}}">
       </div>
       <br>
     </div>
   </div>
   <div class="btnEvent">
-      <span routerLink="/events">Events</span>
+    <span routerLink="/events">Events</span>
   </div>
 </div>

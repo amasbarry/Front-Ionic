@@ -1,0 +1,77 @@
+
+  
+  /* Wrapper du contenu */
+  .content-wrapper {
+    background-color: #fff;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 27px;
+    padding: 32px 47px 98px;
+    width: 100%;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.14px;
+  }
+  
+  /* Icones et illustrations */
+  .success-icon,
+  .illustration,
+  .confirmation-image {
+    object-fit: contain;
+    margin-top: 20px;
+    max-width: 100%;
+  }
+  
+  .success-icon {
+    width: 34px;
+    aspect-ratio: 0.97;
+  }
+  
+  .illustration {
+    width: 242px;
+    aspect-ratio: 1.49;
+  }
+  
+  .confirmation-image {
+    width: 70vw;
+    height: auto;
+    margin-top: 6px;
+    aspect-ratio: 1.02;
+    
+  }
+  
+  /* Titre et message de succès */
+  .success-title {
+    color: #0d120e;
+    margin-top: 29px;
+    font: 700 24px/1 'AirbnbCereal_W_Bd', -apple-system, Roboto, Helvetica, sans-serif;
+    letter-spacing: 0.24px;
+  }
+  
+  .success-message {
+    color: #7f909f;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 500;
+    font-family: 'AirbnbCereal_W_Md', sans-serif;
+  }
+  
+  .connection-button {
+    border-radius: 15px;
+    background-color: #f3660e;
+    color: #fff;
+    margin-top: 7px;
+    width: 80%;
+    padding: 16px 70px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 15px 30px rgba(215, 4, 4, 0.11);
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  
+ 
+  

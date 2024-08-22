@@ -91,9 +91,8 @@
 .trier{
     width: 98%;
 
-    margin: 20px auto;
+    margin: 20px 2px;
     @extend %betwen;
-    justify-content: space-around;
     color: var(--white);
     span{
         @extend %heritage;

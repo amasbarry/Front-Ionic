@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { EventServiceService } from 'src/app/service/event-service.service';
 import { Evenement } from 'src/app/models/Evenement';
 import { forkJoin, map } from 'rxjs';
+import {NotificationService} from "../../service/notification.service";
 
 
 @Component({
@@ -15,8 +16,8 @@ import { forkJoin, map } from 'rxjs';
   templateUrl: './accueil.component.html',
   styleUrls: ['./accueil.component.scss'],
   standalone: true,
-  imports: 
-  [ 
+  imports:
+  [
     RouterLink,
     RouterOutlet,
     NavbarComponent,
@@ -33,15 +34,21 @@ export class AccueilComponent  implements OnInit {
   nevent: Evenement | null = null;
   selectedCategory: string | null = null;
   prixMap: Map<number, number> = new Map(); // Map pour stocker les prix associés aux événements
+  newMessage = false;
+  notifications: any[] = [];
+  notificationsalert: any;
+
 
   constructor(
     private authService: AuthService,
     private eventService: EventServiceService,
-    private router: Router
+    private router: Router,
+    private notificationsService: NotificationService
   ) {}
 
   ngOnInit() {
     this.user = this.authService.getUser();
+    this.loadNotifications();
 
     // Récupérer le prochain événement
     this.eventService.getNextEvent().subscribe(
@@ -104,4 +111,21 @@ export class AccueilComponent  implements OnInit {
   goToEventDetail(eventId: number) {
     this.router.navigate(['/details', eventId]);
   }
+
+  /*loadNotifications() {
+    this.notificationsService.getAllNotif().subscribe((data: { id: number; message: string | null; dateEnvoi: string | null }[]) => {
+      console.log(`Updated notifications length: ${this.notifications.length}`);
+      if (data.length > this.notifications.length) {
+        console.log(`New data length: ${data.length}`);
+        this.notificationsalert = data.length - this.notifications.length;
+        this.newMessage = true;
+      } else {
+        this.notifications = data;
+        console.log(`Updated notifications length: ${this.notifications.length}`);
+      }
+
+    }, (error) => {
+      console.error('Error fetching notifications:', error);
+    });
+  }*/
 }

@@ -95,13 +95,13 @@
         <div class="mtant0">
           <p class="mtant">{{category?.prix}}</p>
         </div>
-        <div class="achat0">
-          <p class="achat1" routerLink="/paiement" (click)="sendData()">Acheter ticket(s)</p>
+        <div class="achat0" routerLink="/paiement">
+          <p class="achat1" (click)="sendData()">Acheter ticket(s)</p>
         </div>
       </div>
-      <div class="tckt01" *ngIf="!categories.length">
-        <div class="achat01">
-          <p class="achat1" routerLink="/paiement" (click)="sendData()">Reserver</p>
+      <div class="tckt01" *ngIf="!categories.length" >
+        <div class="achat01" routerLink="/paiement">
+          <p class="achat1" (click)="sendData()">Reserver</p>
         </div>
       </div>
     </div>

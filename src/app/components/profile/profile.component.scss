@@ -8,7 +8,6 @@
     overflow-y: scroll;
 }
 
-
 .bloc {
     width: 100%;
     height: 700px;
@@ -23,7 +22,7 @@
     border-bottom: 4px solid black;
 }
 body .body ion-card {
-    background-color: #ffebcd; 
+    background-color: #ffebcd;
 }
 
 
@@ -31,7 +30,7 @@ body .body ion-card {
     --background: none;
     --box-shadow : none;
     }
-  
+
  .md{
     --background-color:red;
  }
@@ -54,7 +53,7 @@ ion-card-header {
     --color: #9efff0;
     justify-content: center;
     align-items: center;
-    
+
   }
 
 .upload {
@@ -69,9 +68,9 @@ ion-card-header {
     border-radius: 550px;
 }
 
-ion-button { 
+ion-button {
     flex-direction: row;
-    justify-content: center; 
+    justify-content: center;
     align-items:center;
     --background: var(--orange);
     --border-radius: 40px;

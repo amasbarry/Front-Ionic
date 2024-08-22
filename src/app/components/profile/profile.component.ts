@@ -10,7 +10,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { Evenement } from 'src/app/models/Evenement';
 import { Role, Utilisateur } from 'src/app/models/utilisateurmodel.component';
 import { AuthService } from 'src/app/service/auth.service';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import { UtilisateurServiceService } from 'src/app/service/utilisateur.service';
 
 @Component({
@@ -18,16 +18,17 @@ import { UtilisateurServiceService } from 'src/app/service/utilisateur.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
   standalone: true,
-  imports: 
-  [
-    IonicModule,
-    RouterOutlet, 
-    RouterLink,
-    NavbarComponent,
-    HomePage,
-    NgIf,
-    ReactiveFormsModule
-  ],
+  imports:
+    [
+      IonicModule,
+      RouterOutlet,
+      RouterLink,
+      NavbarComponent,
+      HomePage,
+      NgIf,
+      ReactiveFormsModule,
+      FormsModule
+    ],
 })
 export class ProfileComponent implements OnInit {
   selectedImage: string | undefined;
@@ -38,8 +39,8 @@ export class ProfileComponent implements OnInit {
   currentUser: Utilisateur | undefined;
   passwordFieldType: string = 'password';
 
-  
-  
+
+
   constructor(
     router: Router,
     private authService: AuthService,
@@ -77,9 +78,9 @@ export class ProfileComponent implements OnInit {
       console.error('Erreur: utilisateur non trouvé');
     }
   }
-  
-  
-  
+
+
+
   logout() {
     this.authService.clearUser();
     this.router.navigate(['/home']);
@@ -90,7 +91,7 @@ export class ProfileComponent implements OnInit {
     if (this.profileForm.valid && this.user) {
       const updatedUser: Utilisateur = this.profileForm.value;
       updatedUser.role = { id: this.profileForm.value.role } as Role;
-  
+
       this.utilisateurService.updateUser(this.user.id, updatedUser).subscribe({
         next: (response) => {
           console.log("Client modifié avec succès !!!", response);
@@ -113,7 +114,7 @@ export class ProfileComponent implements OnInit {
       console.error('Formulaire invalide ou utilisateur non trouvé');
     }
   }
-  
+
 
 
 
@@ -121,7 +122,7 @@ export class ProfileComponent implements OnInit {
   //   if (this.profileForm.valid && this.user) {
   //     const updatedUser: Utilisateur = this.profileForm.value;
   //     updatedUser.role = { id: this.profileForm.value.role } as Role;
-  
+
   //     this.utilisateurService.updateUser(this.user.id, updatedUser).subscribe({
   //       next: (response) => {
   //         console.log("Client modifié avec succès !!!", response);
@@ -145,12 +146,12 @@ export class ProfileComponent implements OnInit {
   //     console.error('Formulaire invalide ou utilisateur non trouvé');
   //   }
   // }
-  
+
   getUserInfo() {
     const user = this.authService.getUser();
     console.log('User Info:', user);
   }
-  
+
 
   async selectionImage() { // Nom de la fonction en camelCase
     const image = await Camera.getPhoto({

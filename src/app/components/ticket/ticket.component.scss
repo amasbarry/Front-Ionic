@@ -18,6 +18,11 @@
     justify-content: center;
 }
 
+p, span{
+  white-space: nowrap;
+  text-overflow : ellipsis;
+  overflow: hidden;
+}
 
 .title{
     position: relative;

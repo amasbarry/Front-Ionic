@@ -8,7 +8,7 @@
     <div class="ticket">
       <div class="ticketHead">
         <img [src]="'data:image/png;base64,'+tickets.reservation.evenement.image" alt="">
-        <h4>{{ tickets.reservation?.evenement?.nom }} - {{tickets?.category?.category}}</h4>
+        <h4>{{ tickets.reservation?.evenement?.nom }} - {{tickets?.reservation?.category?.category}}</h4>
       </div>
       <div class="dach">
         <span class="boule1"></span>

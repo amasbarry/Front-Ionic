@@ -4,6 +4,14 @@ body{
     outline: none
     // background-color: red;
 }
+.trier{
+  align-content: center;
+  gap: 4px;
+  overflow-x: scroll;
+}
+*{
+  box-sizing: border-box;
+}
 /*
  * App Global CSS
  * ----------------------------------------------------------------------------

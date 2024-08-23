@@ -13,7 +13,7 @@ import { DataService } from 'src/app/service/DataService';
 @Component({
   selector: 'app-event-details',
   templateUrl: './event-details.page.html',
-  styleUrls: ['./event-details.page.css'],
+  styleUrls: ['./event-details.page.scss'],
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule,RouterLink, RouterOutlet,
     NavbarComponent,
@@ -108,10 +108,10 @@ export class EventDetailsPage implements OnInit {
       this.topay.category = this.category;
       this.topay.evnt = this.event;
       this.dataService.changeData(this.topay);
-      
+
       // Rediriger vers la page de paiement
       this.router.navigate(['/paiement']);
     }
   }
-  
+
 }

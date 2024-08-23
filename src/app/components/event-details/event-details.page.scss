@@ -1,36 +1,30 @@
 @font-face {
   font-family: 'Airbnb';
-  src: url("src/assets/police/AirbnbCereal_W_Bd.otf") format("opentype");
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: 'Airbnb';
-  src: url("src/assets/police/AirbnbCereal_W_Bk.otf") format("opentype");
+  src: url("../../../assets/police/AirbnbCereal_W_Bk.otf") format("opentype");
   font-weight: normal;
 }
 
 @font-face {
   font-family: 'Airbnb';
-  src: url("src/assets/police/AirbnbCereal_W_Blk.otf") format("opentype");
+  src: url("../../../assets/police/AirbnbCereal_W_Blk.otf") format("opentype");
   font-weight: 900; /* Assuming Black weight */
 }
 
 @font-face {
   font-family: 'Airbnb';
-  src: url("src/assets/police/AirbnbCereal_W_Lt.otf") format("opentype");
+  src: url("../../../assets/police/AirbnbCereal_W_lt.otf") format("opentype");
   font-weight: 300; /* Assuming Light weight */
 }
 
 @font-face {
   font-family: 'Airbnb';
-  src: url("src/assets/police/AirbnbCereal_W_Md.otf") format("opentype");
+  src: url("../../../assets/police/Md.otf") format("opentype");
   font-weight: 500; /* Assuming Medium weight */
 }
 
 @font-face {
   font-family: 'Airbnb';
-  src: url("src/assets/police/AirbnbCereal_W_XBd.otf") format("opentype");
+  src: url("../../../assets/police/AirbnbCereal_W_XBd.otf") format("opentype");
   font-weight: 800; /* Assuming Extra Bold weight */
 }
 

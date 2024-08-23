@@ -13,7 +13,7 @@ import {
 } from "@ionic/angular/standalone";
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import { DataService } from 'src/app/service/DataService';
 import { AuthService } from 'src/app/service/auth.service';
 
@@ -27,7 +27,7 @@ import { AuthService } from 'src/app/service/auth.service';
 })
 export class PaiementComponent  implements OnInit {
 
-  constructor(private dataTransfer: DataService, private authService: AuthService,) { addIcons({ arrowBackSharp,callOutline }) }
+  constructor(private dataTransfer: DataService, private authService: AuthService, private router : Router) { addIcons({ arrowBackSharp,callOutline }) }
 
   data: any;
   user : any;
@@ -141,9 +141,11 @@ export class PaiementComponent  implements OnInit {
     }
 
     if(this.ListReservation.length >= this.data.category.nbreBilletParPersonne){
-      alert("Le nombre de reservation par personne pour ce type de ticket est atteint")
+      alert("Le nombre de reservation par personne pour ce type de ticket est atteint");
+      await this.router.navigate(["/accueil"])
     }else if(this.ReservationAll.length >= this.data.category.quantiteDisponible){
-      alert("Le nombre de reservation pour ce type de ticket est atteint")
+      alert("Le nombre de reservation pour ce type de ticket est atteint");
+      await this.router.navigate(["/accueil"])
     } else {
       for( i=1; i <= this.data.ticketNumber; i++){
         try {

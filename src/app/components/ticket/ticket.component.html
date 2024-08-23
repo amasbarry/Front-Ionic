@@ -5,7 +5,7 @@
     <!-- </div> -->
   </div>
   <div class="ticketBloc" *ngFor="let tickets of ticket">
-    <div class="annuler" [routerLink]="['/paiement']" (click)="sendData(tickets.id)"><button>Annuler</button></div>
+    <div class="annuler" [routerLink]="['/paiement']" (click)="sendData(tickets)"><button>Annuler</button></div>
     <div class="ticket">
       <div class="ticketHead">
         <img [src]="'data:image/png;base64,'+tickets.reservation.evenement.image" alt="">

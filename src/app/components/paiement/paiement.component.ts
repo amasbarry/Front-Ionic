@@ -35,6 +35,8 @@ export class PaiementComponent  implements OnInit {
     eventId: 0
   }
   ticketId : any = null
+  ticket : any
+  Tel:any
 
   ListReservation:any[] = []
 
@@ -43,6 +45,7 @@ export class PaiementComponent  implements OnInit {
     this.user = this.authService.getUser();
     this.getReservation();
     this.getTicketId()
+    console.log(this.data.ticketNumber)
   }
   back(){
     history.back()
@@ -58,8 +61,11 @@ export class PaiementComponent  implements OnInit {
 
   getTicketId(){
     this.dataTransfer.currentData.subscribe(data=> {
-        this.ticketId = data
+        this.ticketId = data.id
+        this.ticket = data
         console.log("ticket id : " + this.ticketId);
+        console.log(this.ticket);
+
       }
     )
   }
@@ -92,6 +98,7 @@ export class PaiementComponent  implements OnInit {
     let i = 0;
     //console.log(this.data.category.id)
     let reservation:any = {
+      "tel": `${this.Tel}`,
       "billet": {
         "id": this.data.category.id,
       },
@@ -146,15 +153,19 @@ export class PaiementComponent  implements OnInit {
   }
 
   async cancelTickets(id: any){
-    try {
-      const res = await fetch("http://localhost:8080/gestEvent/QrCode/changeStatut/"+id+"", {
-        method: 'PATCH'
-      })
-      const results = await res.json();
-      console.log(results);
-    }catch (e){
-      console.log(e);
+    if (this.ticket.reservation.tel !== this.Tel){
+      alert("Your phone number is wrong. Please try with the number you did use when booking")
+    }else {
+      try {
+        const res = await fetch("http://localhost:8080/gestEvent/QrCode/changeStatut/"+id+"", {
+          method: 'PATCH'
+        })
+        const results = await res.json();
+        console.log(results);
+      }catch (e){
+        console.log(e);
+      }
+      this.ngOnInit()
     }
-    this.ngOnInit()
   }
 }

@@ -171,8 +171,20 @@ p, span{
     // background-color: red;
   }
 }
-.inactif{
-  background-color: rgba(245, 57, 57, 0.856) !important;
+.inactif::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(3px);
+}
+
+.inactif {
+  position: relative;
 }
 .btnEvent{
   width: 100%;

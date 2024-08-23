@@ -1,0 +1,13 @@
+// For information on how to create your own theme, please see:
+// http://ionicframework.com/docs/theming/
+$font-path: "../assets/fonts";
+// @import  " ../node_modules/font-awesome/scss/font-awesome " ;
+@import  "../../node_modules/font-awesome/css/font-awesome.min.css" ;
+
+:root {
+  --orange: #FF7700;
+  --fondColor: #FFEDD5;
+  --orange: #FF7700;
+  --white: #FFFFFF;
+  --black: #000000;
+}

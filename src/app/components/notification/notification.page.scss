@@ -1,0 +1,46 @@
+.message-card {
+  --padding-start: 0;
+  --inner-padding-end: 16px;
+  --inner-padding-start: 16px;
+  --padding-end: 0;
+  margin-top: 10vw;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(248, 149, 149, 0.1);
+  margin-bottom: 16px;
+  background: #eeb3b3;
+  display: flex;
+  align-items: center;
+}
+.fa-arrow-left{
+  font-size: 1.5rem;
+  color: #ffa600;
+  margin-left: 16px;
+  cursor: pointer;
+}
+
+.fa-comment {
+  font-size: 2rem;
+  color: #ff6803;
+  margin-left: 16px;
+}
+
+.message-card ion-label {
+  flex: 1;
+}
+
+.close-icon {
+  font-size: 1.5rem;
+  color: #999;
+  margin-left: auto;
+}
+
+.message-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.message-timestamp {
+  color: #999;
+  font-size: 0.85rem;
+}
+

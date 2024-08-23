@@ -1,0 +1,25 @@
+<div class="body">
+  <div class="entete">
+    <div class="texte">
+      <span>Mes reservations</span>
+    </div>
+  </div>
+  <div class="cartes" *ngFor="let res of reservation" (click)="onReservationClick(res.id)">
+    <div class="left">
+      <img [src]="'data:image/png;base64,'+res.image" alt="">
+    </div>
+    <div class="right">
+      <div class="tout">
+        <div class="righthead">
+          <div class="date"><span>{{res.datedebut.split('T')[0].substring(0, 10)}}</span></div>
+          <div class="lieu"><span>{{res.lieu}}</span></div>
+        </div>
+        <div class="left1">
+          <div class="titre"><p>{{res.nom}}</p></div>
+          <div class="desc"><h6>{{res.description}}</h6></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-navbar></app-navbar>

@@ -1,0 +1,74 @@
+<div class="body">
+  <div class="title">
+    <!-- <div class="titleContent"> -->
+    <i class="fa-solid fa-arrow-left" (click)="back()"></i> <H3>Ticket details</H3>
+    <!-- </div> -->
+  </div>
+  <div class="ticketBloc" *ngFor="let tickets of ticket">
+    <div class="annuler" [routerLink]="['/paiement']" (click)="sendData(tickets)"><button>Annuler</button></div>
+    <div class="ticket">
+      <div class="ticketHead">
+        <img [src]="'data:image/png;base64,'+tickets.reservation.evenement.image" alt="">
+        <h4>{{ tickets.reservation?.evenement?.nom }} - {{tickets?.reservation?.category?.category}}</h4>
+      </div>
+      <div class="dach">
+        <span class="boule1"></span>
+        <hr>
+        <span class="boule2"></span>
+      </div>
+      <div class="InfoTicket">
+        <!-- <span>
+            <strong>Place</strong> <br>
+            175
+        </span> -->
+        <div class="infoContent">
+          <div class="zone">
+            <span>
+                <strong>TicketId</strong> <br>
+              {{tickets.ticketId}}
+            </span>
+            <span>
+                <strong>Prix</strong><br>
+              {{tickets.reservation?.billet?.prix}}
+            </span>
+          </div>
+          <div class="zone">
+            <span>
+                <strong>Prénom</strong> <br>
+              {{ tickets.reservation?.utilisateur?.prenom }}
+            </span>
+            <span>
+                <strong>Nom</strong><br>
+              {{ tickets.reservation?.utilisateur?.nom }}
+            </span>
+          </div>
+          <div class="zone">
+            <span>
+                <strong>Date</strong> <br>
+              {{ tickets.reservation?.evenement?.datedebut}}
+            </span>
+            <span>
+                <strong>Heure</strong><br>
+              {{ tickets.reservation?.evenement?.heure}}
+            </span>
+          </div>
+
+        </div>
+      </div>
+      <div class="dach">
+        <span class="boule1"></span>
+        <hr>
+        <span class="boule2"></span>
+      </div>
+
+      <br>
+      <div class="qrZone" [ngClass]="{'inactif': tickets.statutTicket.statut === 'INACTIF'}">
+        <img [src]="'data:image/png;base64,' + tickets.file " alt="{{tickets.nameFile}}">
+      </div>
+      <br>
+    </div>
+  </div>
+  <div class="btnEvent">
+    <span routerLink="/events">Events</span>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar (click)="redirectToHome()">
+    <i slot="start" class="fa-solid fa-arrow-left"></i>
+    <ion-title>Notifications</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="notification-container">
+  <ion-list>
+    <ion-item *ngFor="let notification of notifications" class="message-card">
+      <div slot="start">
+        <i class="fa-regular fa-comment"></i>
+      </div>
+      <ion-label>
+        <h2>{{ notification.id }}</h2>
+        <p> {{ notification.message || 'Message contenu vide' }}</p>
+        <p>{{ notification.dateEnvoi || 'Date non disponible' }}</p>
+      </ion-label>
+      <i  class="fas fa-times close-icon" slot="end"></i>
+    </ion-item>
+  </ion-list>
+</ion-content>

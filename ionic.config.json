@@ -1,0 +1,8 @@
+{
+  "name": "MyIonic",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

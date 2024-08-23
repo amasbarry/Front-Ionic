@@ -1,0 +1,83 @@
+.content1{
+    background-color: var(--fondColor);
+  }
+  
+  .header{
+    background-color: var(--fondColor);
+    display: flex;
+    justify-content: center;
+    padding-top: 4%;
+    padding-left: 4%;
+    padding-bottom: 8%;
+    box-shadow: none;
+  
+  }
+  .monbutton{
+    border: 2px solid orange ;
+    border-radius: 15px;
+  }
+  .centered-title {
+    text-align: center;
+    width: 100%;
+  }
+  .maCarte{
+    margin: 0% 10% 10% 10%;
+  }
+  ion-card-content{
+    padding: 0%;
+  }
+  .maPuce{
+    width: 60px;  /* Réduit la largeur à 100 pixels */
+    height: auto;  /* Ajuste la hauteur proportionnellement à la largeur */}
+  .content-row {
+    display: flex;
+    padding: 3%;
+    flex-direction: row;
+    align-items: center; /* Aligne les éléments verticalement au centre */
+    justify-content: flex-end; /* Place les éléments aux extrémités */
+  }
+  .content1{
+    background-color:var(--fondColor);
+  }
+  .avant{
+    width: 100%;
+    height: 330px;
+    margin: 1%;
+    background-color: var(--blanc);
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
+  }
+  .last{
+    width: 90%;
+    height: 230px;
+    margin: 4%;
+    background-color: var(--blanc);
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
+  }
+  .texte h5{
+    color: var(--orange);
+    margin: 0;
+    text-align: center;
+    font-size: 1em;
+  }
+ .bouton ion-button{
+    width: 45vw;
+    --border-radius: 21px;
+    --background:var(--orange);
+  }
+  .bouton p{
+    color: var(--blanc);
+    text-align: center;
+    // text-transform: lowercase;
+    font-size: 0.8em;
+    margin: 0;
+  }

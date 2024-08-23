@@ -1,0 +1,47 @@
+<div class="body">
+  <ion-card-header class="tof" color="none">
+    <div *ngIf="user.image; else defaultImage" class="prof">
+      <img [src]="'data:image/png;base64,' + user.image">
+    </div>
+    <ng-template #defaultImage>
+      <img class="img" src="../../../assets/icon/profile.svg" />
+    </ng-template>
+  </ion-card-header>
+
+  <ion-card >
+    <form  [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-input label="Nom" labelPlacement="floating" formControlName="nom"  placeholder="Entrer votre nom" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Nom d’utilisateur" labelPlacement="floating" formControlName="prenom" placeholder="Entrer votre nom d'utilisateur" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Numéro" labelPlacement="floating" formControlName="telephone" placeholder="+223 77-77-77-77" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Email" labelPlacement="floating" formControlName="email" placeholder="example@gmail.com" required></ion-input>
+      </ion-item>
+      <!-- <ion-item>
+        <ion-input  type="text" labelPlacement="floating" formControlName="motDePasse" placeholder="password" required></ion-input>
+        <ion-input-password-toggle  style="color: #FF7700;" slot="end"></ion-input-password-toggle>
+      </ion-item> -->
+
+      <div class="button">
+        <ion-button type="submit" >Modifier</ion-button>
+        <ion-button (click)="logout()">Déconnexion</ion-button>
+
+      </div>
+    </form>
+
+  </ion-card>
+  <ion-card class="politique" routerLink="/politique">
+    <span ><i class="fa-solid fa-lock" ></i>Politique de confidentialité</span>
+  </ion-card>
+</div>
+<app-navbar> </app-navbar><p>
+  modifier-profile works!
+</p>

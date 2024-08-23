@@ -1,0 +1,103 @@
+.body {
+  width: 100%;
+  height: 98%;
+  margin: 0;
+  outline: none;
+  padding-bottom: 50px;
+  background-color: var(--fondColor);
+  overflow-y: scroll;
+}
+
+
+.bloc {
+  width: 100%;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: black;
+  font-family: 'poppins';
+  font-weight: bold;
+  background-color: rgba(21, 115, 197, 0.448);
+  border-bottom: 4px solid black;
+}
+body .body ion-card {
+  background-color: #ffebcd;
+}
+
+
+:host{
+  --background: none;
+  --box-shadow : none;
+}
+
+.md{
+  --background-color:red;
+}
+ion-card {
+  :host{
+    --background: none;
+    --box-shadow : none;
+  }
+  margin: 5%;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5% 0% 5% 0%;
+}
+
+ion-card-header {
+  --background: #000;
+  --color: #9efff0;
+  justify-content: center;
+  align-items: center;
+
+}
+img{
+  width: 30vw;
+  height: 17vh;
+  border-radius: 50%;
+}
+
+.upload {
+  position: absolute;
+  bottom: 34%;
+  --background: var(--orange);
+}
+
+.img {
+  width: 135px;
+  height: 126px;
+  border-radius: 550px;
+}
+
+ion-button {
+  flex-direction: row;
+  justify-content: center;
+  align-items:center;
+  --background: var(--orange);
+  --border-radius: 10px;
+  width: 53%;
+ // padding: 5%;
+ margin: 3%;
+}
+.button{
+  display: flex;
+  margin-top: 5px;
+
+}
+ion-input-password-toggle{
+  color:var(--orange);
+}
+.politique{
+  font-family: poppins;
+  font-weight: bold;
+  text-align: center;
+}
+
+i{
+  margin-right: 6px;
+}

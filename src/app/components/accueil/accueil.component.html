@@ -1,0 +1,78 @@
+<div class="body">
+  <div class="head" *ngIf="newMessage">
+    <div class="logo">
+      <img src="../../../assets/icon/logo.png" alt="">
+    </div>
+    <i routerLink="/notification" class="fa-solid fa-bell">{{notificationsalert}}</i>
+  </div>
+  <div class="head" *ngIf="!newMessage">
+    <div class="logo">
+      <img src="../../../assets/icon/logo.png" alt="">
+    </div>
+    <i routerLink="/notification" class="fa-solid fa-bell"></i>
+  </div>
+
+  <div class="recherhe">
+    <div>
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Recherche des Evenements..." [(ngModel)]="EVENTE" (input)="filterEvents()">
+    </div>
+  </div>
+
+  <div class="trier">
+    <span (click)="selectCategory('CONCERT')">
+      <i class="fa-solid fa-microphone"></i> <h6>Concert</h6>
+    </span>
+    <span (click)="selectCategory('CONFERENCE')">
+      <i class="fa-solid fa-medal"></i> <h6>Conference</h6>
+    </span>
+    <span (click)="selectCategory('EXPOSITION')">
+      <i class="fa-solid fa-road-barrier"></i> <h6>Exposition</h6>
+    </span>
+  </div>
+
+  <div class="texte">
+    <i class="fa-solid fa-synagogue"></i>
+    <h5>Prochain événement</h5>
+  </div>
+
+  <div *ngIf="nevent" class="CurentEvent" (click)="goToEventDetail(nevent.id)">
+    <img [src]="'data:image/png;base64,' + nevent.image" alt="Image de l'événement">
+    <div class="contenue" [routerLink]="['/detail', nevent.id]">
+      <h4>{{ nevent.nom }}</h4>
+      <div>
+        <h5>{{ nevent.datedebut }}</h5> <strong><i class="fa-solid fa-location-dot"></i>{{ nevent.lieu }}</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="texte">
+    <i class="fa-regular fa-calendar"></i>
+    <h5>Liste des Evenements</h5>
+  </div><br>
+
+  <div class="EventScroll">
+    <div *ngFor="let ev of filteredEvents" class="imgContent" (click)="goToEventDetail(ev.id)">
+      <img [src]="'data:image/png;base64,' + ev.image" alt="Image de l'événement">
+    </div>
+  </div>
+
+  <div class="TitrelisteEvent">
+    <h5>Les Plus Réservés</h5>
+    <h5 routerLink="/events">Voir Tout</h5>
+  </div>
+  
+  <div *ngFor="let ev of filteredTopReservedEvents" class="listeEvent" (click)="goToEventDetail(ev.id)">
+    <img [src]="'data:image/png;base64,' + ev.image" alt="">
+    <div class="infoEvent">
+      <div class="topInfo">
+        <p>{{ ev.category.category }}</p>
+      </div>
+      <span class="lieui" style="color: #FF7700;"><i class="fa-solid fa-location-dot"></i>{{ ev.lieu }}</span>
+      <span class="datei"><i class="fa-regular fa-calendar"></i> {{ ev.datedebut }} - {{ ev.datefin }}</span>
+    </div>
+  </div>
+
+  <br>
+</div>
+<app-navbar></app-navbar>

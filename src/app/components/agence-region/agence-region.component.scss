@@ -1,0 +1,156 @@
+$police:'Poppins', sans-serif;
+
+.bigBloc{
+    font-family: $police;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--Fond);
+    display: flex;
+    flex-direction: column;
+
+    .head{
+        height: 12;
+        padding: 10px 10px;
+        display: flex;
+        justify-content: flex-start;
+        i{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            color: white;
+            background-color: var(--Primaire);
+            cursor: pointer;
+        }
+    }
+    .content{
+        height: 100%;
+        background-color: white;
+        border-radius: 30px 30px 0px 0px;
+        overflow-y: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 5px;
+        padding: 0px 10px;
+
+        .title{
+            width: 100%;
+            H2{
+                color: var(--Primaire);
+                margin-left: 10px;
+            }
+        }
+
+        .recherche{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            i{
+                position: absolute;
+                left: 25px;
+                color: var(--Icon);
+            }
+            input:focus{
+                border: 1px solid var(--Primaire);
+            }
+            input{
+                width: 100%;
+                padding: 12px 10px 12px 40px;
+                border-radius: 10px;
+                background-color: white;
+                color: black;
+                border: 1px solid var(--Icon);
+
+            }
+        }
+
+        .AgenceListe::-webkit-scrollbar{
+            display: none;
+        }
+        .AgenceListe{
+            height: max-content;
+            max-height:100%;
+            padding-bottom: 5px;
+            width: 90%;
+            padding-top: 5px;
+            overflow-y: scroll;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 0px auto;
+            gap: 15px;
+
+            .region{
+                width: 43%;
+                padding: 5px 5px;
+                border-radius: 15px;
+                height: 140px;
+                cursor: pointer;
+                background-color:#4dc5915f ;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                border: 1px solid #4dc59132;
+
+                .image{
+                    position: relative;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    margin: 0 auto;
+                    height: 80%;
+                    border-radius: 12px;
+                    background-color: var(--Primaire);
+                    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.395);
+
+                    i{
+                        position: absolute;
+                        top: 6px;
+                        right: 7px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 30px;
+                        height: 30px;
+                        font-size: 1.2rem;
+                        border-radius: 50%;
+                        color: white;
+                        background-color: var(--Secondaire);
+                        
+
+                    }
+
+                    span{
+                        padding: 10px;
+                        width: 90%;
+                        display: flex;
+                        margin: 0 auto;
+                        height: 90%;
+                        background-image: url('../../../assets/icon/bus3.jpg');
+                        background-size: cover;
+                        background-position: top;
+                        background-repeat: no-repeat;
+                        border-radius: 10px;
+                    }
+
+                    
+                }
+                .regionName{
+                        width: 100%;
+                        height: 20%;
+                        text-align: center;
+                        color: black;
+                        font-weight: bold;
+                        margin-top: 5px;
+                    }
+            }
+        }
+
+
+    }
+}
+

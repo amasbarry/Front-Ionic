@@ -1,0 +1,222 @@
+.body {
+  width: 100%;
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+  background-color: white;
+  display: flex;
+  align-items: center;
+//   gap: 10px;
+  justify-content: flex-end;
+  flex-direction: column;
+  
+  .img {
+    // overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    margin-top: 10px;
+    width: 120px;
+    height: 120px;
+    background-color: var(--Fond);
+    border-radius: 50%;
+    background-image: url('../../../assets/icon/profilee.jpg');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 20px;
+    // border: 1px solid gray;
+    
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.697);
+
+    input{
+      position: absolute;
+      width: 140px;
+      bottom: -25px;
+      background-color: transparent;
+      z-index: 2;
+    }
+
+    img{
+      position: absolute;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      z-index: 1;
+    }
+  }
+  h1{
+        color: black;
+        text-align: center;
+        font-size: 2rem;
+    }
+
+  .container::-webkit-scrollbar{
+    display: none;
+  }
+  .container{
+    width: 100%;
+    height: 88%;
+    // background-color: rebeccapurple;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+
+  
+
+    span{
+        // width: 100%;
+        // text-align: center;
+        margin-top: 5px;
+        color: black;
+        // margin-bottom: 10px;
+        a{
+            color: #4dc591;
+        }
+    }
+  // .formulaire{
+  //     width: 100%;
+  //     height: 60%;
+  //     background-color: var(--Secondaire);
+
+  form {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    // background-color: var(--Secondaire);
+    gap: 20px;
+
+    p{
+      color: red;
+      text-align: center;
+      margin: 0px;
+      font-size: 1rem;
+    }
+    
+    .fac{
+        position: relative;
+        width: 85%;
+        margin-top: -5px;
+        strong{
+            color: #4dc591;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .parent{
+            width: 100%;
+        }
+    }
+
+    .parent {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 85%;
+      // background-color: red;
+      // gap: 10px;
+      i:nth-child(1) {
+        position: absolute;
+        left: 10px;
+        margin-top: 3px;
+        font-size: 1.2rem;
+        color: rgba(0, 0, 0, 0.757);
+      }
+      span {
+        position: absolute;
+        left: 10px;
+        color: rgba(0, 0, 0, 0.829);
+      }
+      input:focus {
+        outline: none;
+        // border-color: red;
+      }
+      input {
+        background-color: var(--Fond);
+        color: black;
+      }
+
+      strong{
+            color: #4dc591;
+            position: fixed;
+            top: -2px;
+            right: 0px;
+        }
+
+      input[type="tel"],
+      input[type="password"],
+      input[type="email"],
+      input[type="text"] {
+        width: 100%;
+        padding: 13px 0px 13px 52px;
+        border-radius: 10px;
+        border: 0px;
+        font-size: 1rem;
+        font-family: "Poppins", sans-serif;
+        border: solid 1px var(--Icon);
+        margin-top: 3px;
+
+      }
+      #show {
+        position: absolute;
+        right: 10px;
+        font-size: 1.2rem;
+        color: rgba(0, 0, 0, 0.757);
+        cursor: pointer;
+        margin-top: 3px;
+      }
+      #hide {
+        position: absolute;
+        // display: none;
+        right: 10px;
+        font-size: 1.2rem;
+        color: rgba(0, 0, 0, 0.757);
+        cursor: pointer;
+        margin-top: 3px;
+      }
+    }
+
+    input[type="submit"]:hover {
+      background-color: white;
+      color: #4dc591;
+      
+    }
+    input[type="submit"] {
+      // font-family: 'poppins';
+      font-family: "Poppins", sans-serif;
+      width: 80%;
+      display: flex;
+      margin: 0px auto;
+      font-size: 1.3rem;
+      padding: 12px 0px;
+      border: 0px;
+      border-radius: 5px;
+      border:1px solid #4dc591 ;
+      background-color: #4dc591;
+      color: white;
+      cursor: pointer;
+    }
+  }
+
+  .auth{
+    width: 100%;
+    text-align: center;
+    color: black;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        a{
+            color: #4dc591;
+        }
+    
+  }
+
+  }
+}
+// }

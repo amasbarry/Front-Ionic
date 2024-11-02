@@ -1,0 +1,49 @@
+<div class="bigBloc">
+  <div class="head">
+    <i class="fa-solid fa-chevron-left" routerLink="/agence"></i>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+
+    <!-- Title -->
+    <div class="title">
+      <H2>{{CompagnieName}}</H2>
+    </div>
+    <!-- Title -->
+
+    <!-- Recherche -->
+
+    <div class="recherche">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Recherche">
+    </div>
+
+    <!-- Recherche -->
+
+    <!-- Agence liste -->
+
+    <div class="AgenceListe">
+
+          <div *ngFor="let agence of sousAgences" class="region" [routerLink]="['/calendrier', agence.id]">
+            <div class="image">
+              <i class="fa-solid fa-caret-right"></i>
+              <span></span>
+            </div>
+            <div class="regionName">{{agence.region}}</div>
+          </div>
+
+          
+
+
+    </div>
+
+    <!-- Agence liste -->
+
+
+  </div>
+  <!-- Content -->
+
+
+</div>
+<!-- <app-navbar></app-navbar> -->

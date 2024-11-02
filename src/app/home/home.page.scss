@@ -1,53 +1,145 @@
 $police:'Poppins', sans-serif;
-.accueil{
+
+.Bigbloc{
   width: 100%;
   height: 100%;
-  background-color: var(--white);
-  background-image: url("../../assets/icon/accueil.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  font-family:$police;
-
-  .content{
-    height: 100%;
-    padding-bottom: 5%;
+  position: relative;
+  display: flex;
+  font-family: $police;
+  // justify-content: flex-end;
+  align-items: end;
+  background-color: black;
+  .img{
+    position: absolute;
+    top: 0px;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    // background-color: rgba(0, 0, 0, 0.527);
-    background: linear-gradient(0deg, rgb(0, 0, 0) 9%, rgba(255, 255, 255, 0) 92%);
-    // backdrop-filter: blur(1px);
+    height: 60%;
+    // z-index: 1;
+    // background-image: url('../../assets/icon/tour.jpg');
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-position: top;
+    img{
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
   }
-  .texte{
+  .content{
+    height: 45%;
+    width: 100%;
+    background-color: white;
+    border-radius: 30px 30px 0px 0px;
+    z-index: 2;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
     text-align: center;
-    width: 90%;
-    h1{
-      margin-bottom: 5px;
+    padding: 10px;
+    gap: 5px;
+    // margin: 0 auto;
+
+    H2{
+      width: 98%;
+      font-weight: bolder;
+      color: black;
+    }
+
+    p::-webkit-scrollbar{
+      display: none;
     }
     p{
-      font-size: 1rem;
+      display: flex;
+      align-items: start;
+      margin: 0 auto;
+      width: 90%;
+      height: 120px;
+      max-height: 150px;
+      overflow-y: scroll;
+      color: black;
+      // background-color: aqua;
+    }
+    .btn{
+      display: flex;
+      margin: 0 auto;
+      width: 80%;
+      padding: 15px 0px;
+      color: white;
+      border-radius: 5px;
+      justify-content: center;
+      background-color: var(--Primaire);
+      cursor: pointer;
+    }
+
+    .bulle{
+      display: flex;
+      justify-content: space-between;
+      width: 15%;
+      margin: 10px auto;
+      span{
+        padding: 5px;
+        border-radius: 50%;
+        background-color: var(--Icon);
+      }
+      // span:nth-child(1){
+      //   // background-color: var(--Primaire);
+      // }
     }
   }
-  .btn{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-  }
-  .btn > a{
-    width: 80%;
-    padding: 15px;
-    font-size: 1.4rem;
-    background-color: rgb(223, 110, 69);
-    text-align: center;
-    color: var(--white);
-    border-radius: 10px;
-    text-decoration: none;
-  }
-  .btn > a:hover{
-    cursor: pointer;
-  }
 }
+
+
+// .accueil{
+//   width: 100%;
+//   height: 100%;
+//   background-color: white;
+//   // background-image: url("../../assets/icon/accueil.jpeg");
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   font-family:$police;
+
+//   .content{
+//     height: 100%;
+//     padding-bottom: 5%;
+//     width: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: flex-end;
+//     align-items: center;
+//     // background-color: rgba(0, 0, 0, 0.527);
+//     background: linear-gradient(0deg, rgb(0, 0, 0) 9%, rgba(255, 255, 255, 0) 92%);
+//     // backdrop-filter: blur(1px);
+//   }
+//   .texte{
+//     text-align: center;
+//     color: var(--blanc);
+//     width: 90%;
+//     h1{
+//       margin-bottom: 5px;
+//     }
+//     p{
+//       font-size: 1rem;
+//     }
+//   }
+//   .btn{
+//     width: 100%;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+    
+//   }
+//   .btn > a{
+//     width: 80%;
+//     padding: 15px;
+//     font-size: 1.4rem;
+//     background-color: rgb(223, 110, 69);
+//     text-align: center;
+//     color: white;
+//     border-radius: 10px;
+//     text-decoration: none;
+//   }
+//   .btn > a:hover{
+//     cursor: pointer;
+//   }
+// }

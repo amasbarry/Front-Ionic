@@ -1,0 +1,60 @@
+<div class="bigBloc">
+  <div class="head">
+    <app-header></app-header>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+
+    <!-- Title -->
+    <div class="title">
+      <H2>Liste des billets</H2>
+    </div>
+
+    <div class="ListeBillets">
+
+      <div class="billet" *ngFor="let R of reservation"   [routerLink]="['/billet_detail', R.id]">
+        <div class="agenceName">
+          {{R.voyage?.compagnie?.nom}}
+        </div>
+        <div class="contenue">
+
+          <div class="bloc1">
+                  <div class="ville">
+                          <i class="fa-solid fa-cart-flatbed-suitcase"></i>
+                          <span class="villename">{{R.voyage?.ville_depart}}</span>
+                  </div>
+                  <div class="autre">
+                          Date : 
+                          <span>{{R.date}}</span>
+                  </div>
+                  
+          </div>
+
+          <div class="bloc1">
+                  <div class="ville">
+                          <i class="fa-solid fa-location-dot"></i>
+                          <span class="villename">{{R.voyage?.ville_arrivee}}</span>
+                  </div>
+                  <div class="autre">
+                          Montant :
+                          <span>{{R.voyage?.prix}} F</span>
+                  </div>
+
+          </div>
+
+        </div>
+      </div>
+      
+    </div>
+
+    <!-- Agence liste -->
+
+
+  </div>
+  <!-- Content -->
+
+
+
+</div>
+<app-navbar></app-navbar>

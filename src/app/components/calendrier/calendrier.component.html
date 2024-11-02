@@ -1,0 +1,127 @@
+<div class="bigBloc">
+  <div class="head">
+    <i class="fa-solid fa-chevron-left" (click)="goBack()"></i>
+  </div>
+
+  <!-- Position zone -->
+
+    <div class="positionZone">
+          <div class="position">Position</div>
+          <div class="agenceName">
+            <span *ngIf="Compagnie">{{Compagnie}}</span>
+            <i *ngIf="region"><strong>{{region}}</strong></i> 
+          </div>
+    </div>
+
+  <!-- Position zone -->
+  
+    <div class="jour">
+          <span (click)="Lundi()" [ngClass]="{'active':lundi}">Lun</span>
+          <span (click)="Mardi()" [ngClass]="{'active':mardi}">Mar</span>
+          <span (click)="Mercredi()" [ngClass]="{'active':mercredi}">Mer</span>
+          <span (click)="Jeudi()" [ngClass]="{'active':jeudi}">Jeu</span>
+          <span (click)="Vendredi()" [ngClass]="{'active':vendredi}">Ven</span>
+          <span (click)="Samedi()" [ngClass]="{'active':samedi}">Sam</span>
+          <span (click)="Dimanche()" [ngClass]="{'active':dimanche}">Dim</span>
+    </div>
+
+    <H3>Les voyages du {{Aujourdhui}}</H3>
+
+
+    <div class="horaire">
+      <span>Heure</span>
+      <span>Voyage</span>
+    </div>
+
+
+    <!-- Liste de voyage -->
+    <div class="VoyageListe">
+
+            <!-- Contenue -->
+          <div class="contenu" *ngFor="let V of voyages">
+
+              <div class="heure">{{V.heure}}</div>
+
+              <div class="voyageBloc">
+                    <div class="voyage" (click)="show(V)">
+                          <div class="image">
+                            <span></span>
+                            <span></span>
+                          </div>
+                          
+                          <div class="VoyageInfo">
+                                <div class="ville">
+                                      <i class="fa-solid fa-cart-flatbed-suitcase"></i>
+                                      <span class="villename">{{V.ville_depart}}</span>
+                                </div>
+                                <div class="ville">
+                                      <i class="fa-solid fa-location-dot"></i>
+                                      <span class="villename">{{V.ville_arrivee}}</span>
+                                </div>
+                                <div class="ville">
+                                      <strong>{{V.prix}} F</strong>
+                                </div>
+
+                              </div>
+                    </div>
+
+              </div>
+          </div>
+            <!-- Contenue -->
+    </div>
+    <!-- Liste de voyage -->
+    
+<div class="reserver" *ngIf="add">
+  <i class="fa-solid fa-xmark" (click)="cacher()"></i>
+  
+    <!-- <form  (ngSubmit)="Reservation()"> -->
+      <form [formGroup]="ReservForm" (ngSubmit)="Reservation()">
+
+      <div class="bloc1" *ngIf="currentStep === 1">
+        <img src="../../../assets/icon/calendar.png" alt="">
+        <p>{{erreur}}</p>
+        <label for="Votre numéro orange"> Entrer votre date de voyage</label>
+          
+          <!-- <input formControlName="DateVoyage" required type="date" placeholder="Votre date de voyage" required> -->
+        
+            <select formControlName="DateVoyage" required>
+              <option value="" disabled>Date de voyage</option>
+              <option *ngFor="let date of datesDisponibles" [value]="date">
+                {{ date }}
+              </option>
+            </select>
+
+
+        <!-- <input type="submit" value="Suivant"> -->
+        <button (click)="goToNextStep()" type="submit">Suivant</button>
+      </div>
+      <div class="bloc1" *ngIf="currentStep === 2">
+        <img src="../../../assets/icon/orange.png" alt="" class="orange">
+        <p>{{erreurNum}}</p>
+        <label for="Votre numéro orange"></label>
+        <div>
+          <span>+223</span>
+          <input formControlName="numPayement" type="tel" placeholder="Votre numéro de télephone" maxlength="8">
+        </div>
+
+        <span class="btns">
+            <i class="fa-solid fa-chevron-left" (click)="goToPreviousStep()"></i>
+            <input type="submit" value="Réserver">
+        </span>
+        
+      </div>
+      
+    </form>
+</div>
+
+
+<div class="succes" *ngIf="succes">
+  <i class="fa-solid fa-chevron-left" (click)="hidePayement()"></i>
+  <h1>✅</h1>
+  <h3>Annulation effectuer avec succès</h3>
+
+  <span routerLink="/billet">Voir billet</span>
+</div>
+
+</div>
+<!-- <app-navbar></app-navbar> -->

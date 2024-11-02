@@ -1,0 +1,64 @@
+<div class="bigBloc">
+  <div class="head">
+    <!-- <app-header></app-header> -->
+    <i class="fa-solid fa-chevron-left" (click)="goBack()"></i>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+
+    <!-- Title -->
+    <div class="title">
+      <H2>Notification</H2>
+    </div>
+    <!-- Title -->
+
+    <!-- Recherche -->
+
+    <!-- <div class="recherche">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Recherche">
+    </div> -->
+
+    <!-- Recherche -->
+
+    <!-- Agence liste -->
+
+    <div class="Notifications">
+
+      <!-- Notif -->
+      <div class="notif" (click)="Ouvre()">
+
+        <div class="image">
+          <span class="fond"></span>
+          <span class="img"></span>
+        </div>
+
+        <div class="contenue">
+          <span>Votre reservation est faite avec succès jnvfvhbf vjebrvbrvb jnvrnvjrnv </span>
+          <i class="fa-solid fa-caret-right"></i>
+        </div>
+
+      </div>
+      <!-- Notif -->
+    </div>
+
+    <!-- Agence liste -->
+
+
+  </div>
+  <!-- Content -->
+
+  <div class="Message" *ngIf="notif">
+    <div class="Msg">
+      <i class="fa-solid fa-xmark" id="ferme" (click)="Ferme()"></i>
+      <div class="image"></div>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis libero fugit quidem dolores et, laudantium iure. Libero minima, totam ex quia sunt, laborum harum quasi, cupiditate quaerat accusamus dolorum nobis!
+      Dolore corrupti nostrum earum, unde praesentium dolorum hic aspernatur magnam asperiores nulla corporis? Suscipit cupiditate asperiores rerum, voluptatum laborum unde consequatur et magni debitis ratione saepe, quae minus? Adipisci, quis.
+      Ipsam, dolor laborum, cupiditate numquam, animi odit recusandae culpa consequuntur porro corrupti ut aliquid. Laborum facere, ex soluta officia vel numquam nisi ipsum quisquam perferendis voluptates alias eveniet aliquam recusandae!</p>
+    </div>
+  </div>
+
+</div>
+<!-- <app-navbar></app-navbar> -->
+

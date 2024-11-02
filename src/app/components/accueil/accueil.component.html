@@ -1,106 +1,157 @@
-<div class="body">
+<div class="bigBloc">
+      <!-- <div class="head">
+        <app-header></app-header>
+      </div> -->
 
-  <div class="head">
-    <div class="logo">
-      <img src="../../../assets/icon/logo.png" alt="">
-    </div>
-    <h3>Bienvenue</h3>
-    <i class="fa-solid fa-user"></i>
-  </div>
+      <!-- Content -->
+      <div class="content">
 
-  <div class="recherhe">
-    <div>
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" name="" id="" placeholder="Recherche des Evenements...">
-    </div>
-  </div>
+        <div class="today">
+          <div class="date">
+            <H1>{{day}}</H1>
+            <div class="day">
+              <p>{{today}}</p>
+              <p>{{month}} {{year}}</p>
+            </div>
+          </div>
 
-  <div class="trier">
-      <span>
-        <i class="fa-solid fa-microphone"></i> <h6>Concert</h6>
-      </span>
-      <span>
-        <i class="fa-solid fa-medal"></i> <h6>Ceremonie</h6>
-      </span>
-      <span>
-        <i class="fa-solid fa-road-barrier"></i> <h6>Exposition</h6>
-      </span>
-  </div>
-
-  <div class="texte">
-    <i class="fa-solid fa-synagogue"></i>
-    <h5>Prochain événement</h5>
-  </div>
-
-  <div class="CurentEvent">
-    <img src="../../../assets/icon/accueil.jpeg" alt="">
-    <div class="contenue">
-        <span>2000F</span>
-        <h4>"Faiza"</h4>
-        <div>
-          <h5>10/04/2024</h5> <strong><i class="fa-solid fa-location-dot"></i> Au Palais de la culture</strong>
+          <span>Aujourd'hui</span>
         </div>
-    </div>
-  </div>
 
-  <div class="texte">
-    <i class="fa-regular fa-calendar"></i>
-    <h5>Liste des Evenements</h5>
-  </div><br>
+            <!-- Title -->
+            <!-- <div class="title">
+              <H3>Où est qu’on vas aujourd’hui ?</H3>
+            </div> -->
+          <!-- Title -->
 
-<div class="EventScroll">
-    <img src="../../../assets/icon/suntomoonbko_1723197167493.jpeg" alt="">
-    <img src="../../../assets/icon/Rectangle 30.png" alt="">
-    <img src="../../../assets/icon/Rectangle 4395.png" alt="">
-    <img src="../../../assets/icon/suntomoonbko_1723197167493.jpeg" alt="">
-    <img src="../../../assets/icon/Rectangle 30.png" alt="">
+          <!-- Filtre -->
+            <div class="filtre" [formGroup]="filterForm">
+
+              <div class="zone1">
+                <select formControlName="depart" name="Départ" id="" >
+                  <option value="" disabled  hidden>Départ</option>
+                  <option [value]="V.ville" *ngFor="let V of villes">{{V.ville}}</option>
+                </select>
+                <select formControlName="agence" name="Départ" id="" >
+                  <option value="" disabled  hidden>Agence</option>
+                  <option [value]="C.nom" *ngFor="let C of compagnie">{{C.nom}}</option>
+                </select>
+              </div>
+
+              <div class="zone2">
+                <select formControlName="arrivee" name="Arivée" id="" >
+                  <option value="" disabled  hidden>Arrivée</option>
+                  <option [value]="V.ville" *ngFor="let V of villes">{{V.ville}}</option>
+                </select>
+                <div class="btnFiltre">
+                  <!-- <span class="prix">
+                    <i class="fa-solid fa-arrow-down-up-across-line"></i>
+                    Prix
+                  </span> -->
+                  <span class="heure" (click)="Rafraichir()">
+                    <i class="fa-solid fa-arrow-down-up-across-line"></i> Rafraichir
+                  </span> 
+                </div>
+              </div>
+            </div>
+            <!-- Filtre -->  
+
+
+            <!-- Liste des Voyage -->
+            <div class="voyageListe"  >
+
+                  <!-- Voyage -->
+                  <div (click)="ReserverVoyage(voyage)" class="voyage" *ngFor="let voyage of filteredVoyages">
+
+                    <!-- Car image -->
+                    <div class="image">
+                      <span class="fond"></span>
+                      <span class="img"></span>
+                      <!-- <img src="../../../assets/icon/bus1.png" alt="Image_car"> -->
+                    </div>
+                    <!-- Car image -->
+
+
+                    <div class="info">
+                          <div class="titre">
+                            {{voyage.compagnie?.nom}}
+                          </div>
+
+                          <!-- Information sur le voyage -->
+                      <div class="infoContent">
+                        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+                        <div class="bloc1">
+                          <div class="ville">
+                            <i class="fa-solid fa-cart-flatbed-suitcase"></i>
+                            <span class="villename">{{voyage.ville_depart}}</span>
+                          </div>
+                          <div> {{voyage.heure}}</div>
+                        </div>
+                        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+                        <div class="bloc1">
+                          <div class="ville">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span class="villename">{{voyage.ville_arrivee}}</span>
+                          </div>
+                          <strong>
+                            {{voyage.prix}} F
+                          </strong>
+                        </div>
+
+                      </div>
+                      <!-- Information sur le voyage -->
+
+                    </div>
+
+                  </div>
+                  <!-- Voyage -->
+
+                 
+            </div>
+            <!-- Liste des Voyage -->
+
+
+            
+
+      </div>
+      <!-- Content -->
+
+      <div class="payement" *ngIf="payemant">
+        <div class="head">
+          <i class="fa-solid fa-chevron-left" (click)="hidePayement()"></i>
+        </div>
+
+        <div class="image">
+          <img src="../../../assets/icon/orange.png" alt="">
+        </div>
+        <form [formGroup]="ReservForm" (ngSubmit)="Reserver()">
+          <label for="Votre numéro orange"></label>
+          <div>
+                <span>+223</span>
+                <input formControlName="numPayement" type="tel" placeholder="Votre numéro de télephone" maxlength="8">
+          </div>
+          
+          <input  type="submit" value="Réserver">
+          <p>{{Erreur}}</p>
+        </form>
+      </div>
+
+      <div class="nope" *ngIf="non">
+          <i class="fa-solid fa-chevron-left" (click)="hidePayement()"></i>
+          <h1>😐</h1>
+          <h3>Vous avez déja reserver pour ce voyage</h3>
+      </div>
+    
+      <div class="succes" *ngIf="succes">
+        <i class="fa-solid fa-chevron-left" (click)="hidePayement()"></i>
+        <h1>✅</h1>
+        <h3>Reservation effectuer avec succès</h3>
+
+        <span routerLink="/billet">Voir le billet</span>
+      </div>
+
+      
 </div>
 
-
-<div class="TitrelisteEvent">
-  <h5>Tendance</h5> <h5 routerLink="/events">Voir Tout</h5>
-</div>
-
-
-
-<div class="listeEvent" routerLink="/ticket">
-  <img src="../../../assets/icon/Rectangle 30.png" alt="">
-
-  <div class="infoEvent">
-
-    <div class="topInfo">
-      <p>Concert party</p>
-      <p style="color: #FF7700;">7000 CFA</p>
-    </div>
-
-    <span style="color: #FF7700;"><i class="fa-solid fa-location-dot"></i> Bamako</span>
-    <span><i class="fa-regular fa-calendar"></i> Bamako - 10/04/2024</span>
-
-  </div>
-</div>
-<!-- <br> -->
-
-<div class="listeEvent" routerLink="/ticket">
-  <img src="../../../assets/icon/Rectangle 30.png" alt="">
-
-  <div class="infoEvent">
-
-    <div class="topInfo">
-      <p>Concert party</p>
-      <p style="color: #FF7700;">7000 CFA</p>
-    </div>
-
-    <span style="color: #FF7700;"><i class="fa-solid fa-location-dot"></i> Bamako</span>
-    <span><i class="fa-regular fa-calendar"></i> Bamako - 10/04/2024</span>
-
-  </div>
-</div>
-
-
-<br>
-</div>
 <app-navbar></app-navbar>
-
-
-
-

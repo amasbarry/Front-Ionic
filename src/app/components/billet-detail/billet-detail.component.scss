@@ -1,0 +1,465 @@
+$police:'Poppins', sans-serif;
+.body{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color:var(--Fond);
+    font-family: $police;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    .back{
+        display: flex;
+        gap: 10px;
+        // background-color: red;
+        align-items: center;
+        width: 98%;
+        padding-left: 10px;
+
+        
+        i{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            margin-top: 5px;
+            border-radius: 50%;
+            background-color: var(--Primaire);
+            
+            color: white;
+            cursor: pointer;
+        }   
+        h1{
+            color: var(--Primaire);
+        }
+    }
+
+
+    .container::-webkit-scrollbar{
+        display: none;
+    }
+    .container{
+        width: 100%;
+        height: 95%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        overflow-y: scroll;
+        gap: 10px;
+        // padding: 0px 0px 20px 0px;
+
+
+        .download{
+            width: 85%;
+            display: flex;
+            justify-content: flex-end;
+
+            i:hover{
+                color: var(--Primaire);
+                background-color:white;
+            }
+            i{
+                height: 40px;
+                width: 60px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid var(--Primaire);
+                background-color: var(--Primaire);
+                color: white;
+                border-radius: 10px;
+                font-size: 1.4rem;
+                cursor: pointer;
+            }
+        }
+
+        .billet{
+            width: 90%;
+            height: max-content;
+            max-height: 90%;
+            background-color: white;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 15px;
+            align-items: center;
+            padding: 0px 0px 15px 0px;
+            overflow-x: hidden;
+
+            h2{
+                color: var(--Primaire);
+                // background-color: ;
+            }
+
+            .BlocMere{
+                width: 95%;
+                // height: 30%;
+                max-height: 60%;
+                gap: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: start;
+                // background-color: aqua;
+
+                .InfoZone{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    color: black;
+                    span:nth-child(1){
+                        color: grey;
+                        width: 30%;
+                    }
+                    span:nth-child(2){
+                        width: 70%;
+                        text-align: right;
+                    }
+                }
+                
+            }
+
+            .tiret{
+                position: relative;
+                margin: 10px 0px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                span:nth-child(1), span:nth-child(3){
+                    position: absolute;
+                    width: 20px;
+                    height: 20px;
+                    // background-color: var(--Fond);
+                    background-color: gray;
+                    border-radius: 50%;
+                }
+                span:nth-child(1){
+                    left: -10px;
+                }
+                span:nth-child(3){
+                    right: -10px;
+                }
+                span:nth-child(2){
+                    width: 80%;
+                    height: 1px;
+                    // border-top: 2px dashed var(--Fond);
+                    border-top: 2px dashed gray;
+                }
+            }
+            
+
+            .Montant{
+                width: 95%;
+                display: flex;
+                justify-content: space-between;
+                color: black;
+                span:nth-child(2){
+                    color: var(--Secondaire);
+                    font-weight: bold;
+                }
+            }
+
+
+            .codebar{
+                width: 80%;
+                padding: 0px;
+                height: 70px;
+                // background-color: aqua;
+                margin-top: -5px;
+                background-image: url('../../../assets/icon/codebar.png');
+                background-position: bottom;
+                background-repeat: no-repeat;
+                background-size: cover;
+                // border: 1px solid yellow;
+            }
+
+            strong{
+                margin-top: -10px;
+                text-align: center;
+                color: black;
+            }
+
+
+        }
+
+        .Btns{
+            width: 85%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            // background-color: aqua;
+        }
+        .Modifier:hover{
+            background-color: white;
+            color: var(--Primaire);
+        }
+        .Annuler:hover{
+            background-color: white;
+            color: rgb(190, 72, 72);
+        }
+        .Annuler{
+            width: 90%;
+            text-align: center;
+            padding: 10px 0px;
+            border: 1px solid var(--Primaire);
+            background-color: var(--Primaire);
+            border-radius: 5px;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.57);
+            border: 1px solid rgb(190, 72, 72);
+            background-color: rgb(190, 72, 72);
+        
+        }
+        
+    }
+
+
+
+    .reserver{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--Fond);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            // z-index: 200;
+
+            i{
+                    // position: absolute;
+                    // right:10px ;
+                    // top: 10px;
+                    font-size: 1.2rem;
+                    margin: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    border-radius: 50%;
+                    width: 40px;
+                    height: 40px;
+                    background-color: #4dc591;
+                    cursor: pointer;
+                }
+
+            form{
+                width: 100%;
+                height: 95%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .bloc1{
+                    width: 90%;
+                    height: 90%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 10px;
+                    // background-color: aqua;
+
+                    p{
+                        // position: absolute;
+                        // bottom: 0px;
+                        text-align: center;
+                        margin: 0px;
+                        font-size: 1rem;
+                        color: red;
+                    }
+                    
+                    // background-color: aquamarine;
+                    img{
+                        width: 250px;
+                        display: flex;
+                        margin: 0 auto;
+                    }
+                    .orange{
+                        border-radius: 20px;
+                    }
+                    // background-color: aqua;
+
+                    label{
+                        color: black;
+                        font-size: 1rem;
+                        margin-left: 10px;
+                        text-align: center;
+                    }
+
+                    input[type="date"]{
+                    width: 100%;
+                    padding: 15px 0px 15px 15px;
+                    background-color: white;
+                    outline: none;
+                    border: none;
+                    box-shadow: 1px 1px 7px #4dc591;
+                    border-radius: 10px;
+                    color: black;
+                }
+                div{
+                        // background-color: yellow;
+                        display: flex;
+                        align-items: center;
+                        span{
+                            position: absolute;
+                            left: 23px;
+                            color: black;
+                        }
+                        input{
+                            width: 100%;
+                            padding: 18px 0px 17px 50px;
+                            background-color: white;
+                            outline: none;
+                            border: none;
+                            box-shadow: 1px 1px 7px #4dc591;
+                            border-radius: 10px;
+                            color: black;
+                        }
+                    }
+
+                    .btns{
+                        display: flex;
+                        justify-content: space-between;
+
+                        input{
+                            width: 99%;
+                        }
+                        // i{
+                        //     height: 100%;
+                        //     margin: 0px;
+                        //     border-radius: 10px;
+                        //     font-size: 1.2rem;
+                        // }
+                    }
+
+                    input[type="submit"],button{
+                height: 55px;
+                
+                background-color: #4dc591;
+                border: 1px solid #4dc591;
+                color: white;
+                border-radius: 6px;
+                font-size: 1.2rem;
+                
+                }
+                input[type="submit"]:hover,button:hover{
+                    background-color: white;
+                    color: #4dc591;
+                
+                    }
+                
+            }
+            
+            }
+        }
+
+
+        .nope{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 3;
+
+        i{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            gap: 1px;
+                justify-content: center;
+                align-items: center;
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+                border-radius: 50%;
+                color: white;
+                background-color: var(--Primaire);
+                cursor: pointer;
+        }
+        H1{
+            font-size: 10rem;
+        }
+        H3{
+            width: 80%;
+            margin-top: -5px;
+            color:black;
+            text-align: center;
+        }
+
+    }
+
+
+
+
+    .succes{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 3;
+
+        i{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            gap: 1px;
+                justify-content: center;
+                align-items: center;
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+                border-radius: 50%;
+                color: white;
+                background-color: var(--Primaire);
+                cursor: pointer;
+        }
+        H1{
+            font-size: 10rem;
+        }
+        H3{
+            width: 80%;
+            margin-top: -5px;
+            color:black;
+            text-align: center;
+        }
+
+        span{
+                width: 80%;
+                padding: 13px 0px;
+                background-color: #4dc591;
+                border: 1px solid #4dc591;
+                color: white;
+                border-radius: 6px;
+                font-size: 1.2rem;
+                display: flex;
+                justify-content: center;
+                // text-align: center;
+                
+            }
+            span:hover{
+                background-color: white;
+                color: #4dc591;
+                
+            }
+
+    }
+    
+}

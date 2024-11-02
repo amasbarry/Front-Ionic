@@ -1,24 +1,28 @@
 
 <div class="footer" id="navbar">
 
+<div class="icons">
+
   <div class="btn" [routerLink]="['/accueil']" [ngClass]="{active: activeRoute === '/accueil'}">
     <i class="fa-solid fa-house"></i>
-    <span>Accueil</span>
+    <span></span>
   </div>
   
-  <div class="btn" [routerLink]="['/events']" [ngClass]="{active: activeRoute === '/events'}">
-    <i class="fa-solid fa-calendar-days"></i>
-    <span>Events</span>
+  <div class="btn" [routerLink]="['/agence']" [ngClass]="{active: activeRoute === '/agence'}">
+    <i class="fa-solid fa-bus-simple"></i>
+    <span></span>
   </div>
   
-  <div class="btn" [routerLink]="['/search']" [ngClass]="{active: activeRoute === '/search'}">
+  <div class="btn" [routerLink]="['/billet']" [ngClass]="{active: activeRoute === '/billet'}">
     <i class="fa-solid fa-money-bill"></i>
-    <span>Tickets</span>
+    <span></span>
   </div>
   
   <div class="btn" [routerLink]="['/profile']" [ngClass]="{active: activeRoute === '/profile'}">
     <i class="fa-solid fa-user"></i>
-    <span>Profile</span>
+    <span></span>
+  </div>
+
   </div>
   
 </div>

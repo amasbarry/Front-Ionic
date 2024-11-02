@@ -1,0 +1,32 @@
+<div class="body">
+
+  <img src="../../../assets/icon/Taama.svg" alt="">
+  <!-- <div class="formulaire"> -->
+    <h1>Connexion</h1>
+    <p>{{errorMessage}}</p>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      
+      <div class="parent">
+        <!-- <i class="fa-solid fa-envelope"></i> -->
+        <span>+223</span>
+        <input formControlName="username" type="tel" placeholder="Téléphone" maxlength="8" required>
+      </div>
+      <div class="parent">
+        <i class="fa-solid fa-lock"></i>
+    
+        <input formControlName="password" [type]="isPasswordVisible ? 'text' : 'password'" id="passwordInput" placeholder="password" maxlength="8">
+    
+        <i class="fa-solid fa-eye" id="show" (click)="togglePassword()" *ngIf="!isPasswordVisible"></i>
+        <i class="fa-solid fa-eye-slash" id="hide" (click)="togglePassword()" *ngIf="isPasswordVisible"></i>
+      </div>
+    
+    
+      <input type="submit" value="Connexion">
+    </form>
+
+    <span>vous n'avez pas de compte <a href="#" routerLink="/inscription">S'inscrire</a></span>
+
+    <i class="fa-solid fa-chevron-right" id="passe" routerLink="/accueil"></i>
+
+  </div>
+<!-- </div> -->

@@ -1,17 +1,38 @@
-<div class="body">
-  <div class="bloc">
-    Profile
-  </div>
+<div class="bigbloc">
 
-  <div class="bloc">
-    Maiga
-  </div>
-  <div class="bloc">
-    Maiga
-  </div>
-  <div class="bloc">
-    IONIC
-  </div>
+  <div class="profile" *ngIf="client">
 
+    <div class="image">
+      <img [src]="'data:image/png;base64,' + client.image">
+      <span>{{client.prenom}} {{client.nom}}</span>
+    </div>
+
+      <div class="BlocInfo">
+            <div class="UserInfo">
+              <span>Nom</span>
+              <span>{{client.nom}}</span>
+            </div>
+            <div class="UserInfo">
+              <span>Prénom</span>
+              <span>{{client.prenom}}</span>
+            </div>
+            <!-- <div class="UserInfo">
+              <span>Email</span>
+              <span>maigaogmail.com</span>
+            </div> -->
+            <div class="UserInfo">
+              <span>Télephone</span>
+              <span>+223 {{client.telephone}}</span>
+            </div>
+        </div>
+
+
+        <div class="Btns">
+          <div class="Modifier">Modifier</div>
+          <div class="Annuler" (click)="logout()">Déconnexion</div>
+        </div>
+    </div>
+
+    <i class="fa-solid fa-question" id="faq"></i>
 </div>
 <app-navbar></app-navbar>

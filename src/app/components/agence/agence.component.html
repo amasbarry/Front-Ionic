@@ -1,0 +1,54 @@
+<div class="bigBloc">
+  <div class="head">
+    <app-header></app-header>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+
+    <!-- Title -->
+    <div class="title">
+      <H2>Nos Compagnies</H2>
+    </div>
+    <!-- Title -->
+
+    <!-- Recherche -->
+
+    <div class="recherche">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Recherche">
+    </div>
+
+    <!-- Recherche -->
+
+    <!-- Agence liste -->
+
+    <div class="AgenceListe">
+
+      <!-- Agence -->
+      <div class="agence" *ngFor="let compagnies of compagnie" [routerLink]="['/sousagence', compagnies.id]">
+
+        <div class="image">
+          <span class="fond"></span>
+          <span class="img"></span>
+        </div>
+
+        <div class="agenceName">
+          {{compagnies.nom}}
+          <i class="fa-solid fa-caret-right"></i>
+        </div>
+        
+      </div>
+      <!-- Agence -->
+      
+    </div>
+
+    <!-- Agence liste -->
+
+
+  </div>
+  <!-- Content -->
+
+
+</div>
+<app-navbar></app-navbar>

@@ -16,18 +16,18 @@ export const routes: Routes = [
   },
 
   {
-    path: 'events',
+    path: 'agence',
     loadComponent: () =>
-      import('./components/events/events.component').then(
-        (m) => m.EventsComponent
+      import('./components/agence/agence.component').then(
+        (m) => m.AgenceComponent
       ),
   },
 
   {
-    path: 'search',
+    path: 'billet',
     loadComponent: () =>
-      import('./components/search/search.component').then(
-        (m) => m.SearchComponent
+      import('./components/billet/billet.component').then(
+        (m) => m.BilletComponent
       ),
   },
 
@@ -40,13 +40,61 @@ export const routes: Routes = [
   },
 
   {
-    path: 'ticket',
+    path: 'sousagence/:id',
     loadComponent: () =>
-      import('./components/ticket/ticket.component').then(
-        (m) => m.TicketComponent
+      import('./components/agence-region/agence-region.component').then(
+        (m) => m.AgenceRegionComponent
+      ),
+  },
+
+  {
+    path: 'calendrier/:id',
+    loadComponent: () =>
+      import('./components/calendrier/calendrier.component').then(
+        (m) => m.CalendrierComponent
+      ),
+  },
+
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./components/login/login.component').then(
+        (m) => m.LoginComponent
+      ),
+  },
+
+  {
+    path: 'inscription',
+    loadComponent: () =>
+      import('./components/inscription/inscription.component').then(
+        (m) => m.InscriptionComponent
+      ),
+  },
+  {
+    path: 'Voyage_detail',
+    loadComponent: () =>
+      import('./components/voyage-detail/voyage-detail.component').then(
+        (m) => m.VoyageDetailComponent
+      ),
+  },
+
+  {
+    path: 'billet_detail/:id',
+    loadComponent: () =>
+      import('./components/billet-detail/billet-detail.component').then(
+        (m) => m.BilletDetailComponent
+      ),
+  },
+
+  {
+    path: 'notification',
+    loadComponent: () =>
+      import('./components/notif/notif.component').then(
+        (m) => m.NotifComponent
       ),
   },
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: '**', redirectTo: 'home', pathMatch: 'full' }, // Redirige toutes les autres routes vers 'home'
+
+  // Redirige toutes les autres routes vers 'home'
 ];

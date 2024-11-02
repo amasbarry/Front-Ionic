@@ -1,0 +1,107 @@
+<div class="body">
+  <div class="back">
+    <i routerLink="/billet" class="fa-solid fa-chevron-left"></i>
+    <h1>Détail du billet</h1>
+  </div>
+  <div class="container">
+
+    <div class="download" (click)="downloadBillet()">
+      <i class="fa-solid fa-download"></i>
+    </div>
+
+    <div class="billet" *ngIf="reservation">
+      <h2>{{reservation.voyage?.compagnie?.nom}}</h2>
+
+      <div class="BlocMere">
+        <div class="InfoZone">
+          <span>Nom</span>
+          <span>{{reservation.client?.prenom}} {{reservation.client?.nom}}</span>
+        </div>
+        <div class="InfoZone">
+          <span>Numéro</span>
+          <span>+223 {{reservation.client?.telephone}}</span>
+        </div>
+        <div class="InfoZone">
+          <span>Départ</span>
+          <span>{{reservation.voyage?.ville_depart}}</span>
+        </div>
+        <div class="InfoZone">
+          <span>Arrivée</span>
+          <span>{{reservation.voyage?.ville_arrivee}}</span>
+        </div>
+        <div class="InfoZone">
+          <span>Heure</span>
+          <span>{{reservation.voyage?.heure}}</span>
+        </div>
+        <div class="InfoZone">
+          <span>Date</span>
+          <span>{{reservation.voyage?.jour}} le {{reservation.date}}</span>
+        </div>
+
+      </div>
+
+      <div class="tiret">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="Montant">
+        <span>Montant</span>
+        <span>{{reservation.voyage?.prix}} F</span>
+      </div>
+
+      <div class="codebar"></div>
+      <strong>{{reservation.code}}</strong>
+
+    </div>
+
+    <div class="Btns">
+      <!-- <div class="Modifier">Modifier</div> -->
+      <div class="Annuler" (click)="show(reservation?.id!)">Annuler</div>
+    </div>
+    
+  </div>
+
+
+  <div class="reserver" *ngIf="add">
+    <i class="fa-solid fa-xmark" (click)="cacher()"></i>
+  
+    <!-- <form  (ngSubmit)="Reservation()"> -->
+    <form [formGroup]="AnnulerForm" (ngSubmit)="Annuler()">
+  
+      <div class="bloc1">
+        <img src="../../../assets/icon/orange.png" alt="" class="orange">
+        <label for="Votre numéro orange">Entrer le numero de payement précédent pour ce billet</label>
+        
+        <div>
+          <span>+223</span>
+          <input formControlName="numPayement" type="tel" placeholder="Votre numéro de télephone" maxlength="8">
+        </div>
+  
+        <span class="btns">
+          <!-- <i class="fa-solid fa-chevron-left"></i> -->
+          <input type="submit" value="Annuler">
+        </span>
+        <p>{{Message}}</p>
+  
+      </div>
+  
+    </form>
+  </div>
+
+  <div class="nope" *ngIf="non">
+    <i class="fa-solid fa-chevron-left" (click)="hidePayement()"></i>
+    <h1>😐</h1>
+    <h3>Cet numéro ne correspondent pas</h3>
+  </div>
+  
+  <div class="succes" *ngIf="succes">
+    <i class="fa-solid fa-chevron-left" (click)="hidePayement()"></i>
+    <h1>✅</h1>
+    <h3>Annulation effectuer avec succès</h3>
+  
+    <span routerLink="/billet">Retour</span>
+  </div>
+
+</div>

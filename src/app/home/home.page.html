@@ -1,4 +1,67 @@
-<div class="accueil">
+<div class="Bigbloc" *ngIf="currentDiv === 1">
+  <div class="img"><img src="../../assets/icon/tour.jpg" alt=""></div>
+  <div class="content">
+    <h2>Planifiez votre voyage</h2>
+    <p>Planifiez facilement votre voyage. Choisissez votre destination, réservez votre place, et organisez votre itinéraire en
+    quelques étapes simples.</p>
+
+    <div class="btn" (click)="goToNextDiv(2)">Suivant</div>
+
+    <div class="bulle">
+      <span style="background-color: #4DC591;"></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</div>
+
+
+<div class="Bigbloc" *ngIf="currentDiv === 2">
+  <div class="img"><img src="../../assets/icon/voyage.webp" alt=""></div>
+  <div class="content">
+    <h2>Obtenez la meilleure offre</h2>
+    <p>Gagnez du temps et économisez de l'argent en comparant les offres 
+      des différentes agences de voyage par car au Mali.</p>
+
+    <div class="btn" (click)="goToNextDiv(3)" >Suivant</div>
+
+    <div class="bulle">
+      <span></span>
+      <span style="background-color: #4DC591;"></span>
+      <span></span>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="Bigbloc" *ngIf="currentDiv === 3">
+  <div class="img"><img src="../../assets/icon/mosquee.webp" alt=""></div>
+  <div class="content">
+    <h2>Découvrez les attractions locales</h2>
+    <p>Explorez les plus beaux endroits du Mali que vous n'avez peut-être jamais visités. Immergez-vous dans la vie locale et
+    profitez d'expériences authentiques à chaque destination.</p>
+
+    <div class="btn" [routerLink]="['/login']">Suivant</div>
+
+    <div class="bulle">
+      <span></span>
+      <span></span>
+      <span style="background-color: #4DC591;"></span>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="accueil">
   <div class="content">
       <div class="texte">
         <h3>Découvrez des événements incroyables dans votre ville</h3>
@@ -8,4 +71,4 @@
       </div>
       <div class="btn"><a [routerLink]="['/accueil']">Démarrer</a></div>
   </div>
-</div>
+</div> -->

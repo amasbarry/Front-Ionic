@@ -1,0 +1,70 @@
+<div class="body">
+
+  
+
+<h1>Inscription</h1>
+  <div class="container">
+
+  <!-- </div> -->
+  
+  <form [formGroup]="clientForm" (ngSubmit)="AddClient()">
+    <!-- (ngSubmit)="onSubmit()" -->
+
+    
+    <div class="img">
+      
+      <!-- Afficher l'image sélectionnée -->
+      <img *ngIf="selectedImage" [src]="selectedImage" alt="Image sélectionnée"  />
+      <input type="file" (change)="onFileChange($event)">
+      <!-- formControlName="image" -->
+    </div>
+
+    <p>{{Erreur}}</p>
+
+    <!-- <img src="../../../assets/icon/Taama.svg" alt=""> -->
+
+    <div class="parent">
+      <i class="fa-solid fa-user"></i>
+      <!-- <span>+223</span> -->
+      <input formControlName="nom" type="text" placeholder="Nom">
+    </div>
+
+    <div class="parent">
+      <i class="fa-solid fa-user"></i>
+      <!-- <span>+223</span> -->
+      <input formControlName="prenom" type="text" placeholder="Prenom">
+    </div>
+
+    <div class="parent">
+      <!-- <i class="fa-solid fa-envelope"></i> -->
+      <span>+223</span>
+      <input formControlName="telephone" type="tel" placeholder="Téléphone" maxlength="8">
+    </div>
+
+    <!-- <div class="fac">
+    <strong class="fac">facultatife</strong>
+    <div class="parent">
+      <i class="fa-solid fa-envelope"></i>
+      <input formControlName="email" type="email" placeholder="Email">
+    </div>
+    </div> -->
+
+    <div class="parent">
+      <i class="fa-solid fa-lock"></i>
+
+      <input formControlName="password" [type]="isPasswordVisible ? 'text' : 'password'" id="passwordInput" placeholder="password" maxlength="8">
+
+      <i class="fa-solid fa-eye" id="show" (click)="togglePassword()" *ngIf="!isPasswordVisible"></i>
+      <i class="fa-solid fa-eye-slash" id="hide" (click)="togglePassword()" *ngIf="isPasswordVisible"></i>
+    </div>
+
+
+    <input type="submit" value="S'inscrire">
+  </form>
+
+  <div class="auth">vous avez déja un compte <a href="#" routerLink="/login">Se connecter</a></div>
+
+</div>
+
+
+</div>
